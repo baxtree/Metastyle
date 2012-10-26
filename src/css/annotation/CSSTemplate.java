@@ -16,73 +16,96 @@ public class CSSTemplate {
 	private Model model;
 	private OntModel ontModel;
 	
-	public String getCSSSkeleton(String url, String flag, String prefix){
-		String cSSSkeleton = "";
-		try{
-			String vocabDomain = (new URL(url)).getHost();
+	public CSSTemplate(String url){
+//		try{
+//			String vocabDomain = (new URL(url)).getHost();
 			model = RDFModelLoader.loadTriplesFromURL(url);
-			ontModel = ModelFactory.createOntologyModel(OntModelSpec.RDFS_MEM_RDFS_INF);
+//			ontModel = ModelFactory.createOntologyModel(OntModelSpec.RDFS_MEM_RDFS_INF);
+			ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF); //deal with owl:unionOf
 			ontModel.add(model);
-			Iterator classes = ontModel.listNamedClasses();
-			while(classes.hasNext()){
-				OntClass c = (OntClass) classes.next();
-				//Presume that the namespace domain is the same with the domain of the vocabulary
-				if(!(new URL(c.getURI())).getHost().equalsIgnoreCase(vocabDomain)) continue;
-	//			System.out.println(((OntClass) classes.next()).getLocalName());
-				cSSSkeleton += 	"		/*Style for the " + c.getLocalName() + "*/\r\n";
-				if(flag.equalsIgnoreCase("microdata"))
-					cSSSkeleton +=	"		[itemscope][itemtype=\"" + c.getURI() + "\"],\r\n" +
-									"		[itemscope] [itemtype=\"" + c.getURI() + "\"] {\r\n" +
-									"		\r\n" +
-									"		}\r\n" +
-									"		\r\n";
-				else if(flag.equalsIgnoreCase("rdfalite"))
-					cSSSkeleton += 	"		[typeof=\"" + c.getURI() + "\"],\r\n" +
-									"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"],\r\n" +
-									"		[typeof=\"" + c.getLocalName() + "\"] {\r\n" +
-									"		\r\n" +
-									"		}\r\n" +
-									"		\r\n";
-				else 
-					System.err.println("Unknown format!");
-				Iterator properties = c.listDeclaredProperties();
-				while(properties.hasNext()){
-					OntProperty p = (OntProperty) properties.next();
-//					System.out.println(c.getURI() + " : " + p.getURI());
-					cSSSkeleton += "		/*Style for the " + p.getLocalName() + " of the " + c.getLocalName() + "*/\r\n";
-					if(flag.equalsIgnoreCase("microdata"))
-						cSSSkeleton +=	"		[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
-										"		[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"],\r\n" +
-										"		[itemscope] [itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
-										"		[itemscope] [itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"] {\r\n" +
-										"		\r\n" +
-										"		}\r\n" +
-										"		\r\n";
-					else if(flag.equalsIgnoreCase("rdfalite"))
-						cSSSkeleton +=	"		[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],\r\n" +
-										"		[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],\r\n" +
-										"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],\r\n" +
-										"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],\r\n" +
-										"		[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],\r\n" +
-										"		[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"] {\r\n" +
-										"		\r\n" +
-										"		}\r\n" +
-										"		\r\n";
-					else
-						System.err.println("Unknown format!");
-				}
-			}
-			return cSSSkeleton;
+//		}
+//		catch(MalformedURLException murle){
+//			murle.printStackTrace();
+//		}
+	}
+	
+	public String getCSSSkeletonByClass(String flag, String prefix, OntClass c){
+		String cSSSkeleton = "";
+		flag = flag.replaceAll("\\s+?", "");
+		cSSSkeleton += 	"/*style for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + flag + "*/\r\n" +
+						"\r\n";
+		cSSSkeleton += 	"		/*style for the element of type " + c.getLocalName() + "*/\r\n";
+		if(flag.equalsIgnoreCase("microdata"))
+			cSSSkeleton +=	"		[itemscope][itemtype=\"" + c.getURI() + "\"],\r\n" +
+							"		[itemscope] [itemtype=\"" + c.getURI() + "\"] {\r\n" +
+							"		\r\n" +
+							"		}\r\n" +
+							"		\r\n";
+		else if(flag.equalsIgnoreCase("rdfalite"))
+			cSSSkeleton += 	"		[typeof=\"" + c.getURI() + "\"],\r\n" +
+							"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"],\r\n" +
+							"		[typeof=\"" + c.getLocalName() + "\"] {\r\n" +
+							"		\r\n" +
+							"		}\r\n" +
+							"		\r\n";
+		else 
+			System.err.println("Unknown format!");
+		Iterator properties = c.listDeclaredProperties();
+		while(properties.hasNext()){
+			OntProperty p = (OntProperty) properties.next();
+//			System.out.println(c.getURI() + " : " + p.getURI());
+			cSSSkeleton += "		/*style for the " + p.getLocalName() + " of the " + c.getLocalName() + "*/\r\n";
+			if(flag.equalsIgnoreCase("microdata"))
+				cSSSkeleton +=	"		[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
+								"		[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"],\r\n" +
+								"		[itemscope] [itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
+								"		[itemscope] [itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"] {\r\n" +
+								"		\r\n" +
+								"		}\r\n" +
+								"		\r\n";
+			else if(flag.equalsIgnoreCase("rdfalite"))
+				cSSSkeleton +=	"		[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],\r\n" +
+								"		[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],\r\n" +
+								"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],\r\n" +
+								"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],\r\n" +
+								"		[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],\r\n" +
+								"		[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"] {\r\n" +
+								"		\r\n" +
+								"		}\r\n" +
+								"		\r\n";
+			else
+				System.err.println("Unknown format!");
 		}
-		catch(MalformedURLException murle){
-			murle.printStackTrace();
-			return "";
+		return cSSSkeleton;
+	}
+	
+	public String getCSSSkeleton(String flag, String prefix, String baseURI){
+		String cSSSkeleton = "";	
+		Iterator classes = ontModel.listNamedClasses();
+		while(classes.hasNext()){
+			OntClass c = (OntClass) classes.next();
+			//Presume that the namespace domain is the same with the domain of the vocabulary
+			if(!c.getURI().startsWith(baseURI)) continue;
+//				if(!(new URL(c.getURI())).getHost().equalsIgnoreCase(vocabDomain)) continue;
+//					System.out.println(((OntClass) classes.next()).getLocalName());
+			cSSSkeleton += getCSSSkeletonByClass(flag, prefix, c);
 		}
+		return cSSSkeleton;
+		
+	}
+	
+	public String getCSSSkeleton(String targetURL, String flag, String prefix, String baseURI){
+		OntClass c = ontModel.getOntClass(targetURL);
+		String cSSSkeleton = getCSSSkeletonByClass(flag, prefix, c);
+		return cSSSkeleton;
 	}
 	
 	public static void main(String[] args){
-		CSSTemplate csst = new CSSTemplate();
-		System.out.println(csst.getCSSSkeleton("http://xmlns.com/foaf/spec/index.rdf", "rdfalite", "foaf"));
+		CSSTemplate csst = new CSSTemplate("http://schema.rdfs.org/all.rdf");
+//		System.out.println(csst.getCSSSkeleton("http://xmlns.com/foaf/spec/index.rdf", "RDFa Lite", "foaf"));
+//		System.out.println(csst.getCSSSkeleton("Microdata", "", "http://schema.org/"));
+//		System.out.println(csst.getCSSSkeleton("http://schema.org/Person", "Microdata", "", "http://schema.org/"));
+		System.out.println(csst.getCSSSkeleton("http://schema.org/Person", "RDFa Lite", "foaf", "http://schema.org/"));
 	}
 
 }

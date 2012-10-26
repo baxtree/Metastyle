@@ -1,0 +1,355 @@
+/*style for the Person (http://schema.org/Person) as Microdata*/
+
+		/*style for the element of type Person*/
+		[itemscope][itemtype="http://schema.org/Person"],
+		[itemscope] [itemtype="http://schema.org/Person"] {
+		
+		}
+		
+		/*style for the name of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="name"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="name"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="name"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="name"] {
+			font-size:1.2em;
+			font-weight:bold;
+			text-transform:none;
+			color: rgb(0, 0, 51);
+		}
+		
+		/*style for the address of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="address"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="address"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="address"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="address"] {
+			margin:10px 10px 0px 0px;
+			color: rgb(0, 0, 51);
+		}
+		
+		/*style for the telephone of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="telephone"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="telephone"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="telephone"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="telephone"] {
+			margin:10px 10px 0px 0px;
+			color: rgb(0, 0, 51);
+		}
+		
+		/*style for the email of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="email"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="email"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="email"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="email"] {
+			color: rgb(0, 0, 51);
+			text-decoration: underline;
+		}
+		
+		/*style for the email of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="email"]:hover,
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="email"]:hover,
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="email"]:hover,
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="email"]:hover {
+			color: red;
+			text-decoration: underline;
+		}
+		
+		/*style for the deathDate of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="deathDate"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="deathDate"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="deathDate"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="deathDate"] {
+		
+		}
+		
+		/*style for the alumniOf of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="alumniOf"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="alumniOf"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="alumniOf"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="alumniOf"] {
+		
+		}
+		
+		/*style for the url of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="url"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="url"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="url"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="url"] {
+			color: rgb(0, 0, 51);
+			text-decoration: underline;
+		}
+		
+		/*style for the url of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="url"]:hover,
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="url"]:hover,
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="url"]:hover,
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="url"]:hover {
+			color: red;
+			text-decoration: underline;
+		}
+		
+		/*style for the additionalName of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="additionalName"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="additionalName"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="additionalName"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="additionalName"] {
+		
+		}
+		
+		/*style for the homeLocation of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="homeLocation"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="homeLocation"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="homeLocation"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="homeLocation"] {
+		
+		}
+		
+		/*style for the description of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="description"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="description"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="description"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="description"] {
+			margin-top:10px;
+			padding-top:10px;
+			border-top:1px dotted #cccccc;
+		}
+		
+		/*style for the nationality of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="nationality"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="nationality"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="nationality"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="nationality"] {
+		
+		}
+		
+		/*style for the sibling of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="sibling"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="sibling"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="sibling"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="sibling"] {
+		
+		}
+		
+		/*style for the follows of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="follows"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="follows"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="follows"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="follows"] {
+		
+		}
+		
+		/*style for the siblings of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="siblings"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="siblings"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="siblings"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="siblings"] {
+		
+		}
+		
+		/*style for the colleagues of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="colleagues"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="colleagues"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="colleagues"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="colleagues"] {
+			color: rgb(0, 0, 51);
+			text-decoration: underline;
+		}
+		
+		/*style for the colleagues of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="colleagues"]:hover,
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="colleagues"]:hover,
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="colleagues"]:hover,
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="colleagues"]:hover {
+			color: red;
+			text-decoration: underline;
+		}
+		
+		/*style for the memberOf of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="memberOf"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="memberOf"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="memberOf"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="memberOf"] {
+		
+		}
+		
+		/*style for the knows of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="knows"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="knows"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="knows"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="knows"] {
+		
+		}
+		
+		/*style for the name of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="name"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="name"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="name"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="name"] {
+		
+		}
+		
+		/*style for the gender of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="gender"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="gender"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="gender"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="gender"] {
+		
+		}
+		
+		/*style for the birthDate of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="birthDate"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="birthDate"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="birthDate"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="birthDate"] {
+		
+		}
+		
+		/*style for the children of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="children"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="children"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="children"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="children"] {
+		
+		}
+		
+		/*style for the familyName of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="familyName"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="familyName"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="familyName"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="familyName"] {
+		
+		}
+		
+		/*style for the jobTitle of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="jobTitle"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="jobTitle"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="jobTitle"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="jobTitle"] {
+			margin:10px 10px 0px 0px;
+			color: #666;
+		}
+		
+		/*style for the workLocation of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="workLocation"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="workLocation"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="workLocation"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="workLocation"] {
+		
+		}
+		
+		/*style for the parents of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="parents"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="parents"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="parents"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="parents"] {
+		
+		}
+		
+		/*style for the affiliation of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="affiliation"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="affiliation"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="affiliation"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="affiliation"] {
+		
+		}
+		
+		/*style for the givenName of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="givenName"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="givenName"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="givenName"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="givenName"] {
+		
+		}
+		
+		/*style for the honorificPrefix of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="honorificPrefix"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="honorificPrefix"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="honorificPrefix"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="honorificPrefix"] {
+		
+		}
+		
+		/*style for the parent of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="parent"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="parent"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="parent"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="parent"] {
+		
+		}
+		
+		/*style for the colleague of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="colleague"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="colleague"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="colleague"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="colleague"] {
+			color: rgb(0, 0, 51);
+			text-decoration: underline;
+		}
+		
+		/*style for the colleague of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="colleague"]:hover,
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="colleague"]:hover,
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="colleague"]:hover,
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="colleague"]:hover {
+			color: red;
+			text-decoration: underline;
+		}
+		
+		/*style for the additionalType of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="additionalType"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="additionalType"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="additionalType"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="additionalType"] {
+		
+		}
+		
+		/*style for the honorificSuffix of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="honorificSuffix"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="honorificSuffix"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="honorificSuffix"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="honorificSuffix"] {
+		
+		}
+		
+		/*style for the image of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="image"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="image"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="image"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="image"] {
+			float:left;
+			margin-left:0px;
+			border:1px solid #333333;
+			width:64px;
+			height:64px;
+		}
+		
+		/*style for the worksFor of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="worksFor"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="worksFor"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="worksFor"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="worksFor"] {
+		
+		}
+		
+		/*style for the relatedTo of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="relatedTo"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="relatedTo"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="relatedTo"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="relatedTo"] {
+		
+		}
+		
+		/*style for the spouse of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="spouse"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="spouse"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="spouse"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="spouse"] {
+		
+		}
+		
+		/*style for the performerIn of the Person*/
+		[itemscope][itemtype="http://schema.org/Person"][itemprop="performerIn"],
+		[itemscope][itemtype="http://schema.org/Person"] [itemprop="performerIn"],
+		[itemscope] [itemtype="http://schema.org/Person"][itemprop="performerIn"],
+		[itemscope] [itemtype="http://schema.org/Person"] [itemprop="performerIn"] {
+		
+		}
