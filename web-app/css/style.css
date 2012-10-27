@@ -1,0 +1,12 @@
+body {
+	background-color: white;
+}
+
+#banner {
+	padding-top: 30px;	
+}
+
+#banner, .container, #recommendation, .footer {
+	margin: auto;
+	width: 900px;
+}
