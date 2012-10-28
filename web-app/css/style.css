@@ -10,3 +10,7 @@ body {
 	margin: auto;
 	width: 900px;
 }
+
+.warning {
+	color: red;
+}

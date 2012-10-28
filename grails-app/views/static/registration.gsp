@@ -29,30 +29,39 @@
 			</div>
 		</div>
 	</section>
+	<g:if test="${ flash.message }">
+    	<span class="warning span3">${ flash.message }</span>
+    </g:if>	
 	<section id="main-container">
-		    <form class="form-horizontal offset3">
+		    <g:form class="form-horizontal offset3" name="userRegister" url='[controller: "user",  action:"userRegister"]'>
 		    	<div class="control-group">
 			    	<label class="control-label" for="username">Username</label>
 			    	<div class="controls">
-			    		<input type="text" id="username" placeholder="8 - 12 characters">
+			    		<input type="text" id="username" name="username" placeholder="8 - 12 characters">
+			   		</div> 
+			   	</div>
+			   	<div class="control-group">
+			    	<label class="control-label" for="fullname">Full Name</label>
+			    	<div class="controls">
+			    		<input type="text" id="fullname" name="fullname" placeholder="First Last">
 			   		</div> 
 			   	</div>
 			    <div class="control-group">
-			    	<label class="control-label" for="inputEmail">Email</label>
+			    	<label class="control-label" for="email">Email</label>
 			    	<div class="controls">
-			    		<input type="text" id="inputEmail" placeholder="Email">
+			    		<input type="text" id="email" name="email" placeholder="Email">
 			    	</div>
 			    </div>
 			    <div class="control-group">
-			    	<label class="control-label" for="inputPassword">Password</label>
+			    	<label class="control-label" for="password">Password</label>
 			    	<div class="controls">
-			    		<input type="password" id="inputPassword" placeholder="Password">
+			    		<input type="password" id="password" name="password" placeholder="Password">
 			    	</div>
 			    </div>
 			    <div class="control-group">
-			    	<label class="control-label" for="rePassword">Repeat</label>
+			    	<label class="control-label" for="repassword">Repeat</label>
 			    	<div class="controls">
-			    		<input type="password" id="rePassword" placeholder="Password again">
+			    		<input type="password" id="repassword" name="repassword" placeholder="Password again">
 			    	</div>
 			    </div>
 			    <div class="control-group">
@@ -60,6 +69,6 @@
 			    		<button type="submit" class="btn">Register</button>
 			    	</div>
 			    </div>
-    		</form>
+    		</g:form>
 	</section>
 <g:render template="../templates/footer"></g:render>

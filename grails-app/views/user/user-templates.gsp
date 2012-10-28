@@ -34,5 +34,6 @@
 	</g:if>
 	<g:else>
 		<!-- show the user's templates -->
+		<div class="offset3">Hi, ${ session.user.username }! The following are your templates!</div>
 	</g:else>
 <g:render template="../templates/footer"></g:render>

@@ -1,15 +1,15 @@
 <section id="main-container">
-	    <form class="form-horizontal offset3">
+	    <g:form class="form-horizontal offset3" name="userLogin" controller="user" action="userLogin">
 		    <div class="control-group">
-		    <label class="control-label" for="inputEmail">Email</label>
+		    <label class="control-label" for="username">Username</label>
 		    <div class="controls">
-		    <input type="text" id="inputEmail" placeholder="Email">
+		    <input type="text" id="username" name="username" placeholder="Username">
 		    </div>
 		    </div>
 		    <div class="control-group">
-		    <label class="control-label" for="inputPassword">Password</label>
+		    <label class="control-label" for="password">Password</label>
 		    <div class="controls">
-		    <input type="password" id="inputPassword" placeholder="Password">
+		    <input type="password" id="password" name="password" placeholder="Password">
 		    </div>
 		    </div>
 		    <div class="control-group">
@@ -17,5 +17,5 @@
 		    <button type="submit" class="btn">Sign in</button>
 		    </div>
 		    </div>
-   		</form>
+   		</g:form>
 </section>
