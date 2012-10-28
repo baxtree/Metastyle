@@ -24,6 +24,13 @@ class StaticController {
 	
 	def generateTemplate = {
 		CSSTemplate csst = new CSSTemplate(params.schema)
-		render(view: "style-skeletons", model: [template: csst.getCSSSkeleton(params.targetedType, params.format, params.prefix, params.baseURI).trim()])
+		render(view: "style-skeletons", model: [
+			template: csst.getCSSSkeleton(params.targetedType, params.format, params.prefix, params.baseURI).trim(),
+			tem_targetedType: params.targetedType,
+			tem_schema: params.schema,
+			tem_format: params.format,
+			tem_prefix: params.prefix,
+			tem_baseURI: params.baseURI
+		])
 	}
 }

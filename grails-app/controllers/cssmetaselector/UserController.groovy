@@ -63,6 +63,25 @@ class UserController {
 		}
 	}
 	
+	def shareTemplate = {
+		if(session.user == null){
+			redirect(controller: "static", action: "login")	
+		}	
+		else{
+			def cssTemplate = new Template(typeURI: params.tem_targetedType, contextURL: params.tem_schema, baseURI: params.tem_baseURI, prefix: params.tem_prefix, format: params.tem_format, cssTemplate: params.tem_template)
+			session.user.templates.add(cssTemplate)
+			if(session.user.save(flush:true)){
+				flash.message = "Template saved!"
+				println "template created in MySQL!"
+			}
+			else{
+				cssTemplate.errors.each{ print it }
+			}
+			println session.user.templates.size()
+			render(view: "user-templates")
+		}
+	}
+	
 	def userLogout = {
 		session.user = null
 		redirect(controller: "static", action: "welcome")
