@@ -9,6 +9,10 @@ class Template {
 	String format
 	String cssTemplate
 	static belongsTo = [user:User]
+	
+	static mapping = {
+		cssTemplate type: "text"	
+	}
 
     static constraints = {
 		typeURI(nullable: false, blank: false)

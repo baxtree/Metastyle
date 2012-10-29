@@ -34,6 +34,12 @@
 	</g:if>
 	<g:else>
 		<!-- show the user's templates -->
-		<div class="offset3">Hi, ${ session.user.username }! The following are your templates!</div>
+		<g:if test="${ flash.message }">
+			<span class="warning span3">${ flash.message }</span>
+		</g:if>
+		<div class="offset3">Hi, ${ session.user.username }! The following are your templates (${ session.user.templates.size() } in total):</div>
+		<g:each var="template" in="${ session.user.templates }">
+			<div class="offset3">CSS for ${ template.typeURI } in ${ template.format }</div>
+		</g:each>
 	</g:else>
 <g:render template="../templates/footer"></g:render>
