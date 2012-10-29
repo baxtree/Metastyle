@@ -1,4 +1,12 @@
 <g:render template="../templates/header" />
+<g:javascript>
+	$(document).ready(function(){
+		$('button#copy').zclip({
+			path:'../js/ZeroClipboard.swf',
+			copy:$('textarea#template_txt').text()
+		});
+	});
+</g:javascript>
 <g:render template="../templates/banner" />
 	<section id="menu-bar">
 		<div class="container">
@@ -50,36 +58,52 @@
 				</div>
 			</div>
 			<div class="row control-group">
-				<label class="control-label" for="schema">Prefix:</label>
+				<label class="control-label" for="prefix">Prefix:</label>
 				<div class="controls">
 					<input class="input-xxlarge" type="text" id="prefix" name="prefix" placeholder="e.g., foaf (for HTML5 Microdata, this field will be ignored) ..." value="foaf">
 				</div>
 			</div>
 			<div class="row offset1">
 				<label class="radio">
-					<input type="radio" name="format" id="microdata" value="Microdata">
+					<input type="radio" name="format" id="microdata" value="Microdata" checked>
 					HTML5 Microdata
 				</label>
 				<label class="radio">
-					<input type="radio" name="format" id="rdfalite" value="RDFa Lite" checked>
+					<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
 					RDFa Lite 1.1
 				</label>
 			</div>
 			<p>
-				<button class="offset2 btn btn-large btn-primary" type="submit">Get the Style Template</button>
+				<button class="offset6 btn btn-large btn-primary" type="submit">Get the Style Template</button>
 			</p>
 		</g:form>
-		<div class="row offset4">
-			<textarea class="span8" rows="30">
-				<g:if test="${ template }">
-					${ template }
-				</g:if>
-				<g:else>
-					Click the above button to get the style template ...
-				</g:else>
-			</textarea>
-			<button class="btn btn-primary" type="button">Copy</button>
-			<button class="btn btn-primary" type="button">Share ...</button>
-		</div>
+		
+		<g:if test="${ template }">
+			<div class="row playground">
+				<g:form class="offset2" id="template-generation" name="shareTempalte" url="[controller: 'user', action: 'shareTemplate']">
+					<input type="hidden" name="tem_targetedType" value="${ tem_targetedType }">
+					<input type="hidden" name="tem_schema" value="${ tem_schema }">
+					<input type="hidden" name="tem_baseURI" value="${ tem_baseURI }">
+					<input type="hidden" name="tem_prefix" value="${ tem_prefix }">
+					<input type="hidden" name="tem_format" value="${ tem_format }">
+					<button class="btn btn-primary" id="copy" type="button">Copy</button>
+					<button class="btn btn-primary" type="submit">Share ...</button>
+					<button class="offset6 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate()">Apply CSS</button>
+					<div class="row">
+						<div class="span6">
+							<textarea id="template_txt" class="span8" name="tem_template" rows="30">${ template }</textarea>
+						</div>
+						<div class="span5 offset2">
+							<textarea class="span5" id="testSnippet" name="testSnippet" rows="15" placeholder="Test Snippet Codes..."></textarea>
+							<div class="preview-small">
+								<iframe id="preview" class="span5" frameborder="0" title="preview"></iframe>
+							</div>
+						</div>
+					</div>
+				</g:form>
+			</div>
+		</g:if>
+		<g:else>
+		</g:else>
 	</section>
 <g:render template="../templates/footer"></g:render>

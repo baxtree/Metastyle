@@ -68,16 +68,12 @@ class UserController {
 			redirect(controller: "static", action: "login")	
 		}	
 		else{
-			def cssTemplate = new Template(typeURI: params.tem_targetedType, contextURL: params.tem_schema, baseURI: params.tem_baseURI, prefix: params.tem_prefix, format: params.tem_format, cssTemplate: params.tem_template)
+			def cssTemplate = new Template(typeURI: params.tem_targetedType, contextURL: params.tem_schema, baseURI: params.tem_baseURI, prefix: params.tem_prefix, format: params.tem_format, cssTemplate: params.tem_template, testSnippet: params.testSnippet, user: session.user)
 			session.user.templates.add(cssTemplate)
-			if(session.user.save(flush:true)){
-				flash.message = "Template saved!"
-				println "template created in MySQL!"
+			if(!session.user.save(flush: true)){
+				session.user.errors.each{ println it }
 			}
-			else{
-				cssTemplate.errors.each{ print it }
-			}
-			println session.user.templates.size()
+			println "no. of template: ${ Template.list().size() }"
 			render(view: "user-templates")
 		}
 	}

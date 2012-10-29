@@ -48,22 +48,22 @@
         <img src="">
         <h2>Templates</h2>
         <p>Check the most used templates:</p>
-        <p><a class="template-link" href="#">Link 1</a></p>
-        <p><a class="template-link" href="#">Link 2</a></p>
-        <p><a class="template-link" href="#">Link 3</a></p>
+        <g:each var="template" in="${ templates }">
+        	<p>[${ template.format }]<g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
+        </g:each>
+      </div>
+      <div class="span4">
+        <img src="">
+        <h2>Types</h2>
+        <p>Popular vocabularies and types:</p>
+        <g:each var="typeURI" in="${ templates.typeURI.unique() }">
+        	<p><a href="${ typeURI }">${ typeURI }</a></p>
+        </g:each>
       </div>
       <div class="span4">
         <img src="">
         <h2>Skeletons</h2>
         <p>Creativity starting from here:</p>
-        <p><a class="template-link" href="#">Link 1</a></p>
-        <p><a class="template-link" href="#">Link 2</a></p>
-        <p><a class="template-link" href="#">Link 3</a></p>
-      </div>
-      <div class="span4">
-        <img src="">
-        <h2>Types:</h2>
-        <p>Popular vocabularies and types:</p>
         <p><a class="template-link" href="#">Link 1</a></p>
         <p><a class="template-link" href="#">Link 2</a></p>
         <p><a class="template-link" href="#">Link 3</a></p>

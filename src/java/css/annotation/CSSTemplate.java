@@ -35,7 +35,7 @@ public class CSSTemplate {
 		flag = flag.replaceAll("\\s+?", "");
 		cSSSkeleton += 	"/*style for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + "*/\r\n" +
 						"\r\n";
-		cSSSkeleton += 	"		/*style for the element of type " + c.getLocalName() + "*/\r\n";
+		cSSSkeleton += 	"		/*style for the type " + c.getLocalName() + "*/\r\n";
 		if(flag.equalsIgnoreCase("microdata"))
 			cSSSkeleton +=	"		[itemscope][itemtype=\"" + c.getURI() + "\"],\r\n" +
 							"		[itemscope] [itemtype=\"" + c.getURI() + "\"] {\r\n" +
@@ -55,7 +55,7 @@ public class CSSTemplate {
 		while(properties.hasNext()){
 			OntProperty p = (OntProperty) properties.next();
 //			System.out.println(c.getURI() + " : " + p.getURI());
-			cSSSkeleton += "		/*style for the " + p.getLocalName() + " of the " + c.getLocalName() + "*/\r\n";
+			cSSSkeleton += "		/*style for the property " + p.getLocalName()  + "*/\r\n";
 			if(flag.equalsIgnoreCase("microdata"))
 				cSSSkeleton +=	"		[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
 								"		[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"],\r\n" +

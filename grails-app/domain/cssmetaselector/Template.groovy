@@ -8,10 +8,12 @@ class Template {
 	String prefix
 	String format
 	String cssTemplate
+	String testSnippet
 	static belongsTo = [user:User]
 	
 	static mapping = {
-		cssTemplate type: "text"	
+		cssTemplate type: "text"
+		testSnippet type: "text"	
 	}
 
     static constraints = {
@@ -21,6 +23,7 @@ class Template {
 		prefix(nullable: false, blank: false)
 		format(nullable: false, blank: false)
 		cssTemplate(nullable: false, blank: false)
+		testSnippet(nullable: true, blank: true)
 		user()
     }
 }

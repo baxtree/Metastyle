@@ -12,6 +12,7 @@ class TemplateController {
 			tem_schema: template.contextURL,
 			tem_format: template.format,
 			tem_prefix: template.prefix,
-			tem_contributor: template.user.username])	
+			tem_contributor: template.user.username,
+			tem_testSnippet: template.testSnippet])	
 	}
 }

@@ -39,7 +39,7 @@
 		</g:if>
 		<div class="offset3">Hi, ${ session.user.username }! The following are your templates (${ session.user.templates.size() } in total):</div>
 		<g:each var="template" in="${ session.user.templates }">
-			<div class="offset3">CSS for ${ template.typeURI } in ${ template.format }</div>
+			<div class="offset3"><g:link controller="template" action="showTemplate" id="${ template.id }">CSS template for ${ template.typeURI } in ${ template.format }</g:link></div>
 		</g:each>
 	</g:else>
 <g:render template="../templates/footer"></g:render>
