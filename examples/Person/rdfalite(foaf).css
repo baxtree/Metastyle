@@ -1,0 +1,621 @@
+/*style for the Person (http://xmlns.com/foaf/0.1/Person) as RDFa Lite*/
+
+		/*style for the type Person*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"],
+		[typeof="foaf:Person"],
+		[typeof="Person"] {
+		
+		}
+		
+		/*style for the property fundedBy*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/fundedBy"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/fundedBy"],
+		[typeof="foaf:Person"][property="foaf:fundedBy"],
+		[typeof="foaf:Person"] [property="foaf:fundedBy"],
+		[typeof="Person"][property="fundedBy"],
+		[typeof="Person"] [property="fundedBy"] {
+		
+		}
+		
+		/*style for the property term_status*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"],
+		[typeof="foaf:Person"][property="foaf:term_status"],
+		[typeof="foaf:Person"] [property="foaf:term_status"],
+		[typeof="Person"][property="term_status"],
+		[typeof="Person"] [property="term_status"] {
+		
+		}
+		
+		/*style for the property img*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/img"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/img"],
+		[typeof="foaf:Person"][property="foaf:img"],
+		[typeof="foaf:Person"] [property="foaf:img"],
+		[typeof="Person"][property="img"],
+		[typeof="Person"] [property="img"] {
+			float:left;
+			margin-left:0px;
+			border:1px solid #333333;
+			width:64px;
+			height:64px;
+		}
+		
+		/*style for the property birthday*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/birthday"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/birthday"],
+		[typeof="foaf:Person"][property="foaf:birthday"],
+		[typeof="foaf:Person"] [property="foaf:birthday"],
+		[typeof="Person"][property="birthday"],
+		[typeof="Person"] [property="birthday"] {
+		
+		}
+		
+		/*style for the property givenName*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/givenName"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/givenName"],
+		[typeof="foaf:Person"][property="foaf:givenName"],
+		[typeof="foaf:Person"] [property="foaf:givenName"],
+		[typeof="Person"][property="givenName"],
+		[typeof="Person"] [property="givenName"] {
+		
+		}
+		
+		/*style for the property currentProject*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/currentProject"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/currentProject"],
+		[typeof="foaf:Person"][property="foaf:currentProject"],
+		[typeof="foaf:Person"] [property="foaf:currentProject"],
+		[typeof="Person"][property="currentProject"],
+		[typeof="Person"] [property="currentProject"] {
+		
+		}
+		
+		/*style for the property homepage*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/homepage"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/homepage"],
+		[typeof="foaf:Person"][property="foaf:homepage"],
+		[typeof="foaf:Person"] [property="foaf:homepage"],
+		[typeof="Person"][property="homepage"],
+		[typeof="Person"] [property="homepage"] {
+			color: rgb(0, 0, 0);
+			text-decoration: underline;
+		}
+		
+		/*style for the property homepage*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/homepage"]:hover,
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/homepage"]:hover,
+		[typeof="foaf:Person"][property="foaf:homepage"]:hover,
+		[typeof="foaf:Person"] [property="foaf:homepage"]:hover,
+		[typeof="Person"][property="homepage"]:hover,
+		[typeof="Person"] [property="homepage"]:hover {
+			color: green;
+			text-decoration: underline;
+		}
+		
+		/*style for the property knows*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/knows"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/knows"],
+		[typeof="foaf:Person"][property="foaf:knows"],
+		[typeof="foaf:Person"] [property="foaf:knows"],
+		[typeof="Person"][property="knows"],
+		[typeof="Person"] [property="knows"] {
+			color: rgb(0, 0, 0);
+			text-decoration: underline;
+		}
+		
+		/*style for the property knows*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/knows"]:hover,
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/knows"]:hover,
+		[typeof="foaf:Person"][property="foaf:knows"]:hover,
+		[typeof="foaf:Person"] [property="foaf:knows"]:hover,
+		[typeof="Person"][property="knows"]:hover,
+		[typeof="Person"] [property="knows"]:hover {
+			color: green;
+			text-decoration: underline;
+		}
+		
+		/*style for the property geekcode*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/geekcode"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/geekcode"],
+		[typeof="foaf:Person"][property="foaf:geekcode"],
+		[typeof="foaf:Person"] [property="foaf:geekcode"],
+		[typeof="Person"][property="geekcode"],
+		[typeof="Person"] [property="geekcode"] {
+		
+		}
+		
+		/*style for the property mbox*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/mbox"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/mbox"],
+		[typeof="foaf:Person"][property="foaf:mbox"],
+		[typeof="foaf:Person"] [property="foaf:mbox"],
+		[typeof="Person"][property="mbox"],
+		[typeof="Person"] [property="mbox"] {
+			color: rgb(0, 0, 0);
+			text-decoration: underline;
+		}
+		
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/mbox"]:hover,
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/mbox"]:hover,
+		[typeof="foaf:Person"][property="foaf:mbox"]:hover,
+		[typeof="foaf:Person"] [property="foaf:mbox"]:hover,
+		[typeof="Person"][property="mbox"]:hover,
+		[typeof="Person"] [property="mbox"]:hover {
+			color: green;
+			text-decoration: underline;
+		}
+		
+		/*style for the property name*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/name"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/name"],
+		[typeof="foaf:Person"][property="foaf:name"],
+		[typeof="foaf:Person"] [property="foaf:name"],
+		[typeof="Person"][property="name"],
+		[typeof="Person"] [property="name"] {
+			font-size:1.2em;
+			font-weight:bold;
+			text-transform:none;
+			color: rgb(0, 0, 0);
+		}
+		
+		/*style for the property yahooChatID*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/yahooChatID"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/yahooChatID"],
+		[typeof="foaf:Person"][property="foaf:yahooChatID"],
+		[typeof="foaf:Person"] [property="foaf:yahooChatID"],
+		[typeof="Person"][property="yahooChatID"],
+		[typeof="Person"] [property="yahooChatID"] {
+		
+		}
+		
+		/*style for the property icqChatID*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/icqChatID"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/icqChatID"],
+		[typeof="foaf:Person"][property="foaf:icqChatID"],
+		[typeof="foaf:Person"] [property="foaf:icqChatID"],
+		[typeof="Person"][property="icqChatID"],
+		[typeof="Person"] [property="icqChatID"] {
+		
+		}
+		
+		/*style for the property dnaChecksum*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/dnaChecksum"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/dnaChecksum"],
+		[typeof="foaf:Person"][property="foaf:dnaChecksum"],
+		[typeof="foaf:Person"] [property="foaf:dnaChecksum"],
+		[typeof="Person"][property="dnaChecksum"],
+		[typeof="Person"] [property="dnaChecksum"] {
+		
+		}
+		
+		/*style for the property description*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://purl.org/dc/elements/1.1/description"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://purl.org/dc/elements/1.1/description"],
+		[typeof="foaf:Person"][property="foaf:description"],
+		[typeof="foaf:Person"] [property="foaf:description"],
+		[typeof="Person"][property="description"],
+		[typeof="Person"] [property="description"] {
+		
+		}
+		
+		/*style for the property publications*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/publications"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/publications"],
+		[typeof="foaf:Person"][property="foaf:publications"],
+		[typeof="foaf:Person"] [property="foaf:publications"],
+		[typeof="Person"][property="publications"],
+		[typeof="Person"] [property="publications"] {
+		
+		}
+		
+		/*style for the property age*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/age"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/age"],
+		[typeof="foaf:Person"][property="foaf:age"],
+		[typeof="foaf:Person"] [property="foaf:age"],
+		[typeof="Person"][property="age"],
+		[typeof="Person"] [property="age"] {
+		
+		}
+		
+		/*style for the property holdsAccount*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/holdsAccount"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/holdsAccount"],
+		[typeof="foaf:Person"][property="foaf:holdsAccount"],
+		[typeof="foaf:Person"] [property="foaf:holdsAccount"],
+		[typeof="Person"][property="holdsAccount"],
+		[typeof="Person"] [property="holdsAccount"] {
+		
+		}
+		
+		/*style for the property creator*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://purl.org/dc/terms/creator"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://purl.org/dc/terms/creator"],
+		[typeof="foaf:Person"][property="foaf:creator"],
+		[typeof="foaf:Person"] [property="foaf:creator"],
+		[typeof="Person"][property="creator"],
+		[typeof="Person"] [property="creator"] {
+		
+		}
+		
+		/*style for the property theme*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/theme"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/theme"],
+		[typeof="foaf:Person"][property="foaf:theme"],
+		[typeof="foaf:Person"] [property="foaf:theme"],
+		[typeof="Person"][property="theme"],
+		[typeof="Person"] [property="theme"] {
+		
+		}
+		
+		/*style for the property workInfoHomepage*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/workInfoHomepage"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/workInfoHomepage"],
+		[typeof="foaf:Person"][property="foaf:workInfoHomepage"],
+		[typeof="foaf:Person"] [property="foaf:workInfoHomepage"],
+		[typeof="Person"][property="workInfoHomepage"],
+		[typeof="Person"] [property="workInfoHomepage"] {
+		
+		}
+		
+		/*style for the property phone*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/phone"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/phone"],
+		[typeof="foaf:Person"][property="foaf:phone"],
+		[typeof="foaf:Person"] [property="foaf:phone"],
+		[typeof="Person"][property="phone"],
+		[typeof="Person"] [property="phone"] {
+			margin:10px 10px 0px 0px;
+			color: rgb(0, 0, 51);
+		}
+		
+		/*style for the property workplaceHomepage*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/workplaceHomepage"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/workplaceHomepage"],
+		[typeof="foaf:Person"][property="foaf:workplaceHomepage"],
+		[typeof="foaf:Person"] [property="foaf:workplaceHomepage"],
+		[typeof="Person"][property="workplaceHomepage"],
+		[typeof="Person"] [property="workplaceHomepage"] {
+		
+		}
+		
+		/*style for the property made*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/made"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/made"],
+		[typeof="foaf:Person"][property="foaf:made"],
+		[typeof="foaf:Person"] [property="foaf:made"],
+		[typeof="Person"][property="made"],
+		[typeof="Person"] [property="made"] {
+		
+		}
+		
+		/*style for the property gender*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/gender"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/gender"],
+		[typeof="foaf:Person"][property="foaf:gender"],
+		[typeof="foaf:Person"] [property="foaf:gender"],
+		[typeof="Person"][property="gender"],
+		[typeof="Person"] [property="gender"] {
+		
+		}
+		
+		/*style for the property mbox_sha1sum*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/mbox_sha1sum"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/mbox_sha1sum"],
+		[typeof="foaf:Person"][property="foaf:mbox_sha1sum"],
+		[typeof="foaf:Person"] [property="foaf:mbox_sha1sum"],
+		[typeof="Person"][property="mbox_sha1sum"],
+		[typeof="Person"] [property="mbox_sha1sum"] {
+		
+		}
+		
+		/*style for the property surname*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/surname"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/surname"],
+		[typeof="foaf:Person"][property="foaf:surname"],
+		[typeof="foaf:Person"] [property="foaf:surname"],
+		[typeof="Person"][property="surname"],
+		[typeof="Person"] [property="surname"] {
+		
+		}
+		
+		/*style for the property topic_interest*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/topic_interest"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/topic_interest"],
+		[typeof="foaf:Person"][property="foaf:topic_interest"],
+		[typeof="foaf:Person"] [property="foaf:topic_interest"],
+		[typeof="Person"][property="topic_interest"],
+		[typeof="Person"] [property="topic_interest"] {
+		
+		}
+		
+		/*style for the property lastName*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/lastName"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/lastName"],
+		[typeof="foaf:Person"][property="foaf:lastName"],
+		[typeof="foaf:Person"] [property="foaf:lastName"],
+		[typeof="Person"][property="lastName"],
+		[typeof="Person"] [property="lastName"] {
+		
+		}
+		
+		/*style for the property page*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/page"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/page"],
+		[typeof="foaf:Person"][property="foaf:page"],
+		[typeof="foaf:Person"] [property="foaf:page"],
+		[typeof="Person"][property="page"],
+		[typeof="Person"] [property="page"] {
+		
+		}
+		
+		/*style for the property nick*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/nick"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/nick"],
+		[typeof="foaf:Person"][property="foaf:nick"],
+		[typeof="foaf:Person"] [property="foaf:nick"],
+		[typeof="Person"][property="nick"],
+		[typeof="Person"] [property="nick"] {
+		
+		}
+		
+		/*style for the property interest*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/interest"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/interest"],
+		[typeof="foaf:Person"][property="foaf:interest"],
+		[typeof="foaf:Person"] [property="foaf:interest"],
+		[typeof="Person"][property="interest"],
+		[typeof="Person"] [property="interest"] {
+		
+		}
+		
+		/*style for the property based_near*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/based_near"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/based_near"],
+		[typeof="foaf:Person"][property="foaf:based_near"],
+		[typeof="foaf:Person"] [property="foaf:based_near"],
+		[typeof="Person"][property="based_near"],
+		[typeof="Person"] [property="based_near"] {
+		
+		}
+		
+		/*style for the property schoolHomepage*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/schoolHomepage"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/schoolHomepage"],
+		[typeof="foaf:Person"][property="foaf:schoolHomepage"],
+		[typeof="foaf:Person"] [property="foaf:schoolHomepage"],
+		[typeof="Person"][property="schoolHomepage"],
+		[typeof="Person"] [property="schoolHomepage"] {
+		
+		}
+		
+		/*style for the property logo*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/logo"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/logo"],
+		[typeof="foaf:Person"][property="foaf:logo"],
+		[typeof="foaf:Person"] [property="foaf:logo"],
+		[typeof="Person"][property="logo"],
+		[typeof="Person"] [property="logo"] {
+		
+		}
+		
+		/*style for the property weblog*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/weblog"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/weblog"],
+		[typeof="foaf:Person"][property="foaf:weblog"],
+		[typeof="foaf:Person"] [property="foaf:weblog"],
+		[typeof="Person"][property="weblog"],
+		[typeof="Person"] [property="weblog"] {
+		
+		}
+		
+		/*style for the property aimChatID*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/aimChatID"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/aimChatID"],
+		[typeof="foaf:Person"][property="foaf:aimChatID"],
+		[typeof="foaf:Person"] [property="foaf:aimChatID"],
+		[typeof="Person"][property="aimChatID"],
+		[typeof="Person"] [property="aimChatID"] {
+		
+		}
+		
+		/*style for the property pastProject*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/pastProject"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/pastProject"],
+		[typeof="foaf:Person"][property="foaf:pastProject"],
+		[typeof="foaf:Person"] [property="foaf:pastProject"],
+		[typeof="Person"][property="pastProject"],
+		[typeof="Person"] [property="pastProject"] {
+		
+		}
+		
+		/*style for the property family_name*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/family_name"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/family_name"],
+		[typeof="foaf:Person"][property="foaf:family_name"],
+		[typeof="foaf:Person"] [property="foaf:family_name"],
+		[typeof="Person"][property="family_name"],
+		[typeof="Person"] [property="family_name"] {
+		
+		}
+		
+		/*style for the property skypeID*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/skypeID"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/skypeID"],
+		[typeof="foaf:Person"][property="foaf:skypeID"],
+		[typeof="foaf:Person"] [property="foaf:skypeID"],
+		[typeof="Person"][property="skypeID"],
+		[typeof="Person"] [property="skypeID"] {
+		
+		}
+		
+		/*style for the property maker*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/maker"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/maker"],
+		[typeof="foaf:Person"][property="foaf:maker"],
+		[typeof="foaf:Person"] [property="foaf:maker"],
+		[typeof="Person"][property="maker"],
+		[typeof="Person"] [property="maker"] {
+		
+		}
+		
+		/*style for the property plan*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/plan"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/plan"],
+		[typeof="foaf:Person"][property="foaf:plan"],
+		[typeof="foaf:Person"] [property="foaf:plan"],
+		[typeof="Person"][property="plan"],
+		[typeof="Person"] [property="plan"] {
+		
+		}
+		
+		/*style for the property title*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://purl.org/dc/elements/1.1/title"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://purl.org/dc/elements/1.1/title"],
+		[typeof="foaf:Person"][property="foaf:title"],
+		[typeof="foaf:Person"] [property="foaf:title"],
+		[typeof="Person"][property="title"],
+		[typeof="Person"] [property="title"] {
+		
+		}
+		
+		/*style for the property familyName*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/familyName"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/familyName"],
+		[typeof="foaf:Person"][property="foaf:familyName"],
+		[typeof="foaf:Person"] [property="foaf:familyName"],
+		[typeof="Person"][property="familyName"],
+		[typeof="Person"] [property="familyName"] {
+		
+		}
+		
+		/*style for the property membershipClass*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/membershipClass"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/membershipClass"],
+		[typeof="foaf:Person"][property="foaf:membershipClass"],
+		[typeof="foaf:Person"] [property="foaf:membershipClass"],
+		[typeof="Person"][property="membershipClass"],
+		[typeof="Person"] [property="membershipClass"] {
+		
+		}
+		
+		/*style for the property firstName*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/firstName"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/firstName"],
+		[typeof="foaf:Person"][property="foaf:firstName"],
+		[typeof="foaf:Person"] [property="foaf:firstName"],
+		[typeof="Person"][property="firstName"],
+		[typeof="Person"] [property="firstName"] {
+		
+		}
+		
+		/*style for the property givenname*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/givenname"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/givenname"],
+		[typeof="foaf:Person"][property="foaf:givenname"],
+		[typeof="foaf:Person"] [property="foaf:givenname"],
+		[typeof="Person"][property="givenname"],
+		[typeof="Person"] [property="givenname"] {
+		
+		}
+		
+		/*style for the property tipjar*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/tipjar"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/tipjar"],
+		[typeof="foaf:Person"][property="foaf:tipjar"],
+		[typeof="foaf:Person"] [property="foaf:tipjar"],
+		[typeof="Person"][property="tipjar"],
+		[typeof="Person"] [property="tipjar"] {
+		
+		}
+		
+		/*style for the property status*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/status"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/status"],
+		[typeof="foaf:Person"][property="foaf:status"],
+		[typeof="foaf:Person"] [property="foaf:status"],
+		[typeof="Person"][property="status"],
+		[typeof="Person"] [property="status"] {
+		
+		}
+		
+		/*style for the property account*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/account"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/account"],
+		[typeof="foaf:Person"][property="foaf:account"],
+		[typeof="foaf:Person"] [property="foaf:account"],
+		[typeof="Person"][property="account"],
+		[typeof="Person"] [property="account"] {
+		
+		}
+		
+		/*style for the property jabberID*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/jabberID"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/jabberID"],
+		[typeof="foaf:Person"][property="foaf:jabberID"],
+		[typeof="foaf:Person"] [property="foaf:jabberID"],
+		[typeof="Person"][property="jabberID"],
+		[typeof="Person"] [property="jabberID"] {
+		
+		}
+		
+		/*style for the property isPrimaryTopicOf*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/isPrimaryTopicOf"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/isPrimaryTopicOf"],
+		[typeof="foaf:Person"][property="foaf:isPrimaryTopicOf"],
+		[typeof="foaf:Person"] [property="foaf:isPrimaryTopicOf"],
+		[typeof="Person"][property="isPrimaryTopicOf"],
+		[typeof="Person"] [property="isPrimaryTopicOf"] {
+		
+		}
+		
+		/*style for the property openid*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/openid"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/openid"],
+		[typeof="foaf:Person"][property="foaf:openid"],
+		[typeof="foaf:Person"] [property="foaf:openid"],
+		[typeof="Person"][property="openid"],
+		[typeof="Person"] [property="openid"] {
+		
+		}
+		
+		/*style for the property myersBriggs*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/myersBriggs"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/myersBriggs"],
+		[typeof="foaf:Person"][property="foaf:myersBriggs"],
+		[typeof="foaf:Person"] [property="foaf:myersBriggs"],
+		[typeof="Person"][property="myersBriggs"],
+		[typeof="Person"] [property="myersBriggs"] {
+		
+		}
+		
+		/*style for the property title*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/title"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/title"],
+		[typeof="foaf:Person"][property="foaf:title"],
+		[typeof="foaf:Person"] [property="foaf:title"],
+		[typeof="Person"][property="title"],
+		[typeof="Person"] [property="title"] {
+		
+		}
+		
+		/*style for the property depiction*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/depiction"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/depiction"],
+		[typeof="foaf:Person"][property="foaf:depiction"],
+		[typeof="foaf:Person"] [property="foaf:depiction"],
+		[typeof="Person"][property="depiction"],
+		[typeof="Person"] [property="depiction"] {
+		
+		}
+		
+		/*style for the property msnChatID*/
+		[typeof="http://xmlns.com/foaf/0.1/Person"][property="http://xmlns.com/foaf/0.1/msnChatID"],
+		[typeof="http://xmlns.com/foaf/0.1/Person"] [property="http://xmlns.com/foaf/0.1/msnChatID"],
+		[typeof="foaf:Person"][property="foaf:msnChatID"],
+		[typeof="foaf:Person"] [property="foaf:msnChatID"],
+		[typeof="Person"][property="msnChatID"],
+		[typeof="Person"] [property="msnChatID"] {
+		
+		}
