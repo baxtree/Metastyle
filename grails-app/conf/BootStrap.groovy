@@ -10,6 +10,7 @@ class BootStrap {
 				password: "test")
 			test.save(flush: true)
 		}
+//		elasticSearchService.index()
     }
     def destroy = {
     }

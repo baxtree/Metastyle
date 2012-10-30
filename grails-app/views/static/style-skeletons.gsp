@@ -42,25 +42,25 @@
 			<div class="row control-group">
 				<label class="control-label" for="targetedType">Targeted Type:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="http://xmlns.com/foaf/0.1/Person">
+					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="http://schema.org/Person">
 				</div>
 			</div>
 			<div class="row control-group">
 				<label class="control-label" for="schema">Schema File (RDF):</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="schema" name="schema" placeholder="e.g., http://schema.rdfs.org/all.rdf, http://xmlns.com/foaf/spec/index.rdf ..." value="http://xmlns.com/foaf/spec/index.rdf">
+					<input class="input-xxlarge" type="text" id="schema" name="schema" placeholder="e.g., http://schema.rdfs.org/all.rdf, http://xmlns.com/foaf/spec/index.rdf ..." value="http://schema.rdfs.org/all.rdf">
 				</div>
 			</div>
 			<div class="row control-group">
 				<label class="control-label" for="baseURI">Base URI:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="baseURI" name="baseURI" placeholder="e.g., http://schema.org/, http://xmlns.com/foaf/0.1/ ..." value="http://xmlns.com/foaf/0.1/">
+					<input class="input-xxlarge" type="text" id="baseURI" name="baseURI" placeholder="e.g., http://schema.org/, http://xmlns.com/foaf/0.1/ ..." value="http://schema.org/">
 				</div>
 			</div>
 			<div class="row control-group">
 				<label class="control-label" for="prefix">Prefix:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="prefix" name="prefix" placeholder="e.g., foaf (for HTML5 Microdata, this field will be ignored) ..." value="foaf">
+					<input class="input-xxlarge" type="text" id="prefix" name="prefix" placeholder="e.g., schema, foaf (for HTML5 Microdata, this field will be ignored) ..." value="schema">
 				</div>
 			</div>
 			<div class="row offset1">

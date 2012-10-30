@@ -14,3 +14,58 @@ body {
 .warning {
 	color: red;
 }
+
+.authentication {
+	padding-top: 10px;
+}
+
+#template_txt {
+	height: 400px;
+}
+
+#testSnippet {
+	height: 200px;
+}
+
+#template_txt, #testSnippet {
+	font-size: 12px;
+	line-height: 12px;
+}
+
+#preview {
+	zoom: 1.5;
+} 
+
+div.preview {
+	border-top: 1px solid rgb(204, 204, 204);
+	border-right: 1px solid rgb(204, 204, 204);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	border-left: 1px solid rgb(204, 204, 204);
+	min-width: 700px;
+}
+
+div.preview-small {
+	border-top: 1px solid rgb(204, 204, 204);
+	border-right: 1px solid rgb(204, 204, 204);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	border-left: 1px solid rgb(204, 204, 204);
+	width: 378px;
+	height: 188px;
+}
+
+#template-generation {
+	border-top: 1px solid rgb(0, 136, 204);
+	border-right: 1px solid rgb(0, 136, 204);
+	border-bottom: 1px solid rgb(0, 136, 204);
+	border-left: 1px solid rgb(0, 136, 204);
+	padding: 15px;
+	width: 1020px;
+}
+
+footer.footer {
+	height: 40px;
+}
+
+footer.footer div.container{
+	height: 30px;
+}

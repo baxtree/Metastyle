@@ -2,6 +2,8 @@ package cssmetaselector
 
 class Template {
 	
+//	static searchable = true
+	
 	String typeURI
 	String contextURL
 	String baseURI

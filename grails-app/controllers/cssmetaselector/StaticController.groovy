@@ -33,4 +33,32 @@ class StaticController {
 			tem_baseURI: params.baseURI,
 		])
 	}
+	
+//	def searchTemplate = {
+//		def query = params.query
+//		if(query){
+//			def searchResults = elasticSearchService.search(query)
+//			render(view: "search-results", model: [templates: searchResults.results, total: searchResults.total])
+//		}
+//		else{
+//			render(view: "welcome")
+//		}
+//	}
+	
+	def searchTemplate = {
+		def query = params.query
+		def format = params.format
+		if(query){
+			def searchResults = Template.findAllByFormatAndTypeURIIlike(format, "%" + query + "%")
+			def searchResults1 = Template.findAllByFormatAndBaseURIIlike(format, "%" + query + "%")
+			def searchResults2 = Template.findAllByFormatAndPrefixIlike(format, "%" + query + "%")
+			searchResults1.addAll(searchResults2)
+			searchResults.addAll(searchResults1)
+			searchResults = searchResults.unique()
+			render(view: "search-results", model: [templates: searchResults, total: searchResults.size()])
+		}
+		else{
+			render(view: "welcome")
+		}
+	}
 }

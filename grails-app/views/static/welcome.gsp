@@ -34,12 +34,22 @@
 			<label class="span offset6" for="form-search">Search existing templates</label>
 		</div>
 		<div class="row">
-		    <form id="form-search" class="form-search offset3" action="">
+		    <g:form id="form-search" class="form-search offset3" url="[controller: 'static', action: 'searchTemplate']">
 		    	<div class="input-append">
-		    		<input type="text" cols="100" class="input-medium search-query input-xxlarge" placeholder=".e.g, Person, schema.org, FOAF, http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." />
+		    		<input type="text" cols="100" name="query" class="input-medium search-query input-xxlarge" placeholder=".e.g, Person, schema.org, FOAF, http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." />
 		    		<button type="submit" class="btn">Search</button>
 		    	</div>
-		    </form>
+		    	<div class="row offset2">
+				<label class="radio">
+					<input type="radio" name="format" id="microdata" value="Microdata" checked>
+					HTML5 Microdata
+				</label>
+				<label class="radio">
+					<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
+					RDFa Lite 1.1
+				</label>
+			</div>
+		    </g:form>
 		</div>
 	</section>
 	<section id="recommendation">
