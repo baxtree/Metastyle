@@ -29,17 +29,19 @@
 			</div>
 		</div>
 	</section>
-	<g:if test="${ session.user == null }">
-		<g:render template="../templates/login" />
-	</g:if>
-	<g:else>
-		<!-- show the user's templates -->
-		<g:if test="${ flash.message }">
-			<span class="warning span3">${ flash.message }</span>
+	<section id="main-container">
+		<g:if test="${ session.user == null }">
+			<g:render template="../templates/login" />
 		</g:if>
-		<div class="offset3">Hi, ${ session.user.username }! The following are your templates (${ session.user.templates.size() } in total):</div>
-		<g:each var="template" in="${ session.user.templates }">
-			<div class="offset3"><g:link controller="template" action="showTemplate" id="${ template.id }">CSS template for ${ template.typeURI } in ${ template.format }</g:link></div>
-		</g:each>
-	</g:else>
+		<g:else>
+			<!-- show the user's templates -->
+			<g:if test="${ flash.message }">
+				<span class="warning span3">${ flash.message }</span>
+			</g:if>
+			<div class="offset3">Hi, ${ session.user.username }! The following are your templates (${ session.user.templates.size() } in total):</div>
+			<g:each var="template" in="${ session.user.templates }">
+				<div class="offset3"><g:link controller="template" action="showTemplate" id="${ template.id }">CSS template for ${ template.typeURI } in ${ template.format }</g:link></div>
+			</g:each>
+		</g:else>
+	</section>
 <g:render template="../templates/footer"></g:render>

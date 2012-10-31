@@ -1,6 +1,24 @@
-body {
-	background-color: white;
+html {
+	background: transparent;
 }
+
+body {
+	background-image: url(../images/bg-image.jpg);
+}
+
+ul.navbar {
+	margin-left: -5px;
+}
+
+#main-container a:link {color: rgb(0, 0, 51); text-decoration: none;}
+#main-container a:hover {color: red; text-decoration: underline;}
+#main-container a:visited {color: rgb(0, 0, 51); text-decoration: none;}
+#main-container a:active {color: rgb(0, 0, 51); text-decoration: none;}
+
+#recommendation a:link {color: rgb(0, 0, 51); text-decoration: none;}
+#recommendation a:hover {color: red; text-decoration: underline;}
+#recommendation a:visited {color: rgb(0, 0, 51); text-decoration: none;}
+#recommendation a:active {color: rgb(0, 0, 51); text-decoration: none;}
 
 #banner {
 	padding-top: 30px;	
@@ -54,10 +72,10 @@ div.preview-small {
 }
 
 #template-generation {
-	border-top: 1px solid rgb(0, 136, 204);
-	border-right: 1px solid rgb(0, 136, 204);
-	border-bottom: 1px solid rgb(0, 136, 204);
-	border-left: 1px solid rgb(0, 136, 204);
+	border-top: 2px solid #99E6FF;
+	border-right: 2px solid #99E6FF;
+	border-bottom: 2px solid #99E6FF;
+	border-left: 2px solid #99E6FF;
 	padding: 15px;
 	width: 1020px;
 }
