@@ -34,46 +34,46 @@ public class CSSTemplate {
 		String originFlag = flag;
 		flag = flag.replaceAll("\\s+?", "");
 		cSSSkeleton += 	"/*style for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + "*/\r\n" +
-						"\r\n";
-		cSSSkeleton += 	"		/*style for the type " + c.getLocalName() + "*/\r\n";
+						"\t\r\n";
+		cSSSkeleton += 	"\t/*style for the type " + c.getLocalName() + "*/\r\n";
 		if(flag.equalsIgnoreCase("microdata"))
-			cSSSkeleton +=	"		[itemscope][itemtype=\"" + c.getURI() + "\"],\r\n" +
-							"		[itemscope] [itemtype=\"" + c.getURI() + "\"] {\r\n" +
-							"		\r\n" +
-							"		}\r\n" +
-							"		\r\n";
+			cSSSkeleton +=	"\t[itemscope][itemtype=\"" + c.getURI() + "\"],\r\n" +
+							"\t[itemscope] [itemtype=\"" + c.getURI() + "\"] {\r\n" +
+							"\t\r\n" +
+							"\t}\r\n" +
+							"\t\r\n";
 		else if(flag.equalsIgnoreCase("rdfalite"))
-			cSSSkeleton += 	"		[typeof=\"" + c.getURI() + "\"],\r\n" +
-							"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"],\r\n" +
-							"		[typeof=\"" + c.getLocalName() + "\"] {\r\n" +
-							"		\r\n" +
-							"		}\r\n" +
-							"		\r\n";
+			cSSSkeleton += 	"\t[typeof=\"" + c.getURI() + "\"],\r\n" +
+							"\t[typeof=\"" + prefix + ":" + c.getLocalName() + "\"],\r\n" +
+							"\t[typeof=\"" + c.getLocalName() + "\"] {\r\n" +
+							"\t\r\n" +
+							"\t}\r\n" +
+							"\t\r\n";
 		else 
 			System.err.println("Unknown format!");
 		Iterator properties = c.listDeclaredProperties();
 		while(properties.hasNext()){
 			OntProperty p = (OntProperty) properties.next();
 //			System.out.println(c.getURI() + " : " + p.getURI());
-			cSSSkeleton += "		/*style for the property " + p.getLocalName()  + "*/\r\n";
+			cSSSkeleton += "\t/*style for the property " + p.getLocalName()  + "*/\r\n";
 			if(flag.equalsIgnoreCase("microdata"))
-				cSSSkeleton +=	"		[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
-								"		[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"],\r\n" +
-								"		[itemscope] [itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
-								"		[itemscope] [itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"] {\r\n" +
-								"		\r\n" +
-								"		}\r\n" +
-								"		\r\n";
+				cSSSkeleton +=	"\t[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
+								"\t[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"],\r\n" +
+								"\t[itemscope] [itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
+								"\t[itemscope] [itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"] {\r\n" +
+								"\t\r\n" +
+								"\t}\r\n" +
+								"\t\r\n";
 			else if(flag.equalsIgnoreCase("rdfalite"))
-				cSSSkeleton +=	"		[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],\r\n" +
-								"		[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],\r\n" +
-								"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],\r\n" +
-								"		[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],\r\n" +
-								"		[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],\r\n" +
-								"		[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"] {\r\n" +
-								"		\r\n" +
-								"		}\r\n" +
-								"		\r\n";
+				cSSSkeleton +=	"\t[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],\r\n" +
+								"\t[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],\r\n" +
+								"\t[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],\r\n" +
+								"\t[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],\r\n" +
+								"\t[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],\r\n" +
+								"\t[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"] {\r\n" +
+								"\t\r\n" +
+								"\t}\r\n" +
+								"\t\r\n";
 			else
 				System.err.println("Unknown format!");
 		}

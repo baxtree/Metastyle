@@ -15,3 +15,10 @@ function applyCSSTemplate() {
 	doc.write(html);
 	doc.close();
 }
+
+function normaliseCSS(taid) {	
+	var ta = document.getElementById(taid);
+	var css = ta.value;
+	css = (css.replace(/(\/\*[^(\/\*)]*?\*\/[\t\r\n\s]*?)?\[[^{]+\][\t\r\n\s]*?{[\t\r\n\s]*?}/g, ""));
+	ta.value = css.replace("/^\t\t(\r)?\n/g", "");
+}

@@ -87,6 +87,7 @@
 					<input type="hidden" name="tem_prefix" value="${ tem_prefix }">
 					<input type="hidden" name="tem_format" value="${ tem_format }">
 					<button class="btn btn-primary" id="copy" type="button">Copy</button>
+					<button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS('template_txt');">Trim</button>
 					<button class="btn btn-primary" type="submit">Share ...</button>
 					<button class="offset6 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate()">Apply CSS</button>
 					<div class="row">
