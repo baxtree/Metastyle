@@ -1,9 +1,12 @@
 <g:render template="../templates/header" />
 <g:javascript>
-	$(document).ready(function(){
+$(document).ready(function(){
 		$('button#copy').zclip({
 			path:'../js/ZeroClipboard.swf',
-			copy:$('textarea#template_txt').text()
+			copy: $('textarea#template_txt').text(),
+			beforeCopy: function(){
+				cssta.save();
+			}
 		});
 	});
 </g:javascript>
@@ -86,10 +89,12 @@
 					<input type="hidden" name="tem_baseURI" value="${ tem_baseURI }">
 					<input type="hidden" name="tem_prefix" value="${ tem_prefix }">
 					<input type="hidden" name="tem_format" value="${ tem_format }">
+					<!--  <button class="btn btn-primary" id="savecss" type="button" onclick="saveToTextarea('cssta');">Save</button> -->
 					<button class="btn btn-primary" id="copy" type="button">Copy</button>
-					<button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS('template_txt');">Trim</button>
-					<button class="btn btn-primary" type="submit">Share ...</button>
-					<button class="offset6 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate()">Apply CSS</button>
+					<button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS();">Trim</button>
+					<button class="btn btn-primary" id="share" type="button" onclick="shareTemplate();">Share ...</button>
+					<!--  <button class="offset4 btn btn-primary" id="savehtml" type="button" onclick="saveToTextarea('htmlta');">Save</button> -->
+ 					<button class="offset5 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate()">Apply CSS</button>
 					<div class="row">
 						<div class="span6">
 							<textarea id="template_txt" class="span8" name="tem_template" rows="30">${ template }</textarea>
@@ -107,4 +112,17 @@
 		<g:else>
 		</g:else>
 	</section>
+	<script type="text/javascript">
+      var cssta = CodeMirror.fromTextArea(document.getElementById("template_txt"), {
+        lineNumbers: true,
+        matchBrackets: true,
+        mode: "text/css"
+      });
+      cssta.setSize(630, 500);
+      var htmlta = CodeMirror.fromTextArea(document.getElementById("testSnippet"), {
+        lineNumbers: true,
+        mode: "text/html"
+      });
+      htmlta.setSize(380, 310);
+    </script>
 <g:render template="../templates/footer"></g:render>

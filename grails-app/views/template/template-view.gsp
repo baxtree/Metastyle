@@ -89,4 +89,17 @@
 	</div>
 </div>
 </section>
+<script type="text/javascript">
+      var cssta = CodeMirror.fromTextArea(document.getElementById("template_txt"), {
+        lineNumbers: true,
+        matchBrackets: true,
+        mode: "text/css"
+      });
+      cssta.setSize(700, 350);
+      var htmlta = CodeMirror.fromTextArea(document.getElementById("testSnippet"), {
+        lineNumbers: true,
+        mode: "text/html"
+      });
+      htmlta.setSize(700, 230);
+    </script>
 <g:render template="../templates/footer"></g:render>

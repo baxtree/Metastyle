@@ -60,6 +60,7 @@ div.preview {
 	border-right: 1px solid rgb(204, 204, 204);
 	border-bottom: 1px solid rgb(204, 204, 204);
 	border-left: 1px solid rgb(204, 204, 204);
+	background-color: rgb(255, 255, 255);
 	width: 698px;
 	height: 180px;
 }
@@ -69,6 +70,7 @@ div.preview-small {
 	border-right: 1px solid rgb(204, 204, 204);
 	border-bottom: 1px solid rgb(204, 204, 204);
 	border-left: 1px solid rgb(204, 204, 204);
+	background-color: rgb(255, 255, 255);
 	width: 378px;
 	height: 188px;
 }
@@ -110,3 +112,4 @@ footer.footer {
 footer.footer div.container{
 	height: 30px;
 }
+

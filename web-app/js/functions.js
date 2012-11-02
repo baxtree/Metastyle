@@ -1,4 +1,6 @@
 function applyCSSTemplate() {
+	cssta.save();
+	htmlta.save();
 	var html = '<!DOCTYPE html><html lang="en"><head><style type="text/css">';
 	html += $("#template_txt").val();
 	html += "</style></head><body>";
@@ -16,9 +18,28 @@ function applyCSSTemplate() {
 	doc.close();
 }
 
-function normaliseCSS(taid) {	
-	var ta = document.getElementById(taid);
-	var css = ta.value;
+function shareTemplate() {
+	cssta.save();
+	htmlta.save();
+	document.forms["shareTempalte"].submit();
+}
+
+function normaliseCSS() {	
+	var css = cssta.getValue();
 	css = (css.replace(/(\/\*[^(\/\*)]*?\*\/[\t\r\n\s]*?)?\[[^{]+\][\t\r\n\s]*?{[\t\r\n\s]*?}/g, ""));
-	ta.value = css.replace("/^\t\t(\r)?\n/g", "");
+	css = css.replace("/^\t\t(\r)?\n/g", "");
+	cssta.setValue(css);
+	cssta.save();
+}
+
+function saveCSS(cme) {
+	cme.save();
+	document.getElementById("copy").disabled = false;
+	document.getElementById("trim").disabled = false;
+	document.getElementById("share").disabled = false;
+}
+
+function saveHTML(cme) {
+	cme.save();
+	document.getElementById("apply").diabled = false;
 }
