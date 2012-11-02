@@ -4,6 +4,7 @@ html {
 
 body {
 	background-image: url(../images/bg-image.jpg);
+	color: #E8E8E8;
 }
 
 ul.navbar {
@@ -59,7 +60,8 @@ div.preview {
 	border-right: 1px solid rgb(204, 204, 204);
 	border-bottom: 1px solid rgb(204, 204, 204);
 	border-left: 1px solid rgb(204, 204, 204);
-	min-width: 700px;
+	width: 698px;
+	height: 180px;
 }
 
 div.preview-small {
@@ -78,6 +80,27 @@ div.preview-small {
 	border-left: 2px solid #99E6FF;
 	padding: 15px;
 	width: 1020px;
+}
+
+#search-panel {
+	border-top: 2px solid #99E6FF;
+	border-right: 2px solid #99E6FF;
+	border-bottom: 2px solid #99E6FF;
+	border-left: 2px solid #99E6FF;
+	padding: 5px 15px;
+}
+
+.search-bar {
+	padding: 25px 15px;
+}
+
+.format-radio {
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+div.search-bar-label label.span {
+	font-size: 20px !important;
 }
 
 footer.footer {

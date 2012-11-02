@@ -30,26 +30,28 @@
 		</div>
 	</section>
 	<section id="main-container">
-		<div class="row">
-			<label class="span offset6" for="form-search">Search existing templates</label>
-		</div>
-		<div class="row">
-		    <g:form id="form-search" class="form-search offset3" url="[controller: 'static', action: 'searchTemplate']">
-		    	<div class="input-append">
-		    		<input type="text" cols="100" name="query" class="input-medium search-query input-xxlarge" placeholder=".e.g, Person, schema.org, FOAF, http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." />
-		    		<button type="submit" class="btn">Search</button>
-		    	</div>
-		    	<div class="row offset2">
-				<label class="radio">
-					<input type="radio" name="format" id="microdata" value="Microdata" checked>
-					HTML5 Microdata
-				</label>
-				<label class="radio">
-					<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
-					RDFa Lite 1.1
-				</label>
+		<div id="search-panel" class="span10 offset2">
+			<div class="row search-bar-label">
+				<label class="span" for="form-search">Search existing templates:</label>
 			</div>
-		    </g:form>
+			<div class="row">
+			    <g:form id="form-search" class="form-search offset1" url="[controller: 'static', action: 'searchTemplate']">
+			    	<div class="input-append search-bar">
+			    		<input type="text" cols="100" name="query" class="input-medium search-query input-xxlarge" placeholder=".e.g, Person, schema.org, FOAF, http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." />
+			    		<button type="submit" class="btn">Search</button>
+			    	</div>
+			    	<div class="row offset2 format-radio">
+						<label class="radio">
+							<input type="radio" name="format" id="microdata" value="Microdata" checked>
+							HTML5 Microdata
+						</label>
+						<label class="radio">
+							<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
+							RDFa Lite 1.1
+						</label>
+					</div>
+			    </g:form>
+			</div>
 		</div>
 	</section>
 	<section id="recommendation">
@@ -59,7 +61,7 @@
         <h2>Templates</h2>
         <p>Check the most used templates:</p>
         <g:each var="template" in="${ templates }">
-        	<p>[${ template.format }]<g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
+        	<p>[${ template.format }] <g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
         </g:each>
       </div>
       <div class="span4">
