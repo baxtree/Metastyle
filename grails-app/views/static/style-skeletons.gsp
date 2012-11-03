@@ -3,10 +3,7 @@
 $(document).ready(function(){
 		$('button#copy').zclip({
 			path:'../js/ZeroClipboard.swf',
-			copy: $('textarea#template_txt').text(),
-			beforeCopy: function(){
-				cssta.save();
-			}
+			copy: function() { return cssta.getValue(); }
 		});
 	});
 </g:javascript>

@@ -3,7 +3,7 @@
 	$(document).ready(function(){
 		$('button#copy').zclip({
 			path:'../../js/ZeroClipboard.swf',
-			copy:$('textarea#template').text()
+			copy:$('textarea#template_txt').text()
 		});
 	});
 </g:javascript>
@@ -93,11 +93,13 @@
       var cssta = CodeMirror.fromTextArea(document.getElementById("template_txt"), {
         lineNumbers: true,
         matchBrackets: true,
+        readOnly: true,
         mode: "text/css"
       });
       cssta.setSize(700, 350);
       var htmlta = CodeMirror.fromTextArea(document.getElementById("testSnippet"), {
         lineNumbers: true,
+        readOnly: true,
         mode: "text/html"
       });
       htmlta.setSize(700, 230);
