@@ -1,3 +1,9 @@
+function generateSkeleton() {
+	document.getElementById("getStyleTemplate").style.display = "none";
+	document.getElementById("loadingbar").style.display = "block";
+	document.forms["generateTemplate"].submit();
+}
+
 function applyCSSTemplate() {
 	cssta.save();
 	htmlta.save();

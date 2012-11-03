@@ -38,7 +38,7 @@ $(document).ready(function(){
 		</div>
 	</section>
 	<section id="main-container">
-	    <g:form class="offset3 form-horizontal" name="generateTemplate" url="[controller: 'static', action: 'generateTemplate']">
+	    <g:form id="generateTemplate" class="offset3 form-horizontal" name="generateTemplate" url="[controller: 'static', action: 'generateTemplate']">
 			<div class="row control-group">
 				<label class="control-label" for="targetedType">Targeted Type:</label>
 				<div class="controls">
@@ -73,9 +73,12 @@ $(document).ready(function(){
 					RDFa Lite 1.1
 				</label>
 			</div>
-			<p>
-				<button class="offset6 btn btn-large btn-primary" type="submit">Get the Style Template</button>
-			</p>
+			<div class="row offset1">
+				<button id="getStyleTemplate" class="btn btn-large btn-primary" type="button" onclick="generateSkeleton();">Get the Style Template</button>
+				<div id="loadingbar" class="span4 offset2 progress progress-info progress-striped active" style="display: none;">
+    				<div class="bar" style="width: 100%"></div>
+    			</div>
+			</div>
 		</g:form>
 		
 		<g:if test="${ template }">
@@ -91,7 +94,7 @@ $(document).ready(function(){
 					<button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS();">Trim</button>
 					<button class="btn btn-primary" id="share" type="button" onclick="shareTemplate();">Share ...</button>
 					<!--  <button class="offset4 btn btn-primary" id="savehtml" type="button" onclick="saveToTextarea('htmlta');">Save</button> -->
- 					<button class="offset5 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate()">Apply CSS</button>
+ 					<button class="offset5 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate();">Apply CSS</button>
 					<div class="row">
 						<div class="span6">
 							<textarea id="template_txt" class="span8" name="tem_template" rows="30">${ template }</textarea>
