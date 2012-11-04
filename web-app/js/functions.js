@@ -1,4 +1,6 @@
 function generateSkeleton() {
+	if(document.getElementById("playground") != null)
+		document.getElementById("playground").style.display = "none";
 	document.getElementById("getStyleTemplate").style.display = "none";
 	document.getElementById("loadingbar").style.display = "block";
 	document.forms["generateTemplate"].submit();
@@ -48,4 +50,13 @@ function saveCSS(cme) {
 function saveHTML(cme) {
 	cme.save();
 	document.getElementById("apply").diabled = false;
+}
+
+function lookUpPrefix(targetURI) {
+	$.get("lookUpPrefix", 
+		{targetedType : targetURI},
+		function(prefix) {
+			$("#prefix").val(prefix);
+		}, 
+	"text");
 }

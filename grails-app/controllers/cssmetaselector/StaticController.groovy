@@ -25,7 +25,7 @@ class StaticController {
 	def generateTemplate = {
 		CSSTemplate csst = new CSSTemplate(params.schema)
 		render(view: "style-skeletons", model: [
-			template: csst.getCSSSkeleton(params.targetedType, params.format, params.prefix, params.baseURI).trim(),
+			template: csst.getCSSSkeleton(params.targetedType, params.format, params.prefix).trim(),
 			tem_targetedType: params.targetedType,
 			tem_schema: params.schema,
 			tem_format: params.format,
@@ -60,5 +60,32 @@ class StaticController {
 		else{
 			render(view: "welcome")
 		}
+	}
+	
+	def lookUpPrefix = {
+		def prefix = " "
+		def targetURI = params.targetedType.trim()
+		if(targetURI.indexOf("#") != -1){
+			prefix = servletContext.nSPrefix.getAt(targetURI.split("#")[0] + "#")
+//			println prefix
+		}
+		else{
+			if(servletContext.nSPrefix.getAt(targetURI) != null){
+				prefix = servletContext.nSPrefix.getAt(targetURI)	
+			}
+			else{
+				def temp = targetURI.split("/") as List
+				temp.pop()
+				targetURI = temp.join("/") + "/"
+				if(servletContext.nSPrefix.getAt(targetURI) != null){
+					prefix = servletContext.nSPrefix.getAt(targetURI)
+				}
+				else{
+					render(text: " ", status: 200)
+				}
+			}
+		}
+		if(prefix == null) prefix = ""
+		render(text: prefix, status: 200)
 	}
 }

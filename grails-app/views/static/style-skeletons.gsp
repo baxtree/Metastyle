@@ -42,7 +42,7 @@ $(document).ready(function(){
 			<div class="row control-group">
 				<label class="control-label" for="targetedType">Targeted Type:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="http://schema.org/Person">
+					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="http://schema.org/Person" onBlur="lookUpPrefix(this.value);">
 				</div>
 			</div>
 			<div class="row control-group">
@@ -51,10 +51,10 @@ $(document).ready(function(){
 					<input class="input-xxlarge" type="text" id="schema" name="schema" placeholder="e.g., http://schema.rdfs.org/all.rdf, http://xmlns.com/foaf/spec/index.rdf ..." value="http://schema.rdfs.org/all.rdf">
 				</div>
 			</div>
-			<div class="row control-group">
+			<div class="row control-group" style="display: none;">
 				<label class="control-label" for="baseURI">Base URI:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="baseURI" name="baseURI" placeholder="e.g., http://schema.org/, http://xmlns.com/foaf/0.1/ ..." value="http://schema.org/">
+					<input class="input-xxlarge" type="hidden" id="baseURI" name="baseURI" placeholder="e.g., http://schema.org/, http://xmlns.com/foaf/0.1/ ..." value="">
 				</div>
 			</div>
 			<div class="row control-group">
@@ -82,7 +82,7 @@ $(document).ready(function(){
 		</g:form>
 		
 		<g:if test="${ template }">
-			<div class="row playground">
+			<div id="playground" class="row playground">
 				<g:form class="offset2" id="template-generation" name="shareTempalte" url="[controller: 'user', action: 'shareTemplate']">
 					<input type="hidden" name="tem_targetedType" value="${ tem_targetedType }">
 					<input type="hidden" name="tem_schema" value="${ tem_schema }">
@@ -108,21 +108,21 @@ $(document).ready(function(){
 					</div>
 				</g:form>
 			</div>
+			<script type="text/javascript">
+		      var cssta = CodeMirror.fromTextArea(document.getElementById("template_txt"), {
+		        lineNumbers: true,
+		        matchBrackets: true,
+		        mode: "text/css"
+		      });
+		      cssta.setSize(630, 500);
+		      var htmlta = CodeMirror.fromTextArea(document.getElementById("testSnippet"), {
+		        lineNumbers: true,
+		        mode: "text/html"
+		      });
+		      htmlta.setSize(380, 310);
+		    </script>
 		</g:if>
 		<g:else>
 		</g:else>
 	</section>
-	<script type="text/javascript">
-      var cssta = CodeMirror.fromTextArea(document.getElementById("template_txt"), {
-        lineNumbers: true,
-        matchBrackets: true,
-        mode: "text/css"
-      });
-      cssta.setSize(630, 500);
-      var htmlta = CodeMirror.fromTextArea(document.getElementById("testSnippet"), {
-        lineNumbers: true,
-        mode: "text/html"
-      });
-      htmlta.setSize(380, 310);
-    </script>
 <g:render template="../templates/footer"></g:render>

@@ -80,33 +80,33 @@ public class CSSTemplate {
 		return cSSSkeleton.trim();
 	}
 	
-	public String getCSSSkeleton(String flag, String prefix, String baseURI){
-		String cSSSkeleton = "";	
-		Iterator classes = ontModel.listNamedClasses();
-		while(classes.hasNext()){
-			OntClass c = (OntClass) classes.next();
-			//Presume that the namespace domain is the same with the domain of the vocabulary
-			if(!c.getURI().startsWith(baseURI)) continue;
-//				if(!(new URL(c.getURI())).getHost().equalsIgnoreCase(vocabDomain)) continue;
-//					System.out.println(((OntClass) classes.next()).getLocalName());
-			cSSSkeleton += getCSSSkeletonByClass(flag, prefix, c);
-		}
-		return cSSSkeleton.trim();
-		
-	}
+//	public String getVocabCSSSkeleton(String flag, String prefix, String baseURI){
+//		String cSSSkeleton = "";	
+//		Iterator classes = ontModel.listNamedClasses();
+//		while(classes.hasNext()){
+//			OntClass c = (OntClass) classes.next();
+//			//Presume that the namespace domain is the same with the domain of the vocabulary
+//			if(!c.getURI().startsWith(baseURI)) continue;
+////				if(!(new URL(c.getURI())).getHost().equalsIgnoreCase(vocabDomain)) continue;
+////					System.out.println(((OntClass) classes.next()).getLocalName());
+//			cSSSkeleton += getCSSSkeletonByClass(flag, prefix, c);
+//		}
+//		return cSSSkeleton.trim();
+//		
+//	}
 	
-	public String getCSSSkeleton(String targetURL, String flag, String prefix, String baseURI){
+	public String getCSSSkeleton(String targetURL, String flag, String prefix){
 		OntClass c = ontModel.getOntClass(targetURL);
 		String cSSSkeleton = getCSSSkeletonByClass(flag, prefix, c);
 		return cSSSkeleton.trim();
 	}
 	
-//	public static void main(String[] args){
-//		CSSTemplate csst = new CSSTemplate("http://schema.rdfs.org/all.rdf");
-//		System.out.println(csst.getCSSSkeleton("http://xmlns.com/foaf/spec/index.rdf", "RDFa Lite", "foaf"));
+	public static void main(String[] args){
+		CSSTemplate csst = new CSSTemplate("http://schema.rdfs.org/all.rdf");
+		System.out.println(csst.getCSSSkeleton("http://xmlns.com/foaf/spec/index.rdf", "RDFa Lite", "foaf"));
 //		System.out.println(csst.getCSSSkeleton("Microdata", "", "http://schema.org/"));
 //		System.out.println(csst.getCSSSkeleton("http://schema.org/Person", "Microdata", "", "http://schema.org/"));
 //		System.out.println(csst.getCSSSkeleton("http://schema.org/Person", "RDFa Lite", "foaf", "http://schema.org/"));
-//	}
+	}
 
 }

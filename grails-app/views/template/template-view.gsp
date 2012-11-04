@@ -40,31 +40,31 @@
 <section id="main_content">
 <div class="row offset3 control-group">
 	<label class="control-label" for="targetedType">Targeted Type:</label>
-	<div class="controls">
+	<span class="offset1 controls">
 		<span id="targetedType">${ tem_targetedType }</span>
-	</div>
+	</span>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="schema">Schema File (RDF):</label>
-	<div class="controls">
+	<label class="control-label" for="schema">Schema File:</label>
+	<div class="offset1 controls">
 		<span id="schema">${ tem_schema }</span>
 	</div>
 </div>
 <div class="row offset3 control-group">
 	<label class="control-label" for="prefix">Prefix:</label>
-	<div class="controls">
+	<div class="offset1 controls">
 		<span id="prefix">${ tem_prefix }</span>
 	</div>
 </div>
 <div class="row offset3 control-group">
 	<label class="control-label" for="format">Format:</label>
-	<div class="controls">
+	<div class="offset1 controls">
 		<span id="format">${ tem_format }</span>
 	</div>
 </div>
 <div class="row offset3 control-group">
 	<label class="control-label" for="contributor">Contributor:</label>
-	<div class="controls">
+	<div class="offset1 controls">
 		<span id="contributor">${ tem_contributor }</span>
 	</div>
 </div>

@@ -6,7 +6,7 @@
   position: relative;
   /* This prevents unwanted scrollbars from showing up on the body and wrapper in IE. */
   overflow: hidden;
-  background-color: #C9C6FC !important;
+  background-color: #5858FA !important;
   font-size: 12px !important;
   line-height: 12px !important;
 }
