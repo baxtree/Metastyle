@@ -1,5 +1,8 @@
 package cssmetaselector
 
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 import css.annotation.CSSTemplate
 
 class StaticController {
@@ -87,5 +90,75 @@ class StaticController {
 		}
 		if(prefix == null) prefix = ""
 		render(text: prefix, status: 200)
+	}
+	
+	def transformMicrodataIntoRDFaLite = {
+		def mCSSStr = params.cssContent
+		def prefix = params.prefix
+		def targetedType = params.targetedType
+		def baseURI = ""
+		def typeName = ""
+		if(targetedType.indexOf("#")){
+			baseURI = targetedType.split("#")[0] + "#"	
+			typeName = targetedType.split("#")[1]
+		}
+		else{
+			def temp = targetedType.split("/") as List
+			typeName = temp.pop()
+			baseURI = temp.join("/") + "/"	
+		}
+		def rCSSStr = mCSSStr.replaceAll("[itemscope][itemtype=[\"\']"+ targetedType +"[\"\']]" + "[\t\r\n]*?,[\t\r\n]*?" + "[itemscope][^[]+?[itemtype=[\"\']"+ targetedType +"[\"\']]" 
+						, "[typeof=[\"\']"+ targetedType +"[\"\']],\r\n[typeof=[\"\']" + prefix + ":" + typeName + "[\"\']],\r\n[typeof=[\"\']" + typeName + "[\"\']]")
+		Pattern pat = Patten.compile('[itemtype=[\"\'](http[^\"\']+?)[\"\']][itemprop=[\"\']([^\"\']+?)[\"\']]');
+		Matcher m = pat.matcher(mCSSStr)
+		while(m.matches()){
+			def propertyName = m.group(1).toString()
+			rCSSStr = rCSSStr.replaceAll("[itemscope][itemtype=[\"\']"+ targetedType +"[\"\']][itemprop=[\"\']"+ propertyName + "[\"\']]"
+						, "[typeof=[\"\']" + targetedType + "[\"\']][property=[\"\']" + baseURI + propertyName + "[\"\']]")
+						.replaceAll("[itemscope][itemtype=[\"\']"+ targetedType +"[\"\']][^[]+?[itemprop=[\"\']"+ propertyName + "[\"\']]"
+						, "[typeof=[\"\']" + targetedType + "[\"\']] [property=[\"\']" + baseURI + propertyName + "[\"\']]")
+						.replaceAll("[itemscope][^[]+?[itemtype=[\"\']"+ targetedType +"[\"\']][itemprop=[\"\']"+ propertyName + "[\"\']]"
+						, "[typeof=[\"\']" + prefix + ":" + typeName + "[\"\']][property=[\"\']" + prefix + ":" + propertyName + "[\"\']]")
+						.replaceAll("[itemscope][^[]+?[itemtype=[\"\']"+ targetedType +"[\"\']][^[]+?[itemprop=[\"\']"+ propertyName + "[\"\']]"
+						, "[typeof=[\"\']" + prefix + ":" + typeName + "[\"\']] [property=[\"\']" + prefix + ":" + propertyName + "[\"\']],\r\n" + 
+						  "[typeof=[\"\']" + typeName + "[\"\']][property=[\"\']" + propertyName + "[\"\']],\r\n" + 
+						  "[typeof=[\"\']" + typeName + "[\"\']] [property=[\"\']" + propertyName + "[\"\']]");
+		}
+		render(text: rCSSStr, status: 200)
+	}
+	
+	def transformRDFaLiteIntoMicrodata = {
+		def rCSSStr = params.cssContent
+		def prefix = params.prefix
+		def targetedType = params.targetedType
+		def baseURI = ""
+		def typeName = ""
+		if(targetedType.indexOf("#")){
+			baseURI = targetedType.split("#")[0] + "#"
+			typeName = targetedType.split("#")[1]
+		}
+		else{
+			def temp = targetedType.split("/") as List
+			typeName = temp.pop()
+			baseURI = temp.join("/") + "/"
+		}
+		def mCSSStr = rCSSStr.replaceAll("[typeof=[\"\']" + targetedType + "[\"\']]" + "[\t\r\n]*?,[\t\r\n]*?" + "[typeof=[\"\']" + prefix + ":" + typeName + "[\"\']]" + "[\t\r\n]*?,[\t\r\n]*?" + "[typeof=[\"\']" + typeName + "[\"\']]"
+						, "[itemscope][itemtype=[\"\']"+ targetedType +"[\"\']]" + ",\r\n" + "[itemscope] [itemtype=[\"\']"+ targetedType +"[\"\']]")
+		Pattern pat = Patten.compile('[typeof=[\"\'][^]]+?[\"\']][property=[\"\']([^\"\']+?)[\"\']]');
+		Matcher m = pat.matcher(rCSSStr)
+		while(m.matches()){
+			def propertyName = m.group(1).toString()
+			mCSSStr = mCSSStr.replaceAll("[typeof=[\"\']" + targetedType + "[\"\']][property=[\"\']" + baseURI + propertyName + "[\"\']]"
+						, "[itemscope][itemtype=[\"\']"+ targetedType +"[\"\']][itemprop=[\"\']"+ propertyName + "[\"\']]")
+						.replaceAll("[typeof=[\"\']" + targetedType + "[\"\']][^[]+?[property=[\"\']" + baseURI + propertyName + "[\"\']]"
+						, "[itemscope][itemtype=[\"\']"+ targetedType +"[\"\']] [itemprop=[\"\']"+ propertyName + "[\"\']]")
+						.replaceAll("[typeof=[\"\']" + prefix + ":" + typeName + "[\"\']][property=[\"\']" + prefix + ":" + propertyName + "[\"\']]"
+						, "[itemscope] [itemtype=[\"\']"+ targetedType +"[\"\']][itemprop=[\"\']"+ propertyName + "[\"\']]")
+						.replaceAll("[typeof=[\"\']" + prefix + ":" + typeName + "[\"\']][^[]+?[property=[\"\']" + prefix + ":" + propertyName + "[\"\']][\t\r\n]*?,[\t\r\n]*?" + 
+						  "[typeof=[\"\']" + typeName + "[\"\']][property=[\"\']" + propertyName + "[\t\r\n]*?,[\t\r\n]*?" + 
+						  "[typeof=[\"\']" + typeName + "[\"\']][^[]+?[property=[\"\']" + propertyName + "[\"\']]"
+						, "[itemscope] [itemtype=[\"\']"+ targetedType +"[\"\']] [itemprop=[\"\']"+ propertyName + "[\"\']]")
+		}
+		render(text: mCSSStr, status: 200)
 	}
 }
