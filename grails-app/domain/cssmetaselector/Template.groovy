@@ -3,7 +3,7 @@ package cssmetaselector
 class Template {
 	
 //	static searchable = true
-	
+	String id
 	String typeURI
 	String contextURL
 	String baseURI

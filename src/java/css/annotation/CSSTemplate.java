@@ -54,6 +54,7 @@ public class CSSTemplate {
 		Iterator properties = c.listDeclaredProperties();
 		while(properties.hasNext()){
 			OntProperty p = (OntProperty) properties.next();
+			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
 //			System.out.println(c.getURI() + " : " + p.getURI());
 			cSSSkeleton += "\t/*style for the property " + p.getLocalName()  + "*/\r\n";
 			if(flag.equalsIgnoreCase("microdata"))

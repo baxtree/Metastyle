@@ -60,3 +60,29 @@ function lookUpPrefix(targetURI) {
 		}, 
 	"text");
 }
+
+function transform(originFormat, template, targetedType, prefix){
+//	alert(template);
+	if(originFormat == "Microdata"){
+		$.post("../transformMicrodataIntoRDFaLite",
+				{mcss : template, targetedType : targetedType, prefix : prefix},
+				function(rcss) {
+					cssta.setValue(rcss);
+					cssta.save();
+					$("#snippetDiv").hide();
+					$("#previewDiv").hide();
+				},
+		"text");
+	}
+	else{
+		$.post("../transformRDFaLiteIntoMicrodata",
+				{rcss: template, targetedType : targetedType, prefix : prefix},
+				function(mcss) {
+					cssta.setValue(mcss);
+					cssta.save();
+					$("#snippetDiv").hide();
+					$("#previewDiv").hide();
+				},
+		"text");
+	}
+}
