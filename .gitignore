@@ -5,3 +5,4 @@
 .settings*
 TODO.txt
 *.war
+grails-app/conf*
