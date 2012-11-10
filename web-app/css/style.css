@@ -117,3 +117,6 @@ footer.footer div.container{
 	height: 30px;
 }
 
+#main_content > div > div > button {
+	margin-top: 10px !important;
+}

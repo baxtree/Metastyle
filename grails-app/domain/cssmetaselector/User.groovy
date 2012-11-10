@@ -7,6 +7,10 @@ class User {
 	String email
 	String password
 	static hasMany = [templates:Template]
+	
+	static mapping = {
+		table "users"
+	}
 
     static constraints = {
 		username(nullable: false)

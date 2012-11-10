@@ -6,10 +6,10 @@ class BootStrap {
 			def test = new User( 				
 				username: "test", 				
 				fullname: "test", 				
-				email: "test@tt", 				
+				email: "test@test.com", 				
 				password: "test") 			
 			test.save(flush: true) 		
-			} 
+		} 
 		//		elasticSearchService.index() 		
 		def prefixNS = [:] 		
 		def nSPrefix = [:] 		

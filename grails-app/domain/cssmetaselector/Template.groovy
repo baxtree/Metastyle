@@ -14,6 +14,7 @@ class Template {
 	static belongsTo = [user:User]
 	
 	static mapping = {
+		table "template"
 		cssTemplate type: "text"
 		testSnippet type: "text"	
 	}
@@ -21,7 +22,7 @@ class Template {
     static constraints = {
 		typeURI(nullable: false, blank: false)
 		contextURL(nullable: false, blank: false)
-		baseURI(nullable: false, blank: false)
+		baseURI(nullable: true)
 		prefix(nullable: false, blank: false)
 		format(nullable: false, blank: false)
 		cssTemplate(nullable: false, blank: false)

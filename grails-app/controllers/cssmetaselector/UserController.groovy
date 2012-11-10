@@ -5,11 +5,11 @@ class UserController {
     def scaffold = User
 
     def index = {
-        render(view: "home")
+        redirect(controller: "static", action: "welcome")
     }
 	
 	def showHome = {
-		render(view: "home")	
+		redirect(controller: "static", action: "welcome")	
 	}
 	
 	def showTemplates = {

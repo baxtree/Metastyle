@@ -4,3 +4,4 @@
 .project
 .settings*
 TODO.txt
+*.war
