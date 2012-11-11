@@ -69,28 +69,28 @@
 	</div>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="template_txt">Content:</label>
+	<label class="control-label" for="template_txt">CSS Template Content:</label>
 	<div class="controls">
 		<textarea class="span9" rows="30" id="template_txt" readonly>${ template }</textarea>
-		<button class="btn btn-primary" id="copy" type="button">Copy</button>
+		<button class="btn btn-primary" id="copy" type="button">Copy to clipboard</button>
 		<button class="btn btn-primary" id="transform" type="button" onclick='transform("${ tem_format }", "${ tem_oneline }", "${ tem_targetedType }", "${ tem_prefix }");'>
 			<g:if test="${ tem_format == 'Microdata' }">
-				Get CSS for RDFa Lite		
+				Get equivalent CSS for RDFa Lite		
 			</g:if>
 			<g:else>
-				Get CSS for Microdata
+				Get equivalent CSS for Microdata
 			</g:else>
 		</button>
 	</div>
 </div>
 <div id="snippetDiv" class="row offset3 control-group">
-	<label class="control-label" for="testSnippet">Snippet:</label>
+	<label class="control-label" for="testSnippet">HTML Body Snippet:</label>
 	<div class="controls">
 		<textarea class="span9" rows="30" id="testSnippet" readonly>${ tem_testSnippet }</textarea>
 	</div>
 </div>
 <div id="previewDiv" class="row offset3 control-group">
-	<label class="control-label" for="preview">Preview:</label>
+	<label class="control-label" for="preview">Style Preview:</label>
 	<div class="controls preview">
 		<iframe id="preview" class="" width="700" height="300" frameborder="0" title="preview" onload="applyCSSTemplate()">
 		</iframe>

@@ -90,8 +90,8 @@ $(document).ready(function(){
 					<input type="hidden" name="tem_prefix" value="${ tem_prefix }">
 					<input type="hidden" name="tem_format" value="${ tem_format }">
 					<!--  <button class="btn btn-primary" id="savecss" type="button" onclick="saveToTextarea('cssta');">Save</button> -->
-					<button class="btn btn-primary" id="copy" type="button">Copy</button>
-					<button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS();">Trim</button>
+					<button class="btn btn-primary" id="copy" type="button">Copy to clipboard</button>
+					<button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS();">Reduce size</button>
 					<button class="btn btn-primary" id="share" type="button" onclick="shareTemplate();">Share ...</button>
 					<!--  <button class="offset4 btn btn-primary" id="savehtml" type="button" onclick="saveToTextarea('htmlta');">Save</button> -->
  					<button class="offset5 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate();">Apply CSS</button>
