@@ -64,7 +64,7 @@ grails.spring.bean.packages = []
 
 environments {
 	production {
-		grails.serverURL = "http://localhost:8080/${appName}}"
+		grails.serverURL = "http://loclhost:8080/${appName}}"
 	}
 	development {
 		grails.serverURL = "http://localhost:8080/${appName}"

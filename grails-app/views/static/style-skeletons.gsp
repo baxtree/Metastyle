@@ -15,7 +15,7 @@ $(document).ready(function(){
 					<ul class="navbar navbar-inverse navbar-fixed-top">
 						<div class="navbar-inner">
 					        <div class="container">
-					          <g:link class="brand" controller="static" action="welcome">CSSMetaSelector</g:link>
+					          <g:link class="brand" controller="static" action="welcome">Metastyle</g:link>
 					          <div class="nav-collapse collapse">
 					            <ul class="nav">
 					              <li class="">

@@ -1,6 +1,6 @@
 <header id="banner">
   <div class="container">
-    <h1>CSSMetaSelector</h1>
-    <p class="lead">Metadata-oriented CSS styling</p>
+    <g:link controller="static" action="welcome"><img src="../images/metastyle_logo.png" /></g:link>
+    <p class="lead">Metadata-Oriented Styling</p>
   </div>
 </header>

@@ -120,3 +120,20 @@ footer.footer div.container{
 #main_content > div > div > button {
 	margin-top: 10px !important;
 }
+
+#footer-link {
+	float: right !important;
+}
+
+#footer-link li a:link {
+	text-decoration: underline;
+}
+
+p.copyright {
+	padding-top: 10px;
+}
+
+p.lead {
+	color: rgb(96, 198, 247);
+	margin-top: -30px !important;
+}
