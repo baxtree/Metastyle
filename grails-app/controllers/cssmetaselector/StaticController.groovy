@@ -49,6 +49,8 @@ class StaticController {
 	def searchTemplate = {
 		def query = params.query
 		def format = params.format
+		def max = Integer.parseInt(params.max)
+		def offset = Integer.parseInt(params.offset)
 		if(query){
 			def searchResults = Template.findAllByFormatAndTypeURIIlike(format, "%" + query + "%")
 			def searchResults1 = Template.findAllByFormatAndBaseURIIlike(format, "%" + query + "%")
@@ -56,7 +58,15 @@ class StaticController {
 			searchResults1.addAll(searchResults2)
 			searchResults.addAll(searchResults1)
 			searchResults = searchResults.unique()
-			render(view: "search-results", model: [templates: searchResults, total: searchResults.size()])
+			def total = searchResults.size();
+			def displayedResults
+			if((offset + max) >= total){
+				displayedResults = searchResults.subList(offset, total)
+			}
+			else{
+				displayedResults = searchResults.subList(offset, offset + max)
+			}
+			render(view: "search-results", model: [templates: displayedResults, total: total, query: query, format: format])
 		}
 		else{
 			render(view: "welcome")

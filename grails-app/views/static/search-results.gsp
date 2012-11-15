@@ -38,5 +38,8 @@
 				<p>Contributor: ${ template.user.username} </p>
 			</div>
 		</g:each>
+		<div class="pagination offset5">
+			<g:paginate controller="static" action="searchTemplate" next="Next-&gt;" prev="&lt;-Prev" max="3" total="${ total }" params="[query: query, format: format]" />
+		</div>
 	</section>
 <g:render template="../templates/footer"></g:render>

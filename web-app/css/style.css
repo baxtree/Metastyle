@@ -137,3 +137,22 @@ p.lead {
 	color: rgb(96, 198, 247);
 	margin-top: -30px !important;
 }
+
+div.pagination {
+	text-align: center;
+}
+
+div.pagination a {
+	margin: 5px 10px;
+}
+
+div.pagination a.prefLink:link {
+	color: rgb(89, 92, 147) !important;
+}
+div.pagination a.prefLink:hover {
+	color: rgb(255, 255, 255) !important;
+}
+
+div.pagination a.prefLink:visited {
+	color: rgb(89, 92, 147) !important;
+}

@@ -50,6 +50,8 @@
 							RDFa Lite 1.1
 						</label>
 					</div>
+					<input type="hidden" name="max" value="3" />
+					<input type="hidden" name="offset" value="0" />
 			    </g:form>
 			</div>
 		</div>
