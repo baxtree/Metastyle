@@ -92,6 +92,7 @@ $(document).ready(function(){
 					<!--  <button class="btn btn-primary" id="savecss" type="button" onclick="saveToTextarea('cssta');">Save</button> -->
 					<button class="btn btn-primary" id="copy" type="button">Copy to clipboard</button>
 					<button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS();">Reduce size</button>
+					<button class="btn btn-primary" id="important" type="button" onclick="overrideCSS();">Override</button>
 					<button class="btn btn-primary" id="share" type="button" onclick="shareTemplate();">Share ...</button>
 					<!--  <button class="offset4 btn btn-primary" id="savehtml" type="button" onclick="saveToTextarea('htmlta');">Save</button> -->
  					<button class="offset5 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate();">Apply CSS</button>

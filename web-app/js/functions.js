@@ -34,7 +34,7 @@ function shareTemplate() {
 
 function normaliseCSS() {	
 	var css = cssta.getValue();
-	css = (css.replace(/(\/\*[^(\/\*)]*?\*\/[\t\r\n\s]*?)?\[[^{]+\][\t\r\n\s]*?{[\t\r\n\s]*?}/g, ""));
+	css = css.replace(/(\/\*[^(\/\*)]*?\*\/[\t\r\n\s]*?)?\[[^{]+\][\t\r\n\s]*?{[\t\r\n\s]*?}/g, "");
 	css = css.replace("/^\t\t(\r)?\n/g", "");
 	cssta.setValue(css);
 	cssta.save();
@@ -85,4 +85,12 @@ function transform(originFormat, template, targetedType, prefix){
 				},
 		"text");
 	}
+}
+
+function overrideCSS (cssStr) {
+	var css = cssta.getValue();
+	css = css.replace(/[\t\s]+?\!important;/g, ";");
+	css = css.replace(/[\t\s]*;/g, " !important;");
+	cssta.setValue(css);
+	cssta.save();
 }
