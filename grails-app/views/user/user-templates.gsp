@@ -11,13 +11,13 @@
 					          <div class="nav-collapse collapse">
 					            <ul class="nav">
 					              <li class="">
-					                <g:link controller="static" action="welcome">Home</g:link>
+					                <g:link controller="static" action="welcome"><i class="icon-home"></i>Home</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="static" action="getSkeletons">Get Skeletons</g:link>
+					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="active">
-					                <g:link controller="user" action="showTemplates">My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />

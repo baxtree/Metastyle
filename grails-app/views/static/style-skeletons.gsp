@@ -5,6 +5,10 @@ $(document).ready(function(){
 			path:'../js/ZeroClipboard.swf',
 			copy: function() { return cssta.getValue(); }
 		});
+		$('a#linkcopy').zclip({
+			path:'../js/ZeroClipboard.swf',
+			copy: function() { return cssta.getValue(); }
+		});
 	});
 </g:javascript>
 <g:render template="../templates/banner" />
@@ -19,13 +23,13 @@ $(document).ready(function(){
 					          <div class="nav-collapse collapse">
 					            <ul class="nav">
 					              <li class="">
-					                <g:link controller="static" action="welcome">Home</g:link>
+					                <g:link controller="static" action="welcome"><i class="icon-home"></i>Home</g:link>
 					              </li>
 					              <li class="active">
-					                <g:link controller="static" action="getSkeletons">Get Skeletons</g:link>
+					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="user" action="showTemplates">My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />
@@ -89,13 +93,22 @@ $(document).ready(function(){
 					<input type="hidden" name="tem_baseURI" value="${ tem_baseURI }">
 					<input type="hidden" name="tem_prefix" value="${ tem_prefix }">
 					<input type="hidden" name="tem_format" value="${ tem_format }">
-					<!--  <button class="btn btn-primary" id="savecss" type="button" onclick="saveToTextarea('cssta');">Save</button> -->
 					<button class="btn btn-primary" id="copy" type="button">Copy to clipboard</button>
-					<button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS();">Reduce size</button>
+					<!-- <button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS();">Reduce size</button>
 					<button class="btn btn-primary" id="important" type="button" onclick="overrideCSS();">Override</button>
-					<button class="btn btn-primary" id="share" type="button" onclick="shareTemplate();">Share ...</button>
+					<button class="btn btn-primary" id="share" type="button" onclick="shareTemplate();">Share ...</button> -->
+					<div id="options" class="dropdown">	
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog"></i>Options</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+							<li><a id="linkcopy">Copy to clipboard</a></li>
+							<li><a href="#" onclick="normaliseCSS();return false;">Reduce size</a></li>
+							<li><a href="#" onclick="overrideCSS();return false;">Override</a></li>
+							<li><a href="#" onclick="applyCSSTemplate();return false;">Apply CSS</a></li>
+							<li><a href="#" onclick="shareTemplate();return false;">Share ...</a></li>							
+						</ul>
+					</div>
 					<!--  <button class="offset4 btn btn-primary" id="savehtml" type="button" onclick="saveToTextarea('htmlta');">Save</button> -->
- 					<button class="offset5 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate();">Apply CSS</button>
+ 					<!--  <button class="offset5 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate();">Apply CSS</button> -->
 					<div class="row">
 						<div class="span6">
 							<textarea id="template_txt" class="span8" name="tem_template" rows="30">${ template }</textarea>

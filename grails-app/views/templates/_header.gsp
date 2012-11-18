@@ -9,6 +9,7 @@
 	<script src="${resource(dir:'js', file:'jquery.zclip.js')}"></script>
 	<script src="${resource(dir:'js', file:'jquery-ui-1.9.1.custom.js')}"></script>
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'bootstrap.css')}" />
+	<link rel="stylesheet" type="text/css" href="${resource(dir:'css/font', file:'font-awesome.css')}" />
 	<script type="text/javascript" src="${resource(dir:'js', file:'bootstrap.js')}"></script>
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'style.css')}" />
 	<script type="text/javascript" src="${resource(dir:'js', file:'functions.js')}"></script>

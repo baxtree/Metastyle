@@ -11,13 +11,13 @@
 					          <div class="nav-collapse collapse">
 					            <ul class="nav">
 					              <li class="active">
-					                <g:link controller="static" action="welcome">Home</g:link>
+					                <g:link controller="static" action="welcome"><i class="icon-home"></i>Home</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="static" action="getSkeletons">Get Skeletons</g:link>
+					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="user" action="showTemplates">My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />
@@ -32,7 +32,7 @@
 	<section id="main-container">
 		<div id="search-panel" class="span10 offset2">
 			<div class="row search-bar-label">
-				<label class="span" for="form-search">Search existing templates:</label>
+				<label class="span" for="form-search"><i class="icon-search"></i> Search existing templates:</label>
 			</div>
 			<div class="row">
 			    <g:form id="form-search" class="form-search offset1" url="[controller: 'static', action: 'searchTemplate']">
@@ -83,73 +83,73 @@
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
-					<span class="stat-user">test</span>
-					<span class="stat-views">10</span>
-					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+					<span class="stat-user"><i class="icon-user"></i>test</span>
+					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
 			</div>
 		</div>
@@ -158,7 +158,7 @@
 	 <div class="row-fluid">
       <div class="span4">
         <img src="">
-        <h2>Templates</h2>
+        <h2><i class="icon-folder-open"></i>&nbsp;&nbsp;Templates</h2>
         <p>Check the most used templates:</p>
         <g:each var="template" in="${ templates }">
         	<p>[${ template.format }] <g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
@@ -166,7 +166,7 @@
       </div>
       <div class="span4">
         <img src="">
-        <h2>Types</h2>
+        <h2><i class="icon-cogs"></i>&nbsp;&nbsp;Types</h2>
         <p>Popular vocabularies and types:</p>
         <g:each var="typeURI" in="${ templates.typeURI.unique() }">
         	<p><a href="${ typeURI }">${ typeURI }</a></p>

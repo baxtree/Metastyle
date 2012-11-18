@@ -35,7 +35,7 @@ function shareTemplate() {
 function normaliseCSS() {	
 	var css = cssta.getValue();
 	css = css.replace(/(\/\*[^(\/\*)]*?\*\/[\t\r\n\s]*?)?\[[^{]+\][\t\r\n\s]*?{[\t\r\n\s]*?}/g, "");
-	css = css.replace("/^\t\t(\r)?\n/g", "");
+	css = css.replace("/^\t\t(\r)?\n/g", ""); //this does not work
 	cssta.setValue(css);
 	cssta.save();
 }
