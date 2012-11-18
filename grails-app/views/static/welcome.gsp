@@ -56,6 +56,104 @@
 			</div>
 		</div>
 	</section>
+	<section id="glance">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<ul class="navbar">
+						<div class="navbar-inner">
+					        <div class="container">
+					          <div class="nav-collapse collapse">
+					            <ul class="nav">
+					              <li class="active">
+					                <g:link controller="static" action="showRecent">Recent</g:link>
+					              </li>
+					              <li class="">
+					                <g:link controller="static" action="showPopular">Popular</g:link>
+					              </li>
+					            </ul>
+					          </div>
+					        </div>
+					    </div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="template-thumbnails span12">
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+			<div class="template-group span4">
+				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
+				<div class="statistic">
+					<span class="stat-user">test</span>
+					<span class="stat-views">10</span>
+					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><img src="" alt="like" /></g:link></span>
+				</div>
+			</div>
+		</div>
+	</section>
 	<section id="recommendation">
 	 <div class="row-fluid">
       <div class="span4">
