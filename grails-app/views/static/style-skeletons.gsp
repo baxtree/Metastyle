@@ -84,8 +84,6 @@ $(document).ready(function(){
     			</div>
 			</div>
 		</g:form>
-		
-		<g:if test="${ template }">
 			<div id="playground" class="row playground">
 				<g:form class="offset2" id="template-generation" name="shareTempalte" url="[controller: 'user', action: 'shareTemplate']">
 					<input type="hidden" name="tem_targetedType" value="${ tem_targetedType }">
@@ -134,9 +132,17 @@ $(document).ready(function(){
 		        mode: "text/html"
 		      });
 		      htmlta.setSize(380, 310);
+		      recoverTemplate(cssta, htmlta);
 		    </script>
-		</g:if>
-		<g:else>
-		</g:else>
+		   	<g:if test="${ template }">
+		   		<g:javascript>
+		   			document.getElementById("playground").style.display = "block";
+		   		</g:javascript>
+		   	</g:if>
+		   	<g:else>
+		   		<g:javascript>
+		   			document.getElementById("playground").style.display = "none";
+		   		</g:javascript>
+		   	</g:else>
 	</section>
 <g:render template="../templates/footer"></g:render>

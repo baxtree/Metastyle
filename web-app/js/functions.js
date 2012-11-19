@@ -29,7 +29,38 @@ function applyCSSTemplate() {
 function shareTemplate() {
 	cssta.save();
 	htmlta.save();
+	if(localStorage){
+		localStorage.setItem("metastyle", "set");
+		var data = $("#template-generation").serializeArray();
+		$.each(data, function(i, obj) {
+			localStorage.setItem(obj.name, obj.value);
+		});
+	}
 	document.forms["shareTempalte"].submit();
+}
+
+function recoverTemplate(cssta, htmlta) {
+	if(localStorage){
+		if(localStorage.getItem("metastyle") == "set"){
+			if(document.getElementById("playground") != null){
+				document.getElementById("playground").style.display = "block";
+			}
+			var data = $("#template-generation").serializeArray();
+			$.each(data, function(i, obj) {
+				$("[name='" + obj.name + "']").val(localStorage.getItem(obj.name));
+			});
+			cssta.setValue(document.getElementById("template_txt").value);
+			htmlta.setValue(document.getElementById("testSnippet").value);
+			applyCSSTemplate();
+			localStorage.setItem("metastyle", "reset");
+		}
+	}
+}
+
+function resetLocalStorage() {
+	if(localStorage){
+		localStorage.setItem("metastyle", "reset");
+	}
 }
 
 function normaliseCSS() {	
