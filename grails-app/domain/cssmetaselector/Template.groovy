@@ -3,7 +3,7 @@ package cssmetaselector
 class Template {
 	
 //	static searchable = true
-	String id
+	String templ_id
 	String typeURI
 	String contextURL
 	String baseURI
@@ -11,7 +11,8 @@ class Template {
 	String format
 	String cssTemplate
 	String testSnippet
-	Integer views
+	int views
+	int likes
 	static belongsTo = [user:User]
 	
 	static mapping = {
@@ -29,6 +30,7 @@ class Template {
 		cssTemplate(nullable: false, blank: false)
 		testSnippet(nullable: true, blank: true)
 		views(nullable: true, blank: true)
+		likes(nullable: true, blank: true)
 		user()
     }
 }

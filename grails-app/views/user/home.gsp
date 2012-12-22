@@ -37,7 +37,7 @@
         <h2>Templates</h2>
         <p>Check the most used templates:</p>
         <g:each var="template" in="${ templates }">
-        	<p>[${ template.format }] <g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
+        	<p>[${ template.format }] <g:link controller="template" action="showTemplate" id="${ template.templ_id }">${ template.typeURI }</g:link></p>
         </g:each>
       </div>
       <div class="span4">

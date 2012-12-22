@@ -82,7 +82,7 @@
 		<div class="template-thumbnails span12">
 			<g:each var="rtempl" in="${ recent }">
 				<div class="template-group span4">
-					<iframe class="template-iframe" src="template/showSnippet/${ rtempl.id }" frameborder="1" scrolling="no"></iframe>
+					<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no"></iframe>
 					<div class="statistic">
 						<span class="stat-user"><i class="icon-user"></i>${ rtempl.user.username }</span>
 						<span class="stat-views"><i class="icon-eye-open"></i>${ rtempl.views }</span>
@@ -90,7 +90,7 @@
 					</div>
 				</div>
 			</g:each>
-			<div class="template-group span4">
+			<!-- <div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">
 					<span class="stat-user"><i class="icon-user"></i>test</span>
@@ -161,7 +161,7 @@
 					<span class="stat-views"><i class="icon-eye-open"></i>10</span>
 					<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</section>
 	<section id="recommendation">
@@ -171,7 +171,7 @@
         <h2><i class="icon-folder-open"></i>&nbsp;&nbsp;Templates</h2>
         <p>Check the most used templates:</p>
         <g:each var="template" in="${ templates }">
-        	<p>[${ template.format }] <g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
+        	<p>[${ template.format }] <g:link controller="template" action="showTemplate" id="${ template.templ_id }">${ template.typeURI }</g:link></p>
         </g:each>
       </div>
       <div class="span4">

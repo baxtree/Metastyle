@@ -33,7 +33,7 @@
 		<div class="offset3">${ total } CSS templates found:</div>
 		<g:each var="template" in="${ templates }">
 			<div class="offset4">
-				<p><g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
+				<p><g:link controller="template" action="showTemplate" id="${ template.templ_id }">${ template.typeURI }</g:link></p>
 				<p>Format: ${ template.format }</p>
 				<p>Contributor: ${ template.user.username} </p>
 			</div>

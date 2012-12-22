@@ -99,4 +99,15 @@ class StaticController {
 		if(prefix == null) prefix = ""
 		render(text: prefix, status: 200)
 	}
+	
+	def showSnippet = {
+		println "template id:" + params.id
+		def template = Template.get(params.id)
+		def snippet = "";
+		snippet += 	"<style type='text/css'>" +
+					template.cssTemplate +
+					"</style>";
+		snippet += template.testSnippet;
+		render(text: snippet, status: 200)
+	}
 }

@@ -26,14 +26,12 @@ class TemplateController {
 			tem_testSnippet: template.testSnippet])	
 	}
 	
-	def showSnippet = {
+	def likeTemplate = {
 		def template = Template.get(params.id)
-		def snippet = "";
-		snippet += 	"<style type='text/css'>" +
-					template.cssTemplate +
-					"</style>";
-		snippet += template.testSnippet;
-		render(text: snippet, status: 200)
+		template.likes = template.likes + 1
+		if(!template.save(flush: true)){
+			template.errors.each{print it}	
+		}	
 	}
 	
 	def transformMicrodataIntoRDFaLite = {
