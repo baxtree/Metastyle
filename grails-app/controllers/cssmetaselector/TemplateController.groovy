@@ -10,6 +10,10 @@ class TemplateController {
 	def showTemplate = {
 		def template = Template.get(params.id)
 		def oneline = template.cssTemplate.toString().replaceAll("\r\n", "\\\\r\\\\n").replace("\"", "\\\"").replace("\'", "\\\'")
+		template.views = template.views + 1
+		if(!template.save(flush: true)){
+			template.errors.each{print it}	
+		}
 		render(view: "template-view", model: [
 			template: template.cssTemplate,
 			tem_oneline: oneline,
@@ -18,7 +22,18 @@ class TemplateController {
 			tem_format: template.format,
 			tem_prefix: template.prefix,
 			tem_contributor: template.user.username,
+			tem_views: template.views,
 			tem_testSnippet: template.testSnippet])	
+	}
+	
+	def showSnippet = {
+		def template = Template.get(params.id)
+		def snippet = "";
+		snippet += 	"<style type='text/css'>" +
+					template.cssTemplate +
+					"</style>";
+		snippet += template.testSnippet;
+		render(text: snippet, status: 200)
 	}
 	
 	def transformMicrodataIntoRDFaLite = {

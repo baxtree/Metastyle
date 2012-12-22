@@ -29,31 +29,7 @@
 			</div>
 		</div>
 	</section>
-	<section id="main-container">
-		<div id="search-panel" class="span10 offset2">
-			<div class="row search-bar-label">
-				<label class="span" for="form-search">Search existing templates:</label>
-			</div>
-			<div class="row">
-			    <g:form id="form-search" class="form-search offset1" url="[controller: 'static', action: 'searchTemplate']">
-			    	<div class="input-append search-bar">
-			    		<input type="text" cols="100" name="query" class="input-medium search-query input-xxlarge" placeholder=".e.g, Person, schema.org, FOAF, http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." />
-			    		<button type="submit" class="btn">Search</button>
-			    	</div>
-			    	<div class="row offset2 format-radio">
-						<label class="radio">
-							<input type="radio" name="format" id="microdata" value="Microdata" checked>
-							HTML5 Microdata
-						</label>
-						<label class="radio">
-							<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
-							RDFa Lite 1.1
-						</label>
-					</div>
-			    </g:form>
-			</div>
-		</div>
-	</section>
+	
 	<section id="recommendation">
 	 <div class="row-fluid">
       <div class="span4">
@@ -82,4 +58,31 @@
       </div>
     </div>
 	</section>
+	
+	<section id="main-container">
+		<div id="search-panel" class="span10 offset2">
+			<div class="row search-bar-label">
+				<label class="span" for="form-search">Search existing templates:</label>
+			</div>
+			<div class="row">
+			    <g:form id="form-search" class="form-search offset1" url="[controller: 'static', action: 'searchTemplate']">
+			    	<div class="input-append search-bar">
+			    		<input type="text" cols="100" name="query" class="input-medium search-query input-xxlarge" placeholder=".e.g, Person, schema.org, FOAF, http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." />
+			    		<button type="submit" class="btn">Search</button>
+			    	</div>
+			    	<div class="row offset2 format-radio">
+						<label class="radio">
+							<input type="radio" name="format" id="microdata" value="Microdata" checked>
+							HTML5 Microdata
+						</label>
+						<label class="radio">
+							<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
+							RDFa Lite 1.1
+						</label>
+					</div>
+			    </g:form>
+			</div>
+		</div>
+	</section>
+	
 <g:render template="../templates/footer" />

@@ -69,6 +69,12 @@
 	</div>
 </div>
 <div class="row offset3 control-group">
+	<label class="control-label" for="views">Views:</label>
+	<div class="offset1 controls">
+		<span id="views">${ tem_views }</span>
+	</div>
+</div>
+<div class="row offset3 control-group">
 	<label class="control-label" for="template_txt">CSS Template Content:</label>
 	<div class="controls">
 		<textarea class="span9" rows="30" id="template_txt" readonly>${ template }</textarea>

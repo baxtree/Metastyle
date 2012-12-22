@@ -80,6 +80,16 @@
 			</div>
 		</div>
 		<div class="template-thumbnails span12">
+			<g:each var="rtempl" in="${ recent }">
+				<div class="template-group span4">
+					<iframe class="template-iframe" src="template/showSnippet/${ rtempl.id }" frameborder="1" scrolling="no"></iframe>
+					<div class="statistic">
+						<span class="stat-user"><i class="icon-user"></i>${ rtempl.user.username }</span>
+						<span class="stat-views"><i class="icon-eye-open"></i>${ rtempl.views }</span>
+						<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
+					</div>
+				</div>
+			</g:each>
 			<div class="template-group span4">
 				<iframe class="template-iframe" src="http://www.google.co.uk" frameborder="1" scrolling="no"></iframe>
 				<div class="statistic">

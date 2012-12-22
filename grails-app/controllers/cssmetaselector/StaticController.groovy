@@ -7,7 +7,7 @@ class StaticController {
     def scaffold = Static
 	
 	def welcome = {
-		render(view: "welcome", model: [templates: Template.list(max: 5)])	
+		render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9)])	
 	}
 	
 	def getSkeletons = {

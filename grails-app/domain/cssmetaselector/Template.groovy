@@ -11,6 +11,7 @@ class Template {
 	String format
 	String cssTemplate
 	String testSnippet
+	Integer views
 	static belongsTo = [user:User]
 	
 	static mapping = {
@@ -27,6 +28,7 @@ class Template {
 		format(nullable: false, blank: false)
 		cssTemplate(nullable: false, blank: false)
 		testSnippet(nullable: true, blank: true)
+		views(nullable: true, blank: true)
 		user()
     }
 }
