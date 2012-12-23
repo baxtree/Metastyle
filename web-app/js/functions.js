@@ -92,7 +92,7 @@ function lookUpPrefix(targetURI) {
 	"text");
 }
 
-function transform(originFormat, template, targetedType, prefix){
+function transform(originFormat, template, targetedType, prefix, eid, bid){
 //	alert(template);
 	if(originFormat == "Microdata"){
 		$.post("../transformMicrodataIntoRDFaLite",
@@ -100,6 +100,8 @@ function transform(originFormat, template, targetedType, prefix){
 				function(rcss) {
 					cssta.setValue(rcss);
 					cssta.save();
+					$("#" + eid).hide();
+					$("#" + bid).show();
 					$("#snippetDiv").hide();
 					$("#previewDiv").hide();
 				},
@@ -111,6 +113,8 @@ function transform(originFormat, template, targetedType, prefix){
 				function(mcss) {
 					cssta.setValue(mcss);
 					cssta.save();
+					$("#" + eid).hide;
+					$("#" + bid).show();
 					$("#snippetDiv").hide();
 					$("#previewDiv").hide();
 				},

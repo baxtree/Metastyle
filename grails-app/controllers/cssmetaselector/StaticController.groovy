@@ -101,7 +101,7 @@ class StaticController {
 	}
 	
 	def showSnippet = {
-		println "template id:" + params.id
+//		println "template id:" + params.id
 		def template = Template.get(params.id)
 		def snippet = "";
 		snippet += 	"<style type='text/css'>" +
@@ -109,5 +109,14 @@ class StaticController {
 					"</style>";
 		snippet += template.testSnippet;
 		render(text: snippet, status: 200)
+	}
+	
+	def likeTemplate = {
+		def template = Template.get(params.id)
+		template.likes = template.likes + 1
+		if(!template.save(flush: true)){
+			template.errors.each{print it}
+		}
+		redirect(controller: "static", action: "welcome")
 	}
 }

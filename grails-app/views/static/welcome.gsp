@@ -82,11 +82,13 @@
 		<div class="template-thumbnails span12">
 			<g:each var="rtempl" in="${ recent }">
 				<div class="template-group span4">
-					<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no"></iframe>
+					<g:link controller="template" action="showTemplate" id="${ rtempl.id }">
+						<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no"></iframe>
+					</g:link>
 					<div class="statistic">
 						<span class="stat-user"><i class="icon-user"></i>${ rtempl.user.username }</span>
 						<span class="stat-views"><i class="icon-eye-open"></i>${ rtempl.views }</span>
-						<span class="stat-like"><g:link controller="static" action="like" id="template-id"><i class="icon-star"></i><img src="" alt="like" /></g:link></span>
+						<span class="stat-like"><g:link controller="static" action="likeTemplate" id="${ rtempl.id }"><i class="icon-star"></i></g:link>${ rtempl.likes }</span>
 					</div>
 				</div>
 			</g:each>

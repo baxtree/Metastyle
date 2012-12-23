@@ -23,15 +23,8 @@ class TemplateController {
 			tem_prefix: template.prefix,
 			tem_contributor: template.user.username,
 			tem_views: template.views,
+			tem_likes: template.likes,
 			tem_testSnippet: template.testSnippet])	
-	}
-	
-	def likeTemplate = {
-		def template = Template.get(params.id)
-		template.likes = template.likes + 1
-		if(!template.save(flush: true)){
-			template.errors.each{print it}	
-		}	
 	}
 	
 	def transformMicrodataIntoRDFaLite = {

@@ -63,15 +63,21 @@
 	</div>
 </div>
 <div class="row offset3 control-group">
+	<label class="control-label" for="views">Views:</label>
+	<div class="offset1 controls">
+		<span id="views">${ tem_views }</span>
+	</div>
+</div>
+<div class="row offset3 control-group">
 	<label class="control-label" for="contributor">Contributor:</label>
 	<div class="offset1 controls">
 		<span id="contributor">${ tem_contributor }</span>
 	</div>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="views">Views:</label>
+	<label class="control-label" for="stars">Stars:</label>
 	<div class="offset1 controls">
-		<span id="views">${ tem_views }</span>
+		<span id="stars">${ tem_likes }</span>
 	</div>
 </div>
 <div class="row offset3 control-group">
@@ -79,12 +85,20 @@
 	<div class="controls">
 		<textarea class="span9" rows="30" id="template_txt" readonly>${ template }</textarea>
 		<button class="btn btn-primary" id="copy" type="button">Copy to clipboard</button>
-		<button class="btn btn-primary" id="transform" type="button" onclick='transform("${ tem_format }", "${ tem_oneline }", "${ tem_targetedType }", "${ tem_prefix }");'>
+		<button class="btn btn-primary" id="transform" type="button" onclick='transform("${ tem_format }", "${ tem_oneline }", "${ tem_targetedType }", "${ tem_prefix }", "transform", "back");'>
 			<g:if test="${ tem_format == 'Microdata' }">
 				Get equivalent CSS for RDFa Lite		
 			</g:if>
 			<g:else>
 				Get equivalent CSS for Microdata
+			</g:else>
+		</button>
+		<button class="btn btn-primary" id="back" type="button" onclick="document.location.reload(false);" style="display:none;">
+			<g:if test="${ tem_format == 'Microdata' }">
+				Go back to CSS for Microdata		
+			</g:if>
+			<g:else>
+				Go back to CSS for RDFa Lite
 			</g:else>
 		</button>
 	</div>
