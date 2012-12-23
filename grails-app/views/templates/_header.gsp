@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Cache-Control" content="No-Cache">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="cache-control" content="no-cache" />
 <title>Metastyle</title>
 	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'jquery-ui-1.9.1.custom.css')}">
 	<script src="${resource(dir:'js', file:'jquery-1.8.2.js')}"></script>
