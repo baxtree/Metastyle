@@ -7,7 +7,23 @@ class StaticController {
     def scaffold = Static
 	
 	def welcome = {
-		render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9)])	
+		render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"tstamp", order: "desc")])	
+	}
+	
+	def welcome2 = {
+		render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"views", order: "desc")])		
+	}
+	
+	def proxy2 = {
+		redirect(controller: "static", action: "welcome2", fragment: "mostviews")	
+	}
+	
+	def welcome3 = {
+		render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"likes", order: "desc")])
+	}
+	
+	def proxy3 = {
+		redirect(controller: "static", action: "welcome3", fragment: "popular")
 	}
 	
 	def getSkeletons = {

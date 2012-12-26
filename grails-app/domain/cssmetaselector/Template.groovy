@@ -13,6 +13,8 @@ class Template {
 	String testSnippet
 	int views
 	int likes
+	String tstamp
+	
 	static belongsTo = [user:User]
 	
 	static mapping = {
@@ -31,6 +33,7 @@ class Template {
 		testSnippet(nullable: true, blank: true)
 		views(nullable: true, blank: true)
 		likes(nullable: true, blank: true)
+		tstamp(nullable: true, blank: true)
 		user()
     }
 }

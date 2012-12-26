@@ -65,13 +65,28 @@
 					        <div class="container">
 					          <div class="nav-collapse collapse">
 					            <ul class="nav">
-					              <li class="active">
-					                <g:link controller="static" action="showRecent">Recent</g:link>
+					              <li id="group-recent" class="active">
+					                <a id="recent" href="welcome#recent">Recent</a>
 					              </li>
-					              <li class="">
-					                <g:link controller="static" action="showPopular">Popular</g:link>
+					               <li id="group-most-views">
+					                <a id="mostviews" href="proxy2">Most Views</a>
+					              </li>
+					              <li id="group-popular">
+					                <a id="popular" href="proxy3">Popular</a>
 					              </li>
 					            </ul>
+					            <g:javascript>
+					            	if(document.location.hash == "#mostviews") {
+					            		document.getElementById("group-recent").removeAttribute("class");
+					            		document.getElementById("group-popular").removeAttribute("class");
+					            		document.getElementById("group-most-views").setAttribute("class", "active");
+					            	}
+					            	else if(document.location.hash == "#popular") {
+					            		document.getElementById("group-recent").removeAttribute("class");
+					            		document.getElementById("group-most-views").removeAttribute("class");
+					            		document.getElementById("group-popular").setAttribute("class", "active");
+					            	}
+					            </g:javascript>
 					          </div>
 					        </div>
 					    </div>

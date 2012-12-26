@@ -68,7 +68,8 @@ class UserController {
 			redirect(controller: "static", action: "login")	
 		}	
 		else{
-			def cssTemplate = new Template(typeURI: params.tem_targetedType, contextURL: params.tem_schema, baseURI: "empty", prefix: params.tem_prefix, format: params.tem_format, cssTemplate: params.tem_template, testSnippet: params.testSnippet, views: 0, likes: 0, user: session.user)
+			def dt = new Date().getTime().toString()
+			def cssTemplate = new Template(typeURI: params.tem_targetedType, contextURL: params.tem_schema, baseURI: "empty", prefix: params.tem_prefix, format: params.tem_format, cssTemplate: params.tem_template, testSnippet: params.testSnippet, views: 0, likes: 0, tstamp: dt, timeuser: session.user)
 			session.user.templates.add(cssTemplate)
 			if(!session.user.save(flush: true)){
 				session.user.errors.each{ println it }
