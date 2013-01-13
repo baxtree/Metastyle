@@ -69,7 +69,7 @@
 					                <a id="recent" href="welcome#recent">Recent</a>
 					              </li>
 					               <li id="group-most-views">
-					                <a id="mostviews" href="proxy2">Most Views</a>
+					                <a id="mostviews" href="proxy2">Views</a>
 					              </li>
 					              <li id="group-popular">
 					                <a id="popular" href="proxy3">Popular</a>
@@ -97,13 +97,12 @@
 		<div class="template-thumbnails span12">
 			<g:each var="rtempl" in="${ recent }">
 				<div class="template-group span4">
-					<g:link controller="template" action="showTemplate" id="${ rtempl.id }">
-						<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no"></iframe>
-					</g:link>
+					<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no"></iframe>
 					<div class="statistic">
 						<span class="stat-user"><i class="icon-user"></i>${ rtempl.user.username }</span>
 						<span class="stat-views"><i class="icon-eye-open"></i>${ rtempl.views }</span>
 						<span class="stat-like"><g:link controller="static" action="likeTemplate" id="${ rtempl.id }"><i class="icon-star"></i></g:link>${ rtempl.likes }</span>
+						<span class="see-the-page"><g:link controller="template" action="showTemplate" id="${ rtempl.id }">go to the page</g:link></span>
 					</div>
 				</div>
 			</g:each>

@@ -3,7 +3,7 @@ package cssmetaselector
 class Template {
 	
 //	static searchable = true
-	String id
+//	String id
 	String typeURI
 	String contextURL
 	String baseURI
@@ -11,19 +11,18 @@ class Template {
 	String format
 	String cssTemplate
 	String testSnippet
+	String tstamp
 	int views
 	int likes
-	String tstamp
-	
 	static belongsTo = [user:User]
 	
 	static mapping = {
 		table "template"
 		cssTemplate type: "text"
-		testSnippet type: "text"	
+		testSnippet type: "text"
 	}
 
-    static constraints = {
+	static constraints = {
 		typeURI(nullable: false, blank: false)
 		contextURL(nullable: false, blank: false)
 		baseURI(nullable: true)
@@ -31,9 +30,9 @@ class Template {
 		format(nullable: false, blank: false)
 		cssTemplate(nullable: false, blank: false)
 		testSnippet(nullable: true, blank: true)
+		tstamp(nullable: true, blank: true)
 		views(nullable: true, blank: true)
 		likes(nullable: true, blank: true)
-		tstamp(nullable: true, blank: true)
 		user()
-    }
+	}
 }
