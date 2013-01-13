@@ -158,6 +158,7 @@ p.lead {
 	margin-top: -30px !important;
 }
 
+/*
 div.pagination {
 	text-align: center;
 }
@@ -175,7 +176,7 @@ div.pagination a.prefLink:hover {
 
 div.pagination a.prefLink:visited {
 	color: rgb(89, 92, 147) !important;
-}
+}*/
 
 .template-thumbnails {
 	height: 640px;
@@ -244,3 +245,27 @@ i {
 div.template-group a:link { text-decoration: underline; color: rgb(96, 198, 247);}
 div.template-group a:hover { text-decoration: underline; color: red !important;}
 div.template-group a:visited {text-decoration: underline; color: rgb(96, 198, 247);}
+
+span.currentStep, a.step, a.nextLink, a.prevLink {
+  float: left;
+  padding: 0 14px;
+  margin: 20px 5px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-left-width: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+span.currentStep {
+	color: gray;
+}
