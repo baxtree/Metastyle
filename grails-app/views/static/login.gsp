@@ -34,5 +34,9 @@
     		<span class="warning span3">${ flash.message }</span>
     	</g:if>	
 		<g:render template="../templates/login" />
+		<hr>
+		<div class="github-button span3 offset5">
+			<g:link controller="static" action="signInWithGithub"><span class="github-signin"><i class="icon-github"></i>&nbsp;Sign in with Github</span></g:link>
+		</div>
 	</g:if>
 <g:render template="../templates/footer"></g:render>

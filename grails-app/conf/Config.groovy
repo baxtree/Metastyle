@@ -48,9 +48,6 @@ grails.logging.jul.usebridge = true
 // packages to include in Spring bean scanning
 grails.spring.bean.packages = []
 
-grails.plugins.twitterbootstrap.fixtaglib = true
-grails.plugins.twitterbootstrap.defaultBundle = 'bundle_bootstrap'
-
 // set per-environment serverURL stem for creating absolute links
 //environments {
 //    production {
@@ -102,3 +99,13 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+//oauth {
+//	github {
+//		requestTokenUrl="https://github.com/login/oauth/request_token"
+//		accessTokenUrl="https://github.com/login/oauth/access_token"
+//		authUrl = 'https://github.com/login/oauth/authorize'
+//		consumer.key = '8f0c28fd94cf6351ff84'
+//		consumer.secret = 'eb1e81d6e0842e7ef7a0053744eaa9e170d7061f'
+//	}	
+//}
