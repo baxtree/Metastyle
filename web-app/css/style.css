@@ -246,6 +246,10 @@ div.template-group a:link { text-decoration: underline; color: rgb(96, 198, 247)
 div.template-group a:hover { text-decoration: underline; color: red !important;}
 div.template-group a:visited {text-decoration: underline; color: rgb(96, 198, 247);}
 
+#main_content a:link { text-decoration: underline; color: rgb(96, 198, 247);}
+#main_content a:hover { text-decoration: underline; color: red !important;}
+#main_content a:visited {text-decoration: underline; color: rgb(96, 198, 247);}
+
 span.currentStep, a.step, a.nextLink, a.prevLink {
   float: left;
   padding: 0 14px;

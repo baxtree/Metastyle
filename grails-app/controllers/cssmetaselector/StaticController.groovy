@@ -1,17 +1,18 @@
 package cssmetaselector
 
-import java.util.Scanner;
+import grails.converters.JSON
 
-import org.scribe.builder.ServiceBuilder;
-import org.scribe.model.OAuthRequest;
-import org.scribe.model.Response;
-import org.scribe.model.Token;
-import org.scribe.model.Verb;
-import org.scribe.model.Verifier;
-import org.scribe.oauth.OAuthService;
-import org.scribe.model.Token;
-import css.annotation.GithubApi;
-import css.annotation.CSSTemplate;
+import org.codehaus.groovy.grails.web.json.JSONElement
+import org.scribe.builder.ServiceBuilder
+import org.scribe.model.OAuthRequest
+import org.scribe.model.Response
+import org.scribe.model.Token
+import org.scribe.model.Verb
+import org.scribe.model.Verifier
+import org.scribe.oauth.OAuthService
+
+import css.annotation.CSSTemplate
+import css.annotation.GithubApi
 
 
 class StaticController {
@@ -145,24 +146,25 @@ class StaticController {
 		if(!template.save(flush: true)){
 			template.errors.each{print it}
 		}
-		redirect(controller: "static", action: "welcome")
+		redirect(controller: "template", action: "showTemplate", id: params.id)
 	}
 	
-	def signInWithGithub = {
-		String NETWORK_NAME = "Github";
-		String PROTECTED_RESOURCE_URL = "https://api.github.com/user";
-		Token EMPTY_TOKEN = null;
-		// Replace these with your own api key and secret
-		String apiKey = "8f0c28fd94cf6351ff84";
-		String apiSecret = "eb1e81d6e0842e7ef7a0053744eaa9e170d7061f";
-		OAuthService service = new ServiceBuilder()
-									  .provider(GithubApi.class)
-									  .apiKey(apiKey)
-									  .apiSecret(apiSecret)
-									  .callback("http://localhost:8080/metastyle/static/oauthcallback")
-									  .build();
-		Scanner sysin = new Scanner(System.in);
+	String NETWORK_NAME = "Github";
+	String PROTECTED_RESOURCE_URL = "https://api.github.com/user";
+	Token EMPTY_TOKEN = null;
+	// Replace these with your own api key and secret
+	String apiKey = "8f0c28fd94cf6351ff84";
+	String apiSecret = "eb1e81d6e0842e7ef7a0053744eaa9e170d7061f";
+	OAuthService service = new ServiceBuilder()
+	.provider(GithubApi.class)
+	.apiKey(apiKey)
+	.apiSecret(apiSecret)
+	.scope("user.email")
+	.callback("http://127.0.0.1:8080/metastyle/static/oauthcallback")
+	.build();
 	
+	def signInWithGithub = {
+
 		System.out.println("=== " + NETWORK_NAME + "'s OAuth Workflow ===");
 		System.out.println();
 	
@@ -170,35 +172,74 @@ class StaticController {
 		System.out.println("Fetching the Authorization URL...");
 		String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
 		System.out.println("Got the Authorization URL!");
-		System.out.println("Now go and authorize Scribe here:");
 		System.out.println(authorizationUrl);
-		System.out.println("And paste the authorization code here");
-		System.out.print(">>");
-		Verifier verifier = new Verifier(sysin.nextLine());
-		System.out.println();
-		
-		// Trade the Request Token and Verfier for the Access Token
-		System.out.println("Trading the Request Token for an Access Token...");
-		Token accessToken = service.getAccessToken(EMPTY_TOKEN, verifier);
-		System.out.println("Got the Access Token!");
-		System.out.println("(if your curious it looks like this: " + accessToken + " )");
-		System.out.println();
-	
-		// Now let's go and ask for a protected resource!
-		System.out.println("Now we're going to access a protected resource...");
-		OAuthRequest request = new OAuthRequest(Verb.GET, PROTECTED_RESOURCE_URL);
-		service.signRequest(accessToken, request);
-		Response response = request.send();
-		System.out.println("Got it! Lets see what we found...");
-		System.out.println();
-		System.out.println(response.getCode());
-		System.out.println(response.getBody());
-	
-		System.out.println();
-		System.out.println("Thats it man! Go and build something awesome with Scribe! :)");
+		System.out.println("Now go to the authorizing page ...");
+		redirect(url: authorizationUrl)
 	}
 	
 	def oauthcallback = {
-		println oauthcallback
+		if(params.code == null){
+			redirect(controller:"static", action:"register")
+		}
+		else {
+			System.out.println("Got the code in the callback: " + params.code.toString());
+			Verifier verifier = new Verifier(params.code.toString());
+			System.out.println("Verifier: " + verifier.inspect());
+			
+			// Trade the Request Token and Verfier for the Access Token
+			System.out.println("Trading the Request Token for an Access Token...");
+			Token accessToken = service.getAccessToken(EMPTY_TOKEN, verifier);
+			System.out.println("Got the Access Token!");
+			System.out.println("(if your curious it looks like this: " + accessToken + " )");
+			System.out.println();
+		
+			// Now let's go and ask for a protected resource!
+			System.out.println("Now we're going to access a protected resource...");
+			OAuthRequest request = new OAuthRequest(Verb.GET, PROTECTED_RESOURCE_URL);
+			service.signRequest(accessToken, request);
+			Response response = request.send();
+			System.out.println("Got it! Lets see what we found...");
+			System.out.println();
+			System.out.println("Response Code: " + response.getCode());
+			System.out.println("Response Body: " + response.getBody());
+			if(response.getCode() != 200){
+				flash.message = "Github authentication failed (code: $response.getCode())."
+				redirect(controller:"static", action:"register")
+			}
+			else{
+				System.out.println();
+				System.out.println("Authentication successful!");
+				
+				JSONElement profile = JSON.parse(response.getBody())
+				def githubID = profile.id.toString() + "@github.com"
+				def githubUsername = profile.login.toString()
+				
+				def user = User.findByUsernameAndEmail(githubUsername, githubID)
+				if(user){
+					println "number of templates: " + user.templates.size()
+					flash.message = "Hello ${user.username}!"
+					session.user = user
+					redirect(controller:"user", action:"showTemplates")
+				}
+				else{
+					user = new User(
+							username: githubUsername,
+							fullName: null,
+							email: githubID,
+							password: null,
+							templates: []
+					)
+					if(!user.save(flush:true)){
+						user.errors.each{ print it }
+					}
+					if(user.save(flush:true)){
+						println "user created in MySQL!"
+					}
+					flash.message = "Hello ${user.username}!"
+					session.user = user
+					redirect(controller:"user", action:"showTemplates")
+				}
+			}
+		}
 	}
 }

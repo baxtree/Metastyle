@@ -16,6 +16,7 @@ class TemplateController {
 		}
 		render(view: "template-view", model: [
 			template: template.cssTemplate,
+			tem_id: params.id,
 			tem_oneline: oneline,
 			tem_targetedType: template.typeURI,
 			tem_schema: template.contextURL,

@@ -30,14 +30,14 @@ class UserController {
 	}
 	
 	def userRegister = {
-		def user = User.findByUsername(params.username)
+		def user = User.findByEmail(params.email)
 		if(user){
-			flash.message = "User ${params.username} already exists."
-			println "User ${params.username} already exists."
+			flash.message = "User with the email ${params.email} already exists."
+			println "User with the email ${params.email} already exists."
 			redirect(controller:"static", action:"register")
 		}
 		else{
-			if(params.password == params.repassword){
+			if(params.password == params.repassword && params.password != null && params.password.size() >= 8){
 				user = new User(
 						username: params.username,
 						fullName: params.fullName,
@@ -56,7 +56,7 @@ class UserController {
 				redirect(controller:"user", action:"showTemplates")
 			}
 			else{
-				flash.message = "Passwords do not match. Try again."
+				flash.message = "Passwords do not match or their lengths are less than 8. Try again."
 				println "Passwords do not match. Try again."
 				redirect(controller:"static", action:"register")
 			}

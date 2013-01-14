@@ -77,7 +77,7 @@
 <div class="row offset3 control-group">
 	<label class="control-label" for="stars">Stars:</label>
 	<div class="offset1 controls">
-		<span id="stars">${ tem_likes }</span>
+		<span class="stat-like"><g:link controller="static" action="likeTemplate" id="${ tem_id }"><i class="icon-star"></i></g:link><span id="stars">${ tem_likes }</span></span>
 	</div>
 </div>
 <div class="row offset3 control-group">

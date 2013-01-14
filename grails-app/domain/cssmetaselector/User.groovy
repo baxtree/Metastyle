@@ -16,7 +16,7 @@ class User {
 		username(nullable: false)
 		fullname(nullable: true)
 		email(nullable: false, blank: false, email: true)
-		password(nullable: false, blank: false, password: true)		
+		password(nullable: true, blank: true, password: true)		
 		templates()
     }
 }
