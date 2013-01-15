@@ -200,13 +200,18 @@ div.pagination a.prefLink:visited {
 	background-color: rgba(91, 145, 205, 2);
 	margin-left: 10px;
 	margin-top: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
 }
 
 .template-iframe {
 	width: 280px;
 	heigth: 220px;
-	margin-top: 5px;
-	margin-left: 8px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
 	background-color: white;
 }
 
@@ -280,6 +285,23 @@ div.github-button {
 }
 
 span.github-signin {
+	font-size: 16px;
+	background-color: rgb(96, 198, 247);
+	width: 300px;
+	height: 35px;
+	padding: 15px 30px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+div.google-button {
+	margin-top: 50px;
+	margin-left: 440px;
+}
+
+span.google-signin {
 	font-size: 16px;
 	background-color: rgb(96, 198, 247);
 	width: 300px;
