@@ -17,16 +17,16 @@ public class CSSTemplate {
 	private OntModel ontModel;
 	
 	public CSSTemplate(String url){
-//		try{
-//			String vocabDomain = (new URL(url)).getHost();
+		try{
+			String vocabDomain = (new URL(url)).getHost();
 			model = RDFModelLoader.loadTriplesFromURL(url);
-//			ontModel = ModelFactory.createOntologyModel(OntModelSpec.RDFS_MEM_RDFS_INF);
+			ontModel = ModelFactory.createOntologyModel(OntModelSpec.RDFS_MEM_RDFS_INF);
 			ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF); //deal with owl:unionOf
 			ontModel.add(model);
-//		}
-//		catch(MalformedURLException murle){
-//			murle.printStackTrace();
-//		}
+		}
+		catch(MalformedURLException murle){
+			murle.printStackTrace();
+		}
 	}
 	
 	public String getCSSSkeletonByClass(String flag, String prefix, OntClass c){

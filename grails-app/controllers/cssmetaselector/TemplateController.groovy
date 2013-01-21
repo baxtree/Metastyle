@@ -29,7 +29,6 @@ class TemplateController {
 	}
 	
 	def transformMicrodataIntoRDFaLite = {
-		println "here"
 		def mCSSStr = params.mcss
 		def prefix = params.prefix
 		def targetedType = params.targetedType

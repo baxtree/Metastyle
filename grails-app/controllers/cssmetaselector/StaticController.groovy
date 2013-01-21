@@ -55,7 +55,14 @@ class StaticController {
 	}
 	
 	def generateTemplate = {
-		CSSTemplate csst = new CSSTemplate(params.schema)
+		CSSTemplate csst
+		try{
+			csst = new CSSTemplate(params.schema)
+		}
+		catch(Exception e){
+			flash.message = "File loading error. Please check the availability of the vocab and its syntax"
+			redirect(controller : "static", action : "getSkeleton")	
+		}
 		def templateStr = csst.getCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
 		render(view: "style-skeletons", model: [
 			template: templateStr,
@@ -402,5 +409,11 @@ class StaticController {
 				redirect(controller:"static", action:"register");
 			}
 		}
+	}
+	
+	def showGuestTemplate = {
+		println "User ID: " + params.id
+		def guestUser = User.get(params.id)
+		render(view: "guest-templates", model: [templates : guestUser.templates, username : guestUser.username])
 	}
 }

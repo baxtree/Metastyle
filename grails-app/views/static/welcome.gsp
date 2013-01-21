@@ -99,7 +99,7 @@
 				<div class="template-group span4">
 					<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no"></iframe>
 					<div class="statistic">
-						<span class="stat-user"><i class="icon-user"></i>${ rtempl.user.username }</span>
+						<span class="stat-user"><i class="icon-user"></i><g:link controller="static" action="showGuestTemplate" id="${ rtempl.user.id }">${ rtempl.user.username }</g:link></span>
 						<span class="stat-views"><i class="icon-eye-open"></i>${ rtempl.views }</span>
 						<span class="stat-like"><g:link controller="static" action="likeTemplate" id="${ rtempl.id }"><i class="icon-star"></i></g:link>${ rtempl.likes }</span>
 						<span class="see-the-page"><g:link controller="template" action="showTemplate" id="${ rtempl.id }">template</g:link></span>

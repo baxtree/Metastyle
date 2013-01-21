@@ -79,6 +79,9 @@ $(document).ready(function(){
 			</div>
 			<div class="row offset1">
 				<button id="getStyleTemplate" class="btn btn-large btn-primary" type="button" onclick="generateSkeleton();">Get the Style Template</button>
+				<g:if test="${ flash.message }">
+	   				<span class="warning span3">${ flash.message }</span>
+	   			</g:if>	
 				<div id="loadingbar" class="span4 offset2 progress progress-info progress-striped active" style="display: none;">
     				<div class="bar" style="width: 100%"></div>
     			</div>
