@@ -16,6 +16,7 @@ html {
 body {
 	background-image: url(../images/bg-image.jpg);
 	color: #E8E8E8;
+	height: 800px;
 }
 
 ul.navbar {

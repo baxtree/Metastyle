@@ -70,5 +70,7 @@
 			    	</div>
 			    </div>
     		</g:form>
+    		<hr>
+			<g:render template="../templates/oauth" />
 	</section>
 <g:render template="../templates/footer"></g:render>
