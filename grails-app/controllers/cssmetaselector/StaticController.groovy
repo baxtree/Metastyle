@@ -1,4 +1,4 @@
-package cssmetaselector
+	package cssmetaselector
 
 import java.util.Scanner;
 
@@ -163,10 +163,13 @@ class StaticController {
 	
 	OAuthService github_service = new ServiceBuilder()
 		.provider(GithubApi.class)
-		.apiKey("8f0c28fd94cf6351ff84")
-		.apiSecret("eb1e81d6e0842e7ef7a0053744eaa9e170d7061f")
+//		.apiKey("8f0c28fd94cf6351ff84") 						//localhost
+		.apiKey("5443bf5f834aee115784")							//demos.inf.ed.ac.uk:8836
+//		.apiSecret("eb1e81d6e0842e7ef7a0053744eaa9e170d7061f")	//localhost
+		.apiSecret("8af7c7409ba15e9b4d15d89baa9b13da1335e4bc")	//demos.inf.ed.ac.uk:8836
 		.scope("user.email")
-		.callback("http://127.0.0.1:8080/metastyle/static/oauthcallback")
+//		.callback("http://127.0.0.1:8080/metastyle/static/oauthcallback")
+		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauthcallback")
 		.build();
 	
 	def signInWithGithub = {
@@ -256,10 +259,13 @@ class StaticController {
 	
 	OAuthService google_service = new ServiceBuilder()
 		.provider(GoogleApi.class)
-		.apiKey("1087997739736-kq7tc9lc8q92bedh4s0v2l1lnbkdbu3u.apps.googleusercontent.com")
-		.apiSecret("RH9NDZDQaUXTmxjBnXlL3Rtt")
+//		.apiKey("1087997739736-kq7tc9lc8q92bedh4s0v2l1lnbkdbu3u.apps.googleusercontent.com")	//localhost
+		.apiKey("1087997739736-imh6qfge200a0ie080hvbnbcujp6vg90.apps.googleusercontent.com")	//demos.inf.ed.ac.uk:8836
+//		.apiSecret("RH9NDZDQaUXTmxjBnXlL3Rtt")													//localhost
+		.apiSecret("TZbTJr_ngZYYC90pB2qY49Yi")													//demos.inf.ed.ac.uk:8836								
 		.scope("https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email")
-		.callback("http://127.0.0.1:8080/metastyle/static/oauth2callback")
+//		.callback("http://127.0.0.1:8080/metastyle/static/oauth2callback")
+		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauth2callback")
 		.build();
 	
 	def signInWithGoogle = {

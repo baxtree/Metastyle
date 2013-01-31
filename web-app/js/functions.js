@@ -71,6 +71,7 @@ function recoverTemplate(cssta, htmlta) {
 			var data = $("#template-generation").serializeArray();
 			$.each(data, function(i, obj) {
 				$("[name='" + obj.name + "']").val(localStorage.getItem(obj.name));
+				localStorage.removeItem(obj.name)
 			});
 			cssta.setValue(document.getElementById("template_txt").value);
 			htmlta.setValue(document.getElementById("testSnippet").value);
