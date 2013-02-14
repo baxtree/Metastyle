@@ -17,7 +17,7 @@
 					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Micro-Themes</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />
@@ -32,7 +32,7 @@
 	<section id="main-container">
 		<div id="search-panel" class="span10 offset2">
 			<div class="row search-bar-label">
-				<label class="span" for="form-search"><i class="icon-search"></i> Search existing templates:</label>
+				<label class="span" for="form-search"><i class="icon-search"></i> Search existing micro-themes:</label>
 			</div>
 			<div class="row">
 			    <g:form id="form-search" class="form-search offset1" url="[controller: 'static', action: 'searchTemplate']">
@@ -185,7 +185,7 @@
       <div class="span4">
         <img src="">
         <h2><i class="icon-folder-open"></i>&nbsp;&nbsp;Templates</h2>
-        <p>Check the most used templates:</p>
+        <p>Check the most used micro-themes:</p>
         <g:each var="template" in="${ templates }">
         	<p>[${ template.format }] <g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
         </g:each>

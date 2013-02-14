@@ -17,7 +17,7 @@
 					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="active">
-					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Micro-Themes</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />
@@ -43,9 +43,9 @@
 			<g:if test="${ flash.message }">
 				<span class="warning span3">${ flash.message }</span>
 			</g:if>
-			<div class="offset3">Welcome back, ${ session.user.username }! The following are your templates (${ session.user.templates.size() } in total):</div>
+			<div class="offset3">Welcome back, ${ session.user.username }! The following are your micro-themes (${ session.user.templates.size() } in total):</div>
 			<g:each var="template" in="${ session.user.templates }">
-				<div class="offset3"><g:link controller="template" action="showTemplate" id="${ template.id }">CSS template for ${ template.typeURI } in ${ template.format }</g:link></div>
+				<div class="offset3"><g:link controller="template" action="showTemplate" id="${ template.id }">Micro-theme for ${ template.typeURI } in ${ template.format }</g:link></div>
 			</g:each>
 		</g:else>
 	</section>

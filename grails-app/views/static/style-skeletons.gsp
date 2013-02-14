@@ -29,7 +29,7 @@ $(document).ready(function(){
 					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Micro-Themes</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />
@@ -78,7 +78,7 @@ $(document).ready(function(){
 				</label>
 			</div>
 			<div class="row offset1">
-				<button id="getStyleTemplate" class="btn btn-large btn-primary" type="button" onclick="generateSkeleton();">Get the Style Template</button>
+				<button id="getStyleTemplate" class="btn btn-large btn-primary" type="button" onclick="generateSkeleton();">Get the Micro-Theme Skeleton</button>
 				<g:if test="${ flash.message }">
 	   				<span class="warning span3">${ flash.message }</span>
 	   			</g:if>	

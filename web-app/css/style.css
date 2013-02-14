@@ -15,7 +15,7 @@ html {
 
 body {
 	background-image: url(../images/bg-image.jpg);
-	color: #E8E8E8;
+	color: black;
 	height: 800px;
 }
 
@@ -65,6 +65,10 @@ ul.navbar {
 #template_txt, #testSnippet {
 	font-size: 12px;
 	line-height: 12px;
+}
+
+.CodeMirror-gutter {
+	background-color: rgb(255, 255, 255) !important;
 }
 
 #preview {
