@@ -46,13 +46,13 @@ $(document).ready(function(){
 			<div class="row control-group">
 				<label class="control-label" for="targetedType">Targeted Type:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="http://schema.org/Person" onBlur="lookUpPrefix(this.value);">
+					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="" onBlur="lookUpPrefix(this.value);">
 				</div>
 			</div>
 			<div class="row control-group">
 				<label class="control-label" for="schema">Schema File (RDF):</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="schema" name="schema" placeholder="e.g., http://schema.rdfs.org/all.rdf, http://xmlns.com/foaf/spec/index.rdf ..." value="http://schema.rdfs.org/all.rdf">
+					<input class="input-xxlarge" type="text" id="schema" name="schema" placeholder="e.g., http://schema.rdfs.org/all.rdf, http://xmlns.com/foaf/spec/index.rdf ..." value="">
 				</div>
 			</div>
 			<div class="row control-group" style="display: none;">
@@ -64,7 +64,7 @@ $(document).ready(function(){
 			<div class="row control-group">
 				<label class="control-label" for="prefix">Prefix:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="prefix" name="prefix" placeholder="e.g., schema, foaf (for HTML5 Microdata, this field will be ignored) ..." value="schema">
+					<input class="input-xxlarge" type="text" id="prefix" name="prefix" placeholder="e.g., schema, foaf (for HTML5 Microdata, this field will be ignored) ..." value="">
 				</div>
 			</div>
 			<div class="row offset1">
