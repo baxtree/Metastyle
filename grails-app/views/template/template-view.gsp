@@ -25,7 +25,7 @@
 					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Micro-Themes</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />
@@ -39,33 +39,39 @@
 	</section>
 <section id="main_content">
 <div class="row offset3 control-group">
-	<label class="control-label" for="targetedType">Targeted Type:</label>
+	<label class="control-label" for="targetedType">Target Type:</label>
 	<span class="offset1 controls">
-		<span id="targetedType">${ tem_targetedType }</span>
+		<span id="targetedType"><a href="${ tem_targetedType }">${ tem_targetedType }</a></span>
 	</span>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="schema">Schema File:</label>
+	<label class="control-label" for="schema">Target Schema:</label>
 	<div class="offset1 controls">
-		<span id="schema">${ tem_schema }</span>
+		<span id="schema"><a href="${ tem_schema }">${ tem_schema }</a></span>
 	</div>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="prefix">Prefix:</label>
+	<label class="control-label" for="prefix">Schema Prefix:</label>
 	<div class="offset1 controls">
 		<span id="prefix">${ tem_prefix }</span>
 	</div>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="format">Format:</label>
+	<label class="control-label" for="format">Embedding Format:</label>
 	<div class="offset1 controls">
 		<span id="format">${ tem_format }</span>
 	</div>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="views">Views:</label>
+	<label class="control-label" for="views">No. of Views:</label>
 	<div class="offset1 controls">
 		<span id="views">${ tem_views }</span>
+	</div>
+</div>
+<div class="row offset3 control-group">
+	<label class="control-label" for="stars">No. of Stars:</label>
+	<div class="offset1 controls">
+		<span class="stat-like"><g:link controller="static" action="likeTemplate" id="${ tem_id }"><i class="icon-star"></i></g:link><span id="stars">${ tem_likes }</span></span>
 	</div>
 </div>
 <div class="row offset3 control-group">
@@ -75,13 +81,7 @@
 	</div>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="stars">Stars:</label>
-	<div class="offset1 controls">
-		<span class="stat-like"><g:link controller="static" action="likeTemplate" id="${ tem_id }"><i class="icon-star"></i></g:link><span id="stars">${ tem_likes }</span></span>
-	</div>
-</div>
-<div class="row offset3 control-group">
-	<label class="control-label" for="template_txt">CSS Template Content:</label>
+	<label class="control-label" for="template_txt">Micro-Theme Content:</label>
 	<div class="controls">
 		<textarea class="span9" rows="30" id="template_txt" readonly>${ template }</textarea>
 		<button class="btn btn-primary" id="copy" type="button">Copy to clipboard</button>
@@ -104,13 +104,13 @@
 	</div>
 </div>
 <div id="snippetDiv" class="row offset3 control-group">
-	<label class="control-label" for="testSnippet">HTML Body Snippet:</label>
+	<label class="control-label" for="testSnippet">HTML Code Snippet:</label>
 	<div class="controls">
 		<textarea class="span9" rows="30" id="testSnippet" readonly>${ tem_testSnippet }</textarea>
 	</div>
 </div>
 <div id="previewDiv" class="row offset3 control-group">
-	<label class="control-label" for="preview">Style Preview:</label>
+	<label class="control-label" for="preview">Preview:</label>
 	<div class="controls preview">
 		<iframe id="preview" class="" width="700" height="300" frameborder="0" title="preview" onload="applyCSSTemplate()">
 		</iframe>

@@ -1,4 +1,4 @@
-<div class="github-button span3 offset5">
+<div class="github-button span4 offset5">
 	<g:link controller="static" action="signInWithGithub"><span class="github-signin"><i class="icon-github"></i>&nbsp;Sign in with Github</span></g:link>
 </div>
 <div class="google-button span4 offset5">

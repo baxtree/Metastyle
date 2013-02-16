@@ -29,7 +29,7 @@ $(document).ready(function(){
 					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Micro-Themes</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />
@@ -44,15 +44,15 @@ $(document).ready(function(){
 	<section id="main-container">
 	    <g:form id="generateTemplate" class="offset3 form-horizontal" name="generateTemplate" url="[controller: 'static', action: 'generateTemplate']">
 			<div class="row control-group">
-				<label class="control-label" for="targetedType">Targeted Type:</label>
+				<label class="control-label" for="targetedType">Target Type:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="http://schema.org/Person" onBlur="lookUpPrefix(this.value);">
+					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="" onBlur="lookUpPrefix(this.value);">
 				</div>
 			</div>
 			<div class="row control-group">
 				<label class="control-label" for="schema">Schema File (RDF):</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="schema" name="schema" placeholder="e.g., http://schema.rdfs.org/all.rdf, http://xmlns.com/foaf/spec/index.rdf ..." value="http://schema.rdfs.org/all.rdf">
+					<input class="input-xxlarge" type="text" id="schema" name="schema" placeholder="e.g., http://schema.rdfs.org/all.rdf, http://xmlns.com/foaf/spec/index.rdf ..." value="">
 				</div>
 			</div>
 			<div class="row control-group" style="display: none;">
@@ -64,7 +64,7 @@ $(document).ready(function(){
 			<div class="row control-group">
 				<label class="control-label" for="prefix">Prefix:</label>
 				<div class="controls">
-					<input class="input-xxlarge" type="text" id="prefix" name="prefix" placeholder="e.g., schema, foaf (for HTML5 Microdata, this field will be ignored) ..." value="schema">
+					<input class="input-xxlarge" type="text" id="prefix" name="prefix" placeholder="e.g., schema, foaf (for HTML5 Microdata, this field will be ignored) ..." value="">
 				</div>
 			</div>
 			<div class="row offset1">
@@ -78,7 +78,7 @@ $(document).ready(function(){
 				</label>
 			</div>
 			<div class="row offset1">
-				<button id="getStyleTemplate" class="btn btn-large btn-primary" type="button" onclick="generateSkeleton();">Get the Style Template</button>
+				<button id="getStyleTemplate" class="btn btn-large btn-primary" type="button" onclick="generateSkeleton();">Get the Micro-Theme Skeleton</button>
 				<g:if test="${ flash.message }">
 	   				<span class="warning span3">${ flash.message }</span>
 	   			</g:if>	

@@ -17,7 +17,7 @@
 					                <g:link controller="static" action="getSkeletons"><i class="icon-wrench"></i>Get Skeletons</g:link>
 					              </li>
 					              <li class="">
-					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Templates</g:link>
+					                <g:link controller="user" action="showTemplates"><i class="icon-folder-close"></i>My Micro-Themes</g:link>
 					              </li>
 					            </ul>
 					            <g:render template="../templates/authentication" />
@@ -30,7 +30,7 @@
 		</div>
 	</section>
 	<section id="main-container">
-		<div class="offset3">${ total } CSS templates found:</div>
+		<div class="offset3">${ total } micro-theme(s) found:</div>
 		<g:each var="template" in="${ templates }">
 			<div class="offset4">
 				<p><g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
