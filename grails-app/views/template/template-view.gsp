@@ -39,13 +39,13 @@
 	</section>
 <section id="main_content">
 <div class="row offset3 control-group">
-	<label class="control-label" for="targetedType">Targeted Type:</label>
+	<label class="control-label" for="targetedType">Target Type:</label>
 	<span class="offset1 controls">
 		<span id="targetedType"><a href="${ tem_targetedType }">${ tem_targetedType }</a></span>
 	</span>
 </div>
 <div class="row offset3 control-group">
-	<label class="control-label" for="schema">Targeted Schema:</label>
+	<label class="control-label" for="schema">Target Schema:</label>
 	<div class="offset1 controls">
 		<span id="schema"><a href="${ tem_schema }">${ tem_schema }</a></span>
 	</div>

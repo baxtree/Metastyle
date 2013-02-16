@@ -1,4 +1,4 @@
-	package cssmetaselector
+package cssmetaselector
 
 import java.util.Scanner;
 

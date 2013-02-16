@@ -44,7 +44,7 @@ $(document).ready(function(){
 	<section id="main-container">
 	    <g:form id="generateTemplate" class="offset3 form-horizontal" name="generateTemplate" url="[controller: 'static', action: 'generateTemplate']">
 			<div class="row control-group">
-				<label class="control-label" for="targetedType">Targeted Type:</label>
+				<label class="control-label" for="targetedType">Target Type:</label>
 				<div class="controls">
 					<input class="input-xxlarge" type="text" id="targetedType" name="targetedType" placeholder="e.g., http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." value="" onBlur="lookUpPrefix(this.value);">
 				</div>
