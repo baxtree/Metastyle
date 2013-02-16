@@ -161,6 +161,7 @@ p.copyright {
 p.lead {
 	color: rgb(96, 198, 247);
 	margin-top: -30px !important;
+	padding-top: 10px !important;
 }
 
 /*
