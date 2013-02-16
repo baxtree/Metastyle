@@ -7,3 +7,4 @@ TODO.txt
 *.war
 grails-app/conf*
 responseFromGithub.txt
+target/stacktrace.log
