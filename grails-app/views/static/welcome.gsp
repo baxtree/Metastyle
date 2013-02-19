@@ -198,14 +198,14 @@
         	<p><a href="${ typeURI }">${ typeURI }</a></p>
         </g:each>
       </div>
-      <div class="span4">
+      <!-- <div class="span4">
         <img src="">
         <h2>Skeletons</h2>
         <p>Creativity starting from here:</p>
         <p><a class="template-link" href="#">Link 1</a></p>
         <p><a class="template-link" href="#">Link 2</a></p>
         <p><a class="template-link" href="#">Link 3</a></p>
-      </div>
+      </div> -->
     </div>
 	</section>
 <g:render template="../templates/footer" />

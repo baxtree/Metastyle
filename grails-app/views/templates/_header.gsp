@@ -4,6 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="cache-control" content="no-cache" />
 <title>Metastyle</title>
+	<link rel="shortcut icon" href="${resource(dir: 'images', file: 'metastyle-favicon.png')}" type="image/png" />
 	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'jquery-ui-1.9.1.custom.css')}">
 	<script src="${resource(dir:'js', file:'jquery-1.8.2.js')}"></script>
 	<script src="${resource(dir:'js', file:'jquery.zclip.js')}"></script>

@@ -163,13 +163,16 @@ class StaticController {
 	
 	OAuthService github_service = new ServiceBuilder()
 		.provider(GithubApi.class)
-		.apiKey("8f0c28fd94cf6351ff84") 											//localhost
-//		.apiKey("5443bf5f834aee115784")												//demos.inf.ed.ac.uk:8836
-		.apiSecret("fe37330c1a1892f08f3e5c4c671af51511852d26")						//localhost
-//		.apiSecret("8af7c7409ba15e9b4d15d89baa9b13da1335e4bc")						//demos.inf.ed.ac.uk:8836
+//		.apiKey("8f0c28fd94cf6351ff84") 											//localhost
+		.apiKey("5443bf5f834aee115784")												//demos.inf.ed.ac.uk:8836
+//		.apiKey("77365495427fff4d29fa")												//southrow
+//		.apiSecret("fe37330c1a1892f08f3e5c4c671af51511852d26")						//localhost
+		.apiSecret("8af7c7409ba15e9b4d15d89baa9b13da1335e4bc")						//demos.inf.ed.ac.uk:8836
+//		.apiSecret("8689f53b7d21f56f145980334ff0a3d703dd5775")						//southrow
 		.scope("user.email")
-		.callback("http://127.0.0.1:8080/metastyle/static/oauthcallback")			//localhost
-//		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauthcallback")	//demos.inf.ed.ac.uk:8836 
+//		.callback("http://127.0.0.1:8080/metastyle/static/oauthcallback")			//localhost
+		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauthcallback")	//demos.inf.ed.ac.uk:8836 
+//		.callback("http://localhost:8080/metastyle/static/oauthcallback")			//southrow
 		.build();
 	
 	def signInWithGithub = {
@@ -259,13 +262,13 @@ class StaticController {
 	
 	OAuthService google_service = new ServiceBuilder()
 		.provider(GoogleApi.class)
-		.apiKey("1087997739736-kq7tc9lc8q92bedh4s0v2l1lnbkdbu3u.apps.googleusercontent.com")	//localhost
-//		.apiKey("1087997739736-imh6qfge200a0ie080hvbnbcujp6vg90.apps.googleusercontent.com")	//demos.inf.ed.ac.uk:8836
-		.apiSecret("RH9NDZDQaUXTmxjBnXlL3Rtt")													//localhost
-//		.apiSecret("TZbTJr_ngZYYC90pB2qY49Yi")													//demos.inf.ed.ac.uk:8836								
+//		.apiKey("1087997739736-kq7tc9lc8q92bedh4s0v2l1lnbkdbu3u.apps.googleusercontent.com")	//localhost
+		.apiKey("1087997739736-imh6qfge200a0ie080hvbnbcujp6vg90.apps.googleusercontent.com")	//demos.inf.ed.ac.uk:8836
+//		.apiSecret("RH9NDZDQaUXTmxjBnXlL3Rtt")													//localhost
+		.apiSecret("TZbTJr_ngZYYC90pB2qY49Yi")													//demos.inf.ed.ac.uk:8836								
 		.scope("https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email")
-		.callback("http://127.0.0.1:8080/metastyle/static/oauth2callback")						//localhost
-//		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauth2callback")				//demos.inf.ed.ac.uk:8836
+//		.callback("http://127.0.0.1:8080/metastyle/static/oauth2callback")						//localhost
+		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauth2callback")				//demos.inf.ed.ac.uk:8836
 		.build();
 	
 	def signInWithGoogle = {
