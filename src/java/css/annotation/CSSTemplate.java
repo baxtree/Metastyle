@@ -37,7 +37,7 @@ public class CSSTemplate {
 						"\t\r\n";
 		cSSSkeleton += 	"\t/*style for the type " + c.getLocalName() + "*/\r\n";
 		if(flag.equalsIgnoreCase("microdata"))
-			cSSSkeleton +=	"\t[itemscope][itemtype=\"" + c.getURI() + "\"],\r\n" +
+			cSSSkeleton +=	"\t[itemscope][itemtype=\"" + c.getURI() + "\"] {\r\n" +
 //							"\t[itemscope] [itemtype=\"" + c.getURI() + "\"] {\r\n" +
 							"\t\r\n" +
 							"\t}\r\n" +
@@ -59,7 +59,7 @@ public class CSSTemplate {
 			cSSSkeleton += "\t/*style for the property " + p.getLocalName()  + "*/\r\n";
 			if(flag.equalsIgnoreCase("microdata"))
 				cSSSkeleton +=	"\t[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
-								"\t[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"],\r\n" +
+								"\t[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"] {\r\n" +
 //								"\t[itemscope] [itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
 //								"\t[itemscope] [itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"] {\r\n" +
 								"\t\r\n" +
