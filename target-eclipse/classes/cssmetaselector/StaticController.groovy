@@ -425,4 +425,12 @@ class StaticController {
 		def guestUser = User.get(params.id)
 		render(view: "guest-templates", model: [templates : guestUser.templates, username : guestUser.username])
 	}
+	
+	def showAbout= {
+		render(view: "about")
+	}
+	
+	def showContact = {
+		render(view: "contact")
+	}
 }

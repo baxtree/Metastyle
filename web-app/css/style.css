@@ -324,3 +324,8 @@ hr { border: 0; height: 1px; background-image: -webkit-linear-gradient(left, rgb
 div.playground {
 	height: 800px;
 }
+
+.intro {
+	width: 80%;
+	margin: auto;
+}
