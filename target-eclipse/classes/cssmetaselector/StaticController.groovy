@@ -143,9 +143,23 @@ class StaticController {
 //		println "template id:" + params.id
 		def template = Template.get(params.id)
 		def snippet = "";
-		snippet += 	"<style type='text/css'>" +
+		snippet += 	"<style type='text/css'>\r\n" +
+					"body { \r\n" +
+					"	width: 400%; \r\n" +
+					"	height: 400%; \r\n" +
+					"	-moz-transform: scale(0.25, 0.25); \r\n" +
+  					"	-webkit-transform: scale(0.25, 0.25); \r\n" +
+  					"	-o-transform: scale(0.25, 0.25);\r\n" +
+  					"	-ms-transform: scale(0.25, 0.25);\r\n" +
+  					"	transform: scale(0.25, 0.25); \r\n" +
+  					"	-moz-transform-origin: top left;\r\n" +
+  					"	-webkit-transform-origin: top left;\r\n" +
+  					"	-o-transform-origin: top left;\r\n" +
+  					"	-ms-transform-origin: top left;\r\n" +
+  					"	transform-origin: top left;\r\n" +
+					"} \r\n" +
 					template.cssTemplate +
-					"</style>";
+					"</style>\r\n";
 		snippet += template.testSnippet;
 		render(text: snippet, status: 200)
 	}
