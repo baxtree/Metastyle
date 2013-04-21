@@ -23,9 +23,14 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
+    plugins {
+		runtime "hibernate:$grailsVersion"
+		runtime "tomcat:$grailsVersion"
+		compile ":cloud-support:1.0.8"
+	}
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-
         runtime 'postgresql:postgresql:8.4-703.jdbc4'
+//        runtime "mysql:mysql-connector-java:5.1.16"
     }
 }

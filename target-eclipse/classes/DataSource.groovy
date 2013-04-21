@@ -28,7 +28,7 @@ environments {
 	}
 	production {
 		dataSource {
-			pooled = true
+/*			pooled = true
 			driverClassName = "org.postgresql.Driver"
 			username = "s0896253"
 			password = "68737937"
@@ -37,6 +37,13 @@ environments {
 			url = "jdbc:postgresql://pgresearch.inf.ed.ac.uk/s0896253"
 //			url = "jdbc:postgresql://okbook.inf.ed.ac.uk:8188/cssmetaselector"
 //			url = "jdbc:postgresql://localhost:5432/cssmetaselector"
+*/
+			pooled = true
+    		driverClassName = "com.mysql.jdbc.Driver"
+			username = "root"
+			password = "123456"
+			dbCreate = "update" // one of 'create', 'create-drop','update'
+			url = "jdbc:mysql://localhost:3306/cssmetaselector?useUnicode=yes&characterEncoding=UTF-8"
 		}
 	}
 }
