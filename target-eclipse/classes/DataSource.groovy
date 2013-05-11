@@ -30,8 +30,8 @@ environments {
 		dataSource {
 /*			pooled = true
 			driverClassName = "org.postgresql.Driver"
-			username = "s0896253"
-			password = "68737937"
+			username = ""
+			password = ""
 			sslmode = "disable"
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:postgresql://pgresearch.inf.ed.ac.uk/s0896253"
