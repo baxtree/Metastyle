@@ -63,7 +63,8 @@ class StaticController {
 			flash.message = "File loading error. Please check the availability of the vocab and its syntax"
 			redirect(controller : "static", action : "getSkeleton")	
 		}
-		def templateStr = csst.getCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
+//		def templateStr = csst.getCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
+		def templateStr = csst.getLessCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
 		render(view: "style-skeletons", model: [
 			template: templateStr,
 			tem_targetedType: params.targetedType,
