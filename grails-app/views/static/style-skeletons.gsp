@@ -67,7 +67,7 @@ $(document).ready(function(){
 					<input class="input-xxlarge" type="text" id="prefix" name="prefix" placeholder="e.g., schema, foaf (for HTML5 Microdata, this field will be ignored) ..." value="">
 				</div>
 			</div>
-			<div class="row offset1">
+			<div class="row offset1 format">
 				<label class="radio">
 					<input type="radio" name="format" id="microdata" value="Microdata" checked>
 					HTML5 Microdata
@@ -77,7 +77,17 @@ $(document).ready(function(){
 					RDFa Lite 1.1
 				</label>
 			</div>
-			<div class="row offset1">
+			<div class="row offset1 dsl">
+				<label class="radio">
+					<input type="radio" name="dsl" id="css3" value="CSS3" checked>
+					CSS3
+				</label>
+				<label class="radio">
+					<input type="radio" name="dsl" id="less" value="LESS">
+					LESS
+				</label>
+			</div>
+			<div class="row offset1 gobtn">
 				<button id="getStyleTemplate" class="btn btn-large btn-primary" type="button" onclick="generateSkeleton();">Get the Micro-Theme Skeleton</button>
 				<g:if test="${ flash.message }">
 	   				<span class="warning span3">${ flash.message }</span>
@@ -105,9 +115,10 @@ $(document).ready(function(){
 							<li><a href="#" onclick="normaliseCSS();return false;">Reduce size</a></li>
 							<li><a href="#" onclick="overrideCSS();return false;">Override</a></li>
 							<!-- <li><a href="#" id="applyCSSbtn" onclick="applyCSSTemplate();return false;">Apply CSS</a></li> -->
-							<li><a href="#" id="applyCSSbtn">Apply CSS</a></li>
+							<li><a href="" id="applyCSSbtn">Apply CSS</a></li>
 							<li><a href="#" onclick="getFullPreview();return false;">Full Preview</a></li>
-							<li><a href="#" onclick="shareTemplate();return false;">Share ...</a></li>							
+							<!-- <li><a href="#" onclick="shareTemplate();return false;">Share ...</a></li> -->
+							<li><a id="shareTemplatebtn">Share ...</a></li>							
 						</ul>
 					</div>
 					<!--  <button class="offset4 btn btn-primary" id="savehtml" type="button" onclick="saveToTextarea('htmlta');">Save</button> -->

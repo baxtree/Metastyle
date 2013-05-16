@@ -24,6 +24,28 @@ $(document).ready(function() {
 				doc.write(html);
 				doc.close();
 			}
+			return false;
+		});
+		return false;
+	});
+	
+	$("#shareTemplatebtn").click(function() {
+		parser.parse($("#template_txt").val(), function (err, root) {
+			$("#template_txt").val(root.toCSS());
+			cssta.setValue($("#template_txt").val());
+			cssta.save();
+			htmlta.setValue($("#testSnippet").val());
+			htmlta.save();
+			if(localStorage){
+				localStorage.setItem("metastyle", "set");
+				var data = $("#template-generation").serializeArray();
+				$.each(data, function(i, obj) {
+					localStorage.setItem(obj.name, obj.value);
+				});
+			}
+			alert("submitting");
+			document.forms["shareTempalte"].submit();
+			return false;
 		});
 		return false;
 	});

@@ -329,3 +329,16 @@ div.playground {
 	width: 80%;
 	margin: auto;
 }
+
+.format, .dsl {
+	float: left;
+	border: 1px solid rgb(113, 205, 221);
+	width: 130px;
+	padding: 5px 15px;
+	margin-right: -50px;
+}
+
+.gobtn {
+	float: none;
+	margin-left: 500px !important;
+}

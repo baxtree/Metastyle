@@ -86,8 +86,7 @@ public class CSSTemplate {
 		String interpolations = "";
 		String originFlag = flag;
 		flag = flag.replaceAll("\\s+?", "");
-		interpolations += 	"//LESS template for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + "\r\n" +
-						"\t\r\n";
+		interpolations += "//LESS template for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + "\r\n";
 		if(flag.equalsIgnoreCase("microdata")) {
 			interpolations += "\t@" + prefix + "_" + c.getLocalName() + ":~'[itemscope][itemtype=\"" + c.getURI() + "\"]';\r\n";
 			cSSSkeleton += 	"\t//LESS for the type " + c.getLocalName() + "\r\n";
