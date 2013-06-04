@@ -194,7 +194,7 @@ class StaticController {
 		.scope("user.email")
 //		.callback("http://127.0.0.1:8080/metastyle/static/oauthcallback")			//localhost
 //		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauthcallback")	//demos.inf.ed.ac.uk:8836
-		.callback("http://metastyle.cloudfoundry.com/static/oauthcallback")	//demos.inf.ed.ac.uk:8836  
+		.callback("http://metastyle.cloudfoundry.com/static/oauthcallback")			//metastyle.cloudfoundry.com  
 //		.callback("http://localhost:8080/metastyle/static/oauthcallback")			//southrow
 		.build();
 	

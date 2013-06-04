@@ -37,7 +37,7 @@
 			<div class="row">
 			    <g:form id="form-search" class="form-search offset1" url="[controller: 'static', action: 'searchTemplate']">
 			    	<div class="input-append search-bar">
-			    		<input type="text" cols="100" name="query" class="input-medium search-query input-xxlarge" placeholder=".e.g, Person, schema.org, FOAF, http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." />
+			    		<input type="text" cols="150" name="query" class="input-medium search-query input-xxlarge" placeholder=".e.g, Person, schema.org, FOAF, http://schema.org/Person, http://xmlns.com/foaf/0.1/Person ..." />
 			    		<button type="submit" class="btn">Search</button>
 			    	</div>
 			    	<div class="row offset2 format-radio">
@@ -45,6 +45,7 @@
 							<input type="radio" name="format" id="microdata" value="Microdata" checked>
 							HTML5 Microdata
 						</label>
+						<span class="span2"/>
 						<label class="radio">
 							<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
 							RDFa Lite 1.1
@@ -57,9 +58,8 @@
 		</div>
 	</section>
 	<section id="glance">
-		<div class="container">
-			<div class="row">
-				<div class="span12">
+		<div class="row span12 offset2">
+				<div>
 					<ul class="navbar">
 						<div class="navbar-inner">
 					        <div class="container">
@@ -92,9 +92,8 @@
 					    </div>
 					</ul>
 				</div>
-			</div>
 		</div>
-		<div class="template-thumbnails span12">
+		<div class="template-thumbnails span12 offset2">
 			<g:each var="rtempl" in="${ recent }">
 				<div id="template-iframe" class="template-group span4">
 					<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no"></iframe>
@@ -182,7 +181,7 @@
 	</section>
 	<section id="recommendation">
 	 <div class="row-fluid">
-      <div class="span4">
+      <div class="span4 recomdiv">
         <img src="">
         <h2><i class="icon-folder-open"></i>&nbsp;&nbsp;Templates</h2>
         <p>Check the most used micro-themes:</p>

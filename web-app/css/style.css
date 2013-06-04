@@ -15,8 +15,12 @@ html {
 
 body {
 	background-image: url(../images/bg-image.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	color: black;
-	height: 800px;
+	min-height: 900px !important;
 }
 
 ul.navbar {
@@ -36,6 +40,10 @@ ul.navbar {
 #recommendation a:hover {color: red; text-decoration: underline;}
 #recommendation a:visited {color: rgb(0, 0, 51); text-decoration: none;}
 #recommendation a:active {color: rgb(0, 0, 51); text-decoration: none;}
+
+#recommendation .recomdiv {
+	margin-bottom: 50px;
+}
 
 #banner {
 	padding-top: 30px;	
@@ -114,11 +122,12 @@ div.preview-small {
 	-moz-border-radius: 3px;
 	-o-border-radius: 3px;
 	border-radius: 3px;
-	width: 910px;
+	width: 950px;
 }
 
 .search-bar {
 	padding: 25px 15px;
+	width: 700px;
 }
 
 .format-radio {
@@ -186,9 +195,11 @@ div.pagination a.prefLink:visited {
 
 .template-thumbnails {
 	height: 640px;
+	min-width: 980px;
 	background-color: #60C6F7;
 	float: none;
 	margin-left: 178px;
+	margin-bottom: 30px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	-o-border-radius: 3px;
@@ -200,6 +211,10 @@ div.pagination a.prefLink:visited {
 	float: none;
 	margin: auto;
 }
+
+#glance div.navbar-inner {
+	width: 950px;
+} 
 
 .template-group {
 	height: 200px;
@@ -325,10 +340,11 @@ div.playground {
 	height: 800px;
 }
 
+/*
 .intro {
 	width: 80%;
 	margin: auto;
-}
+}*/
 
 .format, .dsl {
 	float: left;
@@ -341,4 +357,9 @@ div.playground {
 .gobtn {
 	float: none;
 	margin-left: 500px !important;
+}
+
+.contact, .about {
+	font-size: 20px;
+	line-height: 25px;
 }
