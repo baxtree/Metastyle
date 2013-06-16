@@ -29,19 +29,8 @@
 			</div>
 		</div>
 	</section>
-	<section id="main-container">
-
-		<p class="intro">
-			Metastyle,
-			which takes a specific vocabulary in RDF as a seed and gen-
-			erates a skeleton for them to create a sharable micro-theme
-			dedicated to this vocabulary. Here, micro-themes can be
-			shared as templates and discovered via our tool. Moreover,
-			statistics and ranking are applied here, which can make well-
-			designed micro-themes achievable to users more than those
-			with low qualities. With respect to embeddable data for-
-			mat variations, Metastyle provides one-click transformation
-			between micro-themes created based on different formats.
-		</p>
+	<section id="main-container" class="about span8 offset2">
+		<p>Metastyle, which takes a specific vocabulary in RDF as a seed and generates a skeleton for them to create a sharable micro-theme dedicated to this vocabulary. Here, micro-themes can be shared as templates and discovered via our tool. Moreover, statistics and ranking are applied here, which can make well-designed micro-themes achievable to users more than those with low qualities. With respect to embeddable data format variations, Metastyle provides one-click transformation between micro-themes created based on different formats.</p>
+		<iframe src="http://player.vimeo.com/video/59703265" width="600" height="337" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p></p>
 	</section>
 <g:render template="../templates/footer" />

@@ -56,6 +56,7 @@ class StaticController {
 	
 	def generateTemplate = {
 		CSSTemplate csst
+		def templateStr
 		try{
 			csst = new CSSTemplate(params.schema)
 		}
@@ -63,7 +64,12 @@ class StaticController {
 			flash.message = "File loading error. Please check the availability of the vocab and its syntax"
 			redirect(controller : "static", action : "getSkeleton")	
 		}
-		def templateStr = csst.getCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
+		if (params.dsl.toString().toLowerCase() == "css3") {
+			templateStr = csst.getCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
+		}
+		else if(params.dsl.toString().toLowerCase() == "less") {
+			templateStr = csst.getLessCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
+		}
 		render(view: "style-skeletons", model: [
 			template: templateStr,
 			tem_targetedType: params.targetedType,
@@ -143,9 +149,23 @@ class StaticController {
 //		println "template id:" + params.id
 		def template = Template.get(params.id)
 		def snippet = "";
-		snippet += 	"<style type='text/css'>" +
+		snippet += 	"<style type='text/css'>\r\n" +
+					"body { \r\n" +
+					"	width: 400%; \r\n" +
+					"	height: 400%; \r\n" +
+					"	-moz-transform: scale(0.25, 0.25); \r\n" +
+  					"	-webkit-transform: scale(0.25, 0.25); \r\n" +
+  					"	-o-transform: scale(0.25, 0.25);\r\n" +
+  					"	-ms-transform: scale(0.25, 0.25);\r\n" +
+  					"	transform: scale(0.25, 0.25); \r\n" +
+  					"	-moz-transform-origin: top left;\r\n" +
+  					"	-webkit-transform-origin: top left;\r\n" +
+  					"	-o-transform-origin: top left;\r\n" +
+  					"	-ms-transform-origin: top left;\r\n" +
+  					"	transform-origin: top left;\r\n" +
+					"} \r\n" +
 					template.cssTemplate +
-					"</style>";
+					"</style>\r\n";
 		snippet += template.testSnippet;
 		render(text: snippet, status: 200)
 	}
@@ -164,12 +184,18 @@ class StaticController {
 	OAuthService github_service = new ServiceBuilder()
 		.provider(GithubApi.class)
 //		.apiKey("8f0c28fd94cf6351ff84") 											//localhost
-		.apiKey("5443bf5f834aee115784")												//demos.inf.ed.ac.uk:8836
+//		.apiKey("5443bf5f834aee115784")												//demos.inf.ed.ac.uk:8836
+		.apiKey("e3e645555697849433da")												//metastyle.cloudfoundry.com
+//		.apiKey("77365495427fff4d29fa")												//southrow
 //		.apiSecret("fe37330c1a1892f08f3e5c4c671af51511852d26")						//localhost
-		.apiSecret("8af7c7409ba15e9b4d15d89baa9b13da1335e4bc")						//demos.inf.ed.ac.uk:8836
+//		.apiSecret("8af7c7409ba15e9b4d15d89baa9b13da1335e4bc")						//demos.inf.ed.ac.uk:8836
+		.apiSecret("2d0401b31aef8215c3cafe1042b520f36b203b73")						//metastyle.cloudfoundry.com
+//		.apiSecret("8689f53b7d21f56f145980334ff0a3d703dd5775")						//southrow
 		.scope("user.email")
 //		.callback("http://127.0.0.1:8080/metastyle/static/oauthcallback")			//localhost
-		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauthcallback")	//demos.inf.ed.ac.uk:8836 
+//		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauthcallback")	//demos.inf.ed.ac.uk:8836
+		.callback("http://metastyle.cloudfoundry.com/static/oauthcallback")			//metastyle.cloudfoundry.com  
+//		.callback("http://localhost:8080/metastyle/static/oauthcallback")			//southrow
 		.build();
 	
 	def signInWithGithub = {
@@ -260,12 +286,15 @@ class StaticController {
 	OAuthService google_service = new ServiceBuilder()
 		.provider(GoogleApi.class)
 //		.apiKey("1087997739736-kq7tc9lc8q92bedh4s0v2l1lnbkdbu3u.apps.googleusercontent.com")	//localhost
-		.apiKey("1087997739736-imh6qfge200a0ie080hvbnbcujp6vg90.apps.googleusercontent.com")	//demos.inf.ed.ac.uk:8836
+//		.apiKey("1087997739736-imh6qfge200a0ie080hvbnbcujp6vg90.apps.googleusercontent.com")	//demos.inf.ed.ac.uk:8836
+		.apiKey("1087997739736-k8pu8h8phc7lmlo539q35a5otkd9l4go.apps.googleusercontent.com")	//metastyle.cloudfoundry.com
 //		.apiSecret("RH9NDZDQaUXTmxjBnXlL3Rtt")													//localhost
-		.apiSecret("TZbTJr_ngZYYC90pB2qY49Yi")													//demos.inf.ed.ac.uk:8836								
+//		.apiSecret("TZbTJr_ngZYYC90pB2qY49Yi")													//demos.inf.ed.ac.uk:8836
+		.apiSecret("6LT3ZOGe73C4K8bN4Gl5MrBO")													//metastyle.cloudfoundry.com																
 		.scope("https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email")
 //		.callback("http://127.0.0.1:8080/metastyle/static/oauth2callback")						//localhost
-		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauth2callback")				//demos.inf.ed.ac.uk:8836
+//		.callback("http://demos.inf.ed.ac.uk:8836/metastyle/static/oauth2callback")				//demos.inf.ed.ac.uk:8836
+		.callback("https://metastyle.cloudfoundry.com/static/oauth2callback")					//metastyle.cloudfoundry.com
 		.build();
 	
 	def signInWithGoogle = {
@@ -421,5 +450,13 @@ class StaticController {
 		println "User ID: " + params.id
 		def guestUser = User.get(params.id)
 		render(view: "guest-templates", model: [templates : guestUser.templates, username : guestUser.username])
+	}
+	
+	def showAbout= {
+		render(view: "about")
+	}
+	
+	def showContact = {
+		render(view: "contact")
 	}
 }
