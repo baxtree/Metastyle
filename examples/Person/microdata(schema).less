@@ -1,0 +1,115 @@
+//LESS template for the Person (http://schema.org/Person) as Microdata
+	@schema_Person:~'[itemscope][itemtype="http://schema.org/Person"]';
+	@schema_Person-contactPoints:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="contactPoints"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="contactPoints"]';
+	@schema_Person-deathDate:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="deathDate"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="deathDate"]';
+	@schema_Person-email:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="email"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="email"]';
+	@schema_Person-alumniOf:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="alumniOf"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="alumniOf"]';
+	@schema_Person-url:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="url"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="url"]';
+	@schema_Person-additionalName:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="additionalName"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="additionalName"]';
+	@schema_Person-homeLocation:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="homeLocation"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="homeLocation"]';
+	@schema_Person-isicV4:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="isicV4"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="isicV4"]';
+	@schema_Person-description:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="description"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="description"]';
+	@schema_Person-nationality:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="nationality"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="nationality"]';
+	@schema_Person-sibling:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="sibling"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="sibling"]';
+	@schema_Person-follows:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="follows"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="follows"]';
+	@schema_Person-siblings:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="siblings"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="siblings"]';
+	@schema_Person-colleagues:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="colleagues"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="colleagues"]';
+	@schema_Person-memberOf:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="memberOf"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="memberOf"]';
+	@schema_Person-knows:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="knows"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="knows"]';
+	@schema_Person-duns:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="duns"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="duns"]';
+	@schema_Person-taxID:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="taxID"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="taxID"]';
+	@schema_Person-name:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="name"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="name"]';
+	@schema_Person-gender:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="gender"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="gender"]';
+	@schema_Person-birthDate:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="birthDate"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="birthDate"]';
+	@schema_Person-children:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="children"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="children"]';
+	@schema_Person-brand:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="brand"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="brand"]';
+	@schema_Person-familyName:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="familyName"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="familyName"]';
+	@schema_Person-seeks:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="seeks"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="seeks"]';
+	@schema_Person-jobTitle:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="jobTitle"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="jobTitle"]';
+	@schema_Person-workLocation:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="workLocation"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="workLocation"]';
+	@schema_Person-parents:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="parents"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="parents"]';
+	@schema_Person-affiliation:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="affiliation"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="affiliation"]';
+	@schema_Person-givenName:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="givenName"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="givenName"]';
+	@schema_Person-honorificPrefix:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="honorificPrefix"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="honorificPrefix"]';
+	@schema_Person-address:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="address"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="address"]';
+	@schema_Person-makesOffer:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="makesOffer"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="makesOffer"]';
+	@schema_Person-parent:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="parent"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="parent"]';
+	@schema_Person-contactPoint:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="contactPoint"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="contactPoint"]';
+	@schema_Person-colleague:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="colleague"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="colleague"]';
+	@schema_Person-awards:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="awards"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="awards"]';
+	@schema_Person-additionalType:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="additionalType"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="additionalType"]';
+	@schema_Person-interactionCount:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="interactionCount"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="interactionCount"]';
+	@schema_Person-award:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="award"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="award"]';
+	@schema_Person-telephone:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="telephone"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="telephone"]';
+	@schema_Person-honorificSuffix:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="honorificSuffix"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="honorificSuffix"]';
+	@schema_Person-vatID:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="vatID"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="vatID"]';
+	@schema_Person-image:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="image"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="image"]';
+	@schema_Person-hasPOS:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="hasPOS"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="hasPOS"]';
+	@schema_Person-worksFor:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="worksFor"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="worksFor"]';
+	@schema_Person-owns:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="owns"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="owns"]';
+	@schema_Person-relatedTo:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="relatedTo"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="relatedTo"]';
+	@schema_Person-globalLocationNumber:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="globalLocationNumber"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="globalLocationNumber"]';
+	@schema_Person-spouse:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="spouse"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="spouse"]';
+	@schema_Person-naics:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="naics"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="naics"]';
+	@schema_Person-performerIn:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="performerIn"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="performerIn"]';
+	@schema_Person-faxNumber:~'[itemscope][itemtype="http://schema.org/Person"][itemprop="faxNumber"],[itemscope][itemtype="http://schema.org/Person"] [itemprop="faxNumber"]';
+
+	//LESS for the property email
+	@{schema_Person-email} {
+		color: rgb(0, 0, 51);
+		text-decoration: underline;
+	}
+	
+	//LESS for the property url
+	@{schema_Person-url} {
+		color: rgb(0, 0, 51);
+		text-decoration: underline;
+	}
+	
+	//LESS for the property description
+	@{schema_Person-description} {
+		margin-top:10px;
+		padding-top:10px;
+		border-top:1px dotted #cccccc;
+	}
+	
+	//LESS for the property colleagues
+	@{schema_Person-colleagues} {
+		color: rgb(0, 0, 51);
+		text-decoration: underline;
+	}
+	
+	//LESS for the property name
+	@{schema_Person-name} {
+		font-size:1.2em;
+		font-weight:bold;
+		text-transform:none;
+		color: rgb(0, 0, 51);
+	}
+		
+	//LESS for the property jobTitle
+	@{schema_Person-jobTitle} {
+		margin:10px 10px 0px 0px;
+		color: #666;
+	}
+	
+	//LESS for the property address
+	@{schema_Person-address} {
+		margin:10px 10px 0px 0px;
+		color: rgb(0, 0, 51);
+	}
+	
+	//LESS for the property telephone
+	@{schema_Person-telephone} {
+		margin:10px 10px 0px 0px;
+		color: rgb(0, 0, 51);
+	}
+	
+	//LESS for the property image
+	@{schema_Person-image} {
+		float:left;
+		margin-left:0px;
+		border:1px solid #333333;
+		width:64px;
+		height:64px;
+	}
