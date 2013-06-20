@@ -23,11 +23,22 @@ class StaticController {
     def scaffold = Static
 	
 	def welcome = {
-		render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"tstamp", order: "desc")])	
+        println "not: " + Template.count()
+        if (Template.count() != 0 && Template.count() != 1) {
+		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"tstamp", order: "desc")])
+        }
+        else {
+            render(view: "welcome", model: [templates: [], recent: []])
+        }
 	}
 	
 	def welcome2 = {
-		render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"views", order: "desc")])		
+        if (Template.count() != 0 && Template.count() != 1) {
+		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"views", order: "desc")])
+        }
+        else {
+            render(view: "welcome", model: [templates: [], recent: []])
+        }
 	}
 	
 	def proxy2 = {
@@ -35,7 +46,12 @@ class StaticController {
 	}
 	
 	def welcome3 = {
-		render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"likes", order: "desc")])
+        if (Template.count() != 0 && Template.count() != 1) {
+		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"likes", order: "desc")])
+        }
+        else {
+            render(view: "welcome", model: [templates: [], recent: []])
+        }
 	}
 	
 	def proxy3 = {
