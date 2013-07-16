@@ -15,4 +15,6 @@ build.xml
 TODO.txt
 .idea*
 CSSMetaSelector.iml
-
+metastyle.iml
+metastyle.ipr
+metastyle.iws

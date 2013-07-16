@@ -90,7 +90,8 @@ function resetLocalStorage() {
 function normaliseCSS() {	
 	var css = cssta.getValue();
 	css = css.replace(/(\/\*[^(\/\*)]*?\*\/[\t\r\n\s]*?)?\[[^{]+\][\t\r\n\s]*?{[\t\r\n\s]*?}/g, "");
-	css = css.replace("/^\t\t(\r)?\n/g", ""); //this does not work
+	css = css.replace(/^\t\t(\r)?\n/g, ""); //this does not work
+	css = css.replace(/([\t\r\n\s])*?([^\t\r\n\s])+?([\t\r\n\s])+?/g, "");  //test this
 	cssta.setValue(css);
 	cssta.save();
 }
