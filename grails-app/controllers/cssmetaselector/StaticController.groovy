@@ -169,11 +169,11 @@ class StaticController {
 					"body { \r\n" +
 					"	width: 400%; \r\n" +
 					"	height: 400%; \r\n" +
-					"	-moz-transform: scale(0.25, 0.25); \r\n" +
-  					"	-webkit-transform: scale(0.25, 0.25); \r\n" +
-  					"	-o-transform: scale(0.25, 0.25);\r\n" +
-  					"	-ms-transform: scale(0.25, 0.25);\r\n" +
-  					"	transform: scale(0.25, 0.25); \r\n" +
+					"	-moz-transform: scale(0.5, 0.5); \r\n" +
+  					"	-webkit-transform: scale(0.5, 0.5); \r\n" +
+  					"	-o-transform: scale(0.5, 0.5);\r\n" +
+  					"	-ms-transform: scale(0.5, 0.5);\r\n" +
+  					"	transform: scale(0.5, 0.5); \r\n" +
   					"	-moz-transform-origin: top left;\r\n" +
   					"	-webkit-transform-origin: top left;\r\n" +
   					"	-o-transform-origin: top left;\r\n" +
