@@ -86,6 +86,10 @@ $(document).ready(function(){
 					<input type="radio" name="dsl" id="less" value="LESS">
 					LESS
 				</label>
+				<label class="radio">
+					<input type="radio" name="dsl" id="sass" value="SASS">
+					SASS
+				</label>
 			</div>
 			<div class="row offset1 gobtn">
 				<button id="getStyleTemplate" class="btn btn-large btn-primary" type="button" onclick="generateSkeleton();">Get the Micro-Theme Skeleton</button>
