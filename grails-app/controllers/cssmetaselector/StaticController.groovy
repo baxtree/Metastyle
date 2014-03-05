@@ -83,8 +83,14 @@ class StaticController {
 		if (params.dsl.toString().toLowerCase() == "css3") {
 			templateStr = csst.getCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
 		}
-		else if(params.dsl.toString().toLowerCase() == "less") {
+		else if (params.dsl.toString().toLowerCase() == "less") {
 			templateStr = csst.getLessCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
+		}
+		else if (params.dsl.toString().toLowerCase() == "sass") {
+			templateStr = csst.getSassCSSSkeleton(params.targetedType, params.format, params.prefix).trim()
+		}
+		else {
+			templateStr = "Selected CSS preprocessor is not supported.";
 		}
 		render(view: "style-skeletons", model: [
 			template: templateStr,

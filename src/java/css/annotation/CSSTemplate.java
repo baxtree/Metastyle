@@ -88,11 +88,11 @@ public class CSSTemplate {
 		flag = flag.replaceAll("\\s+?", "");
 		interpolations += "//LESS template for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + "\r\n";
 		if(flag.equalsIgnoreCase("microdata")) {
-			interpolations += "\t@" + prefix + "_" + c.getLocalName() + ":~'[itemscope][itemtype=\"" + c.getURI() + "\"]';\r\n";
+			interpolations += "\t@" + prefix + "_" + c.getLocalName() + ": ~'[itemscope][itemtype=\"" + c.getURI() + "\"]';\r\n";
 			cSSSkeleton += 	"\t//LESS for the type " + c.getLocalName() + "\r\n";
 		}
 		else if(flag.equalsIgnoreCase("rdfalite")) {
-			interpolations += "\t@" + prefix + "_" + c.getLocalName() + ":~'[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"]';\r\n";
+			interpolations += "\t@" + prefix + "_" + c.getLocalName() + ": ~'[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"]';\r\n";
 			cSSSkeleton += 	"\t//LESS for the type " + c.getLocalName() + "\r\n";
 		}
 		else 
@@ -108,13 +108,57 @@ public class CSSTemplate {
 //			System.out.println(c.getURI() + " : " + p.getURI());
 			cSSSkeleton += "\t//LESS for the property " + p.getLocalName()  + "\r\n";
 			if(flag.equalsIgnoreCase("microdata")) {
-				interpolations += "\t@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ":~'[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
+				interpolations += "\t@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
 			}
 			else if(flag.equalsIgnoreCase("rdfalite"))
-				interpolations += "\t@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ":~'[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
+				interpolations += "\t@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
 			else
 				System.err.println("Unknown format!");
 			cSSSkeleton +=	"\t@{" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
+							"\t\r\n" +
+							"\t}\r\n" +
+							"\t\r\n";
+		}
+		return interpolations.trim() + "\r\n\r\n\t" + cSSSkeleton.trim();
+	}
+	
+	/* Lots of duplicated code here compared with LESS CSS Skeleton generation due to more differences 
+	 * will be brought in the future. Or these two methods will otherwise be refactored.
+	 */
+	private String getSassCSSSkeletonByClass(String flag, String prefix, OntClass c) {
+		String cSSSkeleton = "";
+		String interpolations = "";
+		String originFlag = flag;
+		flag = flag.replaceAll("\\s+?", "");
+		interpolations += "//SASS script template for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + "\r\n";
+		if(flag.equalsIgnoreCase("microdata")) {
+			interpolations += "\t$" + prefix + "_" + c.getLocalName() + ": [itemscope][itemtype=\"" + c.getURI() + "\"];\r\n";
+			cSSSkeleton += 	"\t//SASS script for the type " + c.getLocalName() + "\r\n";
+		}
+		else if(flag.equalsIgnoreCase("rdfalite")) {
+			interpolations += "\t$" + prefix + "_" + c.getLocalName() + ": [typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"];\r\n";
+			cSSSkeleton += 	"\t//SASS script for the type " + c.getLocalName() + "\r\n";
+		}
+		else 
+			System.err.println("Unknown format!");
+		cSSSkeleton +=	"\t#{$" + prefix + "_" + c.getLocalName() + "} {\r\n" +
+						"\t\r\n" +
+						"\t}\r\n" +
+						"\t\r\n";
+		Iterator properties = c.listDeclaredProperties();
+		while(properties.hasNext()){
+			OntProperty p = (OntProperty) properties.next();
+			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
+//			System.out.println(c.getURI() + " : " + p.getURI());
+			cSSSkeleton += "\t//SASS script for the property " + p.getLocalName()  + "\r\n";
+			if(flag.equalsIgnoreCase("microdata")) {
+				interpolations += "\t$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": [itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"];\r\n";
+			}
+			else if(flag.equalsIgnoreCase("rdfalite"))
+				interpolations += "\t$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": [typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"];\r\n";
+			else
+				System.err.println("Unknown format!");
+			cSSSkeleton +=	"\t#{$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
 							"\t\r\n" +
 							"\t}\r\n" +
 							"\t\r\n";
@@ -146,6 +190,12 @@ public class CSSTemplate {
 	public String getLessCSSSkeleton(String targetURL, String flag, String prefix){
 		OntClass c = ontModel.getOntClass(targetURL);
 		String cSSSkeleton = getLessCSSSkeletonByClass(flag, prefix, c);
+		return cSSSkeleton.trim();
+	}
+	
+	public String getSassCSSSkeleton(String targetURL, String flag, String prefix) {
+		OntClass c = ontModel.getOntClass(targetURL);
+		String cSSSkeleton = getSassCSSSkeletonByClass(flag, prefix, c);
 		return cSSSkeleton.trim();
 	}
 	
