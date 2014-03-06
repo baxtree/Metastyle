@@ -99,6 +99,7 @@ class StaticController {
 			tem_format: params.format,
 			tem_prefix: params.prefix,
 			tem_baseURI: params.baseURI,
+			tem_dsl: params.dsl
 		])
 	}
 	

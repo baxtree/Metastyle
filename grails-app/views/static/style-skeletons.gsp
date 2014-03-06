@@ -69,25 +69,50 @@ $(document).ready(function(){
 			</div>
 			<div class="row offset1 format">
 				<label class="radio">
-					<input type="radio" name="format" id="microdata" value="Microdata" checked>
+					<g:if test="${ tem_format == 'Microdata' }">
+						<input type="radio" name="format" id="microdata" value="Microdata" checked>
+					</g:if>
+					<g:else>
+						<input type="radio" name="format" id="microdata" value="Microdata">
+					</g:else>
 					HTML5 Microdata
 				</label>
 				<label class="radio">
-					<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
+					<g:if test="${ tem_format == 'RDFa Lite' }">
+						<input type="radio" name="format" id="rdfalite" value="RDFa Lite" checked>
+					</g:if>
+					<g:else>
+						<input type="radio" name="format" id="rdfalite" value="RDFa Lite">
+					</g:else>
 					RDFa Lite 1.1
 				</label>
 			</div>
 			<div class="row offset1 dsl">
 				<label class="radio">
-					<input type="radio" name="dsl" id="css3" value="CSS3" checked>
+					<g:if test="${ tem_dsl == 'CSS3' }">
+						<input type="radio" name="dsl" id="css3" value="CSS3" checked>
+					</g:if>
+					<g:else>
+						<input type="radio" name="dsl" id="css3" value="CSS3">
+					</g:else>
 					CSS3
 				</label>
 				<label class="radio">
-					<input type="radio" name="dsl" id="less" value="LESS">
+					<g:if test="${ tem_dsl == 'LESS' }">
+						<input type="radio" name="dsl" id="less" value="LESS" checked>
+					</g:if>
+					<g:else>
+						<input type="radio" name="dsl" id="less" value="LESS">
+					</g:else>
 					LESS
 				</label>
 				<label class="radio">
-					<input type="radio" name="dsl" id="sass" value="SASS">
+					<g:if test="${ tem_dsl == 'SASS' }">
+						<input type="radio" name="dsl" id="sass" value="SASS" checked>
+					</g:if>
+					<g:else>
+						<input type="radio" name="dsl" id="sass" value="SASS">
+					</g:else>
 					SASS
 				</label>
 			</div>
@@ -109,24 +134,18 @@ $(document).ready(function(){
 					<input type="hidden" name="tem_prefix" value="${ tem_prefix }">
 					<input type="hidden" name="tem_format" value="${ tem_format }">
 					<button class="btn btn-primary" id="copy" type="button">Copy to clipboard</button>
-					<!-- <button class="btn btn-primary" id="trim" type="button" onclick="normaliseCSS();">Reduce size</button>
-					<button class="btn btn-primary" id="important" type="button" onclick="overrideCSS();">Override</button>
-					<button class="btn btn-primary" id="share" type="button" onclick="shareTemplate();">Share ...</button> -->
 					<div id="options" class="dropdown">	
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog"></i>Options</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 							<li><a id="linkcopy">Copy to clipboard</a></li>
 							<li><a href="#" onclick="normaliseCSS();return false;">Reduce size</a></li>
 							<li><a href="#" onclick="overrideCSS();return false;">Override</a></li>
-							<!-- <li><a href="#" id="applyCSSbtn" onclick="applyCSSTemplate();return false;">Apply CSS</a></li> -->
 							<li><a href="" id="applyCSSbtn">Apply CSS</a></li>
 							<li><a href="#" onclick="getFullPreview();return false;">Full Preview</a></li>
 							<!-- <li><a href="#" onclick="shareTemplate();return false;">Share ...</a></li> -->
 							<li><a id="shareTemplatebtn">Share ...</a></li>							
 						</ul>
 					</div>
-					<!--  <button class="offset4 btn btn-primary" id="savehtml" type="button" onclick="saveToTextarea('htmlta');">Save</button> -->
- 					<!--  <button class="offset5 btn btn-primary" id="apply" type="button" onclick="applyCSSTemplate();">Apply CSS</button> -->
 					<div class="row">
 						<div class="span6">
 							<textarea id="template_txt" class="span8" name="tem_template" rows="30">${ template }</textarea>
