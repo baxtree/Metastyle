@@ -132,11 +132,11 @@ public class CSSTemplate {
 		flag = flag.replaceAll("\\s+?", "");
 		interpolations += "//SASS script template for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + "\r\n";
 		if(flag.equalsIgnoreCase("microdata")) {
-			interpolations += "\t$" + prefix + "_" + c.getLocalName() + ": [itemscope][itemtype=\"" + c.getURI() + "\"];\r\n";
+			interpolations += "\t$" + prefix + "_" + c.getLocalName() + ": '[itemscope][itemtype=\"" + c.getURI() + "\"]';\r\n";
 			cSSSkeleton += 	"\t//SASS script for the type " + c.getLocalName() + "\r\n";
 		}
 		else if(flag.equalsIgnoreCase("rdfalite")) {
-			interpolations += "\t$" + prefix + "_" + c.getLocalName() + ": [typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"];\r\n";
+			interpolations += "\t$" + prefix + "_" + c.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"]';\r\n";
 			cSSSkeleton += 	"\t//SASS script for the type " + c.getLocalName() + "\r\n";
 		}
 		else 
@@ -152,10 +152,10 @@ public class CSSTemplate {
 //			System.out.println(c.getURI() + " : " + p.getURI());
 			cSSSkeleton += "\t//SASS script for the property " + p.getLocalName()  + "\r\n";
 			if(flag.equalsIgnoreCase("microdata")) {
-				interpolations += "\t$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": [itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"];\r\n";
+				interpolations += "\t$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
 			}
 			else if(flag.equalsIgnoreCase("rdfalite"))
-				interpolations += "\t$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": [typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"];\r\n";
+				interpolations += "\t$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
 			else
 				System.err.println("Unknown format!");
 			cSSSkeleton +=	"\t#{$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +

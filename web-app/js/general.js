@@ -2,30 +2,48 @@ $(document).ready(function() {
 	
 	var parser = new less.Parser({});
 	
+	function constructPageWithCSS(css) {
+		var html = '<!DOCTYPE html><html lang="en"><head><style type="text/css">';
+		html += css;
+		html += "</style></head><body>";
+		html += $("#testSnippet").val();
+		html += "</body></html>";
+		return html;
+	}
+	
 	$("#applyCSSbtn").click(function() {
 		cssta.save();
 		htmlta.save();
-		var html = '<!DOCTYPE html><html lang="en"><head><style type="text/css">';
-		parser.parse($("#template_txt").val(), function (err, root) {
-			if (err) {alert(err);}
-			else {
-				html += root.toCSS();
-				html += "</style></head><body>";
-				html += $("#testSnippet").val();
-				html += "</body></html>";
-				var ifrm = document.getElementById("preview");
-				var doc;
-				if(ifrm.contentWindow)
-					doc = ifrm.contentWindow.document;
-				else if(ifrm.contentDocument)
-					doc = ifrm.contentDocument;
+		var ifrm = document.getElementById("preview");
+		var doc;
+		if(ifrm.contentWindow)
+			doc = ifrm.contentWindow.document;
+		else if(ifrm.contentDocument)
+			doc = ifrm.contentDocument;
+		var format = $("input:radio[name=dsl]:checked").val();
+		if (format == "SASS") {
+			var css = Sass.compile($("#template_txt").val());
+			if (typeof css === "string") {
 				doc.open();
-//				alert(html);
-				doc.write(html);
+				doc.write(constructPageWithCSS(css));
 				doc.close();
 			}
-			return false;
-		});
+			else {
+				alert("Sass script is invalid");
+			}
+		}
+		else {
+			parser.parse($("#template_txt").val(), function (err, root) {
+				if (err) {alert(err);}
+				else {
+					var css = root.toCSS();
+					doc.open();
+					doc.write(constructPageWithCSS(css));
+					doc.close();
+				}
+				return false;
+			});
+		}
 		return false;
 	});
 	
