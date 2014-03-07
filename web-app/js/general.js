@@ -32,7 +32,7 @@ $(document).ready(function() {
 				alert("Sass script is invalid");
 			}
 		}
-		else {
+		else { //less parser is used for parsing both less script and regular css 
 			parser.parse($("#template_txt").val(), function (err, root) {
 				if (err) {alert(err);}
 				else {
@@ -47,24 +47,35 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	function shareTemplate(css) {
+		$("#template_txt").val(css);
+		cssta.setValue($("#template_txt").val());
+		cssta.save();
+		htmlta.setValue($("#testSnippet").val());
+		htmlta.save();
+		if(localStorage){
+			localStorage.setItem("metastyle", "set");
+			var data = $("#template-generation").serializeArray();
+			$.each(data, function(i, obj) {
+				localStorage.setItem(obj.name, obj.value);
+			});
+		}
+//		alert("submitting");
+		document.forms["shareTempalte"].submit();
+	}
+	
 	$("#shareTemplatebtn").click(function() {
-		parser.parse($("#template_txt").val(), function (err, root) {
-			$("#template_txt").val(root.toCSS());
-			cssta.setValue($("#template_txt").val());
-			cssta.save();
-			htmlta.setValue($("#testSnippet").val());
-			htmlta.save();
-			if(localStorage){
-				localStorage.setItem("metastyle", "set");
-				var data = $("#template-generation").serializeArray();
-				$.each(data, function(i, obj) {
-					localStorage.setItem(obj.name, obj.value);
-				});
-			}
-			alert("submitting");
-			document.forms["shareTempalte"].submit();
-			return false;
-		});
+		var format = $("input:radio[name=dsl]:checked").val();
+		if (format == "SASS") {
+			var css = Sass.compile($("#template_txt").val());
+			shareTemplate(css);
+		}
+		else {
+			parser.parse($("#template_txt").val(), function (err, root) {
+				shareTemplate(root.toCSS());
+				return false;
+			});
+		}
 		return false;
 	});
 });
