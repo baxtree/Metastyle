@@ -24,9 +24,9 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
     plugins {
-		runtime "hibernate:$grailsVersion"
-		runtime "tomcat:$grailsVersion"
-		compile ":cloud-support:1.0.8"
+//		runtime "hibernate:$grailsVersion"
+//		runtime "tomcat:$grailsVersion"
+//		compile ":cloud-support:1.0.8"
 	}
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
