@@ -25,7 +25,7 @@ class BootStrap {
 			} 		
 		servletContext.prefixNS = prefixNS 		
 		servletContext.nSPrefix = nSPrefix 		
-		print "$nSPrefix prefixes loaded ..."     
+//		print "$nSPrefix prefixes loaded ..."     
 	}     
 	def destroy = {     } 
 }
