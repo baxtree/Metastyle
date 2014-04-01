@@ -10,8 +10,7 @@ class BootStrap {
 				password: "test") 			
 			test.save(flush: true) 		
 		} 
-		//		elasticSearchService.index() 		
-		def prefixNS = [:] 		
+		def prefixNS = [:]
 		def nSPrefix = [:] 		
 		def prefixesPath = "resources/prefixes.txt" 		
 		def text = ApplicationHolder.application.parentContext.getResource("classpath:$prefixesPath").inputStream.text 		
