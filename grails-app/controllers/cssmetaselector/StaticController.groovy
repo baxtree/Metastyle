@@ -25,6 +25,7 @@ class StaticController {
 	def welcome = {
         println "not: " + Template.count()
         if (Template.count() != 0 && Template.count() != 1) {
+			//NOTE: the current spark plan allows only four simultaneous connections to the database (4 out of 9). 
 		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 9, sort:"tstamp", order: "desc")])
         }
         else {
