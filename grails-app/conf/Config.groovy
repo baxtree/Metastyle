@@ -63,16 +63,15 @@ grails.spring.bean.packages = []
 //}
 
 environments {
-	production {
-		grails.serverURL = "http://metastyle.cfapps.io"
-	}
-	development {
-		grails.serverURL = "http://localhost:8080/${appName}"
-	}
-	test {
-		grails.serverURL = "http://localhost:8080/${appName}"
-	}
-
+    production {
+        grails.serverURL = "http://metastyle.cfapps.io"
+    }
+    development {
+        grails.serverURL = "http://localhost:8080/${appName}"
+    }
+    test {
+        grails.serverURL = "http://localhost:8080/${appName}"
+    }
 }
 
 
