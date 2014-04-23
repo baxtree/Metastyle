@@ -171,7 +171,7 @@ class StaticController {
 		render(text: prefix, status: 200)
 	}
 
-	def showSnippet = {
+	synchronized def showSnippet = {
 //		println "template id:" + params.id
 		def template = Template.get(params.id)
 		def snippet = "";
