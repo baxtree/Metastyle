@@ -1067,7 +1067,6 @@ oliasystem	http://purl.org/olia/system.owl#
 mrel	http://id.loc.gov/vocabulary/relators/
 agls	http://www.agls.gov.au/agls/terms/
 cosmo	http://purl.org/ontology/cosmo#
-sdo	http://schema.org/
 biotop	http://purl.org/biotop/biotop.owl#
 gnvc	http://purl.org/gc/
 namespaces	https://vg.no/
