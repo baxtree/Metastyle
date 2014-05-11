@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    $(document).ready(function() {
+        $(".oembed").oembed(null,
+            { afterEmbed: function(oembedData) {
+                $("#progress").html("Microtheme loaded"); }
+            });
+    });
 	
 	var parser = new less.Parser({});
 	

@@ -71,4 +71,8 @@ class OembedController {
             render(status: 404, test: "Please specify the microtheme URL (e.g., ?url=http://www.example.com/).")
         }
     }
+
+    def tester = {
+        render(view: "tester")
+    }
 }
