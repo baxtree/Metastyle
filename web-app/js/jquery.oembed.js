@@ -154,7 +154,7 @@
         }
 
         url += "format=" + provider.format + "&url=" + escape(externalUrl) + qs;
-        if(provider.dataType!='json') url += "&" + provider.callbackparameter + "=?";
+//        if(provider.dataType!='json') url += "&" + provider.callbackparameter + "=?";
 
         return url;
     }
@@ -281,30 +281,16 @@
                 success(oembedData, externalUrl,container);
             }
         } else {
-
-            var requestUrl = getRequestUrl(embedProvider, externalUrl),
-                ajaxopts = $.extend({
-                    url: requestUrl,
-                    dataType: embedProvider.dataType || 'jsonp',
-                    success: function(data) {
-                        var oembedData = $.extend({}, data);
-                        switch (oembedData.type) {
-                            case "file": //Deviant Art has this
-                            case "photo":
-                                oembedData.code = $.fn.oembed.getPhotoCode(externalUrl, oembedData);
-                                break;
-                            case "video":
-                            case "rich":
-                                oembedData.code = $.fn.oembed.getRichCode(externalUrl, oembedData);
-                                break;
-                            default:
-                                oembedData.code = $.fn.oembed.getGenericCode(externalUrl, oembedData);
-                                break;
-                        }
-                        success(oembedData, externalUrl, container);
-                    },
-                    error: settings.onError.call(container, externalUrl, embedProvider)
-                }, settings.ajaxOptions || {});
+            //customised for rendering iframe from metastyle
+            var requestUrl = getRequestUrl(embedProvider, externalUrl);
+            ajaxopts = $.extend({
+                url: requestUrl,
+                success: function(data) {
+                    var oembedData = {code: data.html};
+                    success(oembedData, externalUrl,container);
+                },
+                error: settings.onError.call(container, externalUrl, embedProvider)
+            }, settings.ajaxOptions || {});
 
             $.ajax(ajaxopts);
         }
@@ -620,8 +606,8 @@
             }),
 
         //Rich
-        new $.fn.oembed.OEmbedProvider("metastyle-local", "rich", ["localhost:8080/metastyle"], "http://localhost:8080/metastyle/oembed"),
-        new $.fn.oembed.OEmbedProvider("metastyle", "rich", ["http://metastyle.cfapps.io"], "http://http://metastyle.cfapps.io/oembed"),
+        new $.fn.oembed.OEmbedProvider("metastyle-local", "rich", ["localhost:8080/metastyle"], "http://localhost:8080/metastyle/oembed",{format:'json'}),
+        new $.fn.oembed.OEmbedProvider("metastyle", "rich", ["http://metastyle.cfapps.io"], "http://http://metastyle.cfapps.io/oembed",{format:'json'}),
         new $.fn.oembed.OEmbedProvider("twitter", "rich", ["twitter.com/.+"], "https://api.twitter.com/1/statuses/oembed.json"),
         new $.fn.oembed.OEmbedProvider("gmep", "rich", ["gmep.imeducate.com/.*","gmep.org/.*"], "http://gmep.org/oembed.json"),
         new $.fn.oembed.OEmbedProvider("urtak", "rich", ["urtak.com/(u|clr)/.+"], "http://oembed.urtak.com/1/oembed"),

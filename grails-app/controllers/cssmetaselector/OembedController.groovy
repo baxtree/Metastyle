@@ -11,26 +11,26 @@ class OembedController {
                 def oembedJSON = "{" +
                                     "\"type\": \"rich\", " +
                                     "\"author_name\": \"${ template.user.username }\", " +
-                                    "\"height\": 270, " +
-                                    "\"html\": \"\\u003ciframe width=\\\"480\\\" height=\\\"270\\\" src=\\\"http:\\/\\/metastyle.cfapps.io\\/static\\/showSnippet\\/${ template.id }\\\" frameborder=\\\"0\\\" allowfullscreen\\u003e\\u003c\\/iframe\\u003e\", " +
+                                    "\"height\": 220, " +
+                                    "\"html\": \"\\u003ciframe width=\\\"280\\\" height=\\\"220\\\" src=\\\"" + createLink(controller: "static", action: "showSnippet", id: "${ template.id }", absolute: "true").toString().replace("/", "\\/") + "\\\" frameborder=\\\"0\\\" allowfullscreen\\u003e\\u003c\\/iframe\\u003e\", " +
                                     "\"title\": \"CSS template for ${ template.typeURI } in ${ template.format }\", " +
                                     "\"author_url\": \"http:\\/\\/metastyle.cfapps.io\\/static\\/showGuestTemplate\\/${ template.user.id }\", " +
                                     "\"provider_name\": \"Metastyle\", " +
-                                    "\"width\": 480, " +
+                                    "\"width\": 280, " +
                                     "\"provider_url\": \"http:\\/\\/metastyle.cfapps.io\\/\"" +
                                 "}"
 
                 def oembedXML = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
                                 "<oembed>" +
                                 "   <author_name>${ template.user.username }</author_name>" +
-                                "   <html>&lt;iframe width=\"480\" height=\"270\" src=\"http://metastyle.cfapps.io/static/showSnippet/${ template.id }\" frameborder=\"0\" allowfullscreen&gt;&lt;/iframe&gt;</html>" +
+                                "   <html>&lt;iframe width=\"280\" height=\"220\" src=\"${ createLink(controller: "static", action: "showSnippet", id: "${ template.id }", absolute: "true").toString() }\" frameborder=\"0\" allowfullscreen&gt;&lt;/iframe&gt;</html>" +
                                 "   <author_url>http://metastyle.cfapps.io/static/showGuestTemplate/${ template.user.id }</author_url>" +
                                 "   <provider_url>http://metastyle.cfapps.io/</provider_url>" +
                                 "   <type>rich</type>" +
-                                "   <height>270</height>" +
+                                "   <height>220</height>" +
                                 "   <title>CSS template for ${ template.typeURI } in ${ template.format }</title>" +
                                 "   <provider_name>Metastyle</provider_name>" +
-                                "   <width>480</width>" +
+                                "   <width>280</width>" +
                                 "</oembed>"
                 if (params?.format) {
                     if (params.format.toString().equals("json")) {
