@@ -35,7 +35,7 @@
 			<div class="offset4">
 				<p><g:link controller="template" action="showTemplate" id="${ template.id }">${ template.typeURI }</g:link></p>
 				<p>Format: ${ template.format }</p>
-				<p>Contributor: ${ template.user.username} </p>
+				<p>Contributor: ${ template.user.username } </p>
 			</div>
 		</g:each>
 		<div class="offset5">
