@@ -27,6 +27,8 @@ class TemplateController {
 			tem_likes: template.likes,
 			tem_testSnippet: template.testSnippet])	
 	}
+
+    def
 	
 	def transformMicrodataIntoRDFaLite = {
 		def mCSSStr = params.mcss
@@ -101,4 +103,25 @@ class TemplateController {
 		}
 		render(text: mCSSStr, status: 200)
 	}
+
+    def forkTemplate = {
+        if(session.user == null){
+            redirect(controller: "static", action: "login")
+        }
+        else{
+            def template = Template.get(params.id)
+            def dt = new Date().getTime().toString()
+            def cssTemplate = new Template(typeURI: template.typeURI, contextURL: template.contextURL, baseURI: "empty", prefix: template.prefix, format: template.format, cssTemplate: template.cssTemplate, testSnippet: template.testSnippet, views: 0, likes: 0, tstamp: dt, user: session.user)
+//			if(!cssTemplate.save(flush: true)){
+//				cssTemplate.errors.each{ println it }
+//			}
+            session.user.templates.add(cssTemplate)
+            if(!session.user.save(flush: true)){
+                session.user.errors.each{ println it }
+            }
+            println "no. of template: ${ Template.list().size() }"
+            flash.message = "template forked";
+            render(view: "user-templates")
+        }
+    }
 }

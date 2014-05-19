@@ -38,6 +38,13 @@
 		</div>
 	</section>
 <section id="main_content">
+<g:if test="${session.user == null || tem_id in session.user.templates.id == true}">
+    <div class="row offset3 control-group">
+        <g:link action="forkTemplate" id="${tem_id}">
+            <input type="button" value="Fork" class="btn"/>
+        </g:link>
+    </div>
+</g:if>
 <div class="row offset3 control-group">
 	<label class="control-label" for="targetedType">Target Type:</label>
 	<span class="offset1 controls">
