@@ -38,10 +38,10 @@
 		</div>
 	</section>
 <section id="main_content">
-<g:if test="${session.user == null || tem_id in session.user.templates.id == true}">
+<g:if test="${session.user == null || Long.parseLong(tem_id) in session.user.templates.id == false}">
     <div class="row offset3 control-group">
         <g:link action="forkTemplate" id="${tem_id}">
-            <input type="button" value="Fork" class="btn"/>
+            <input type="button" value="Fork this micro-theme" class="btn"/>
         </g:link>
     </div>
 </g:if>
