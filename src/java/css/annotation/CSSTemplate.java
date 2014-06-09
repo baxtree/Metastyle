@@ -86,14 +86,14 @@ public class CSSTemplate {
 		String interpolations = "";
 		String originFlag = flag;
 		flag = flag.replaceAll("\\s+?", "");
-		interpolations += "/* LESS template for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + " */\r\n\r\n";
+		interpolations += "/* style for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + " */\r\n\r\n";
 		if(flag.equalsIgnoreCase("microdata")) {
 			interpolations += "@" + prefix + "_" + c.getLocalName() + ": ~'[itemscope][itemtype=\"" + c.getURI() + "\"]';\r\n";
-			cSSSkeleton += 	"/* LESS for the type " + c.getLocalName() + " */\r\n";
+			cSSSkeleton += 	"/* style for the type " + c.getLocalName() + " */\r\n";
 		}
 		else if(flag.equalsIgnoreCase("rdfalite")) {
 			interpolations += "@" + prefix + "_" + c.getLocalName() + ": ~'[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"]';\r\n";
-			cSSSkeleton += 	"/* LESS for the type " + c.getLocalName() + " */\r\n";
+			cSSSkeleton += 	"/* style for the type " + c.getLocalName() + " */\r\n";
 		}
 		else 
 			System.err.println("Unknown format!");
@@ -104,7 +104,6 @@ public class CSSTemplate {
 			OntProperty p = (OntProperty) properties.next();
 			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
 //			System.out.println(c.getURI() + " : " + p.getURI());
-			cSSSkeleton += "\t/* LESS for the property " + p.getLocalName()  + " */\r\n";
 			if(flag.equalsIgnoreCase("microdata")) {
 				interpolations += "@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
 			}
@@ -113,7 +112,7 @@ public class CSSTemplate {
 			else
 				System.err.println("Unknown format!");
 			cSSSkeleton +=	"\t@{" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
-							"\t\r\n" +
+                            "\t\t/* style for the property " + p.getLocalName()  + " */\r\n" +
 							"\t}\r\n" +
 							"\t\r\n";
 		}
@@ -130,14 +129,14 @@ public class CSSTemplate {
 		String interpolations = "";
 		String originFlag = flag;
 		flag = flag.replaceAll("\\s+?", "");
-		interpolations += "/* SASS script template for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + " */\r\n\r\n";
+		interpolations += "/* style for the " + c.getLocalName() + " (" + c.getURI() + ")"+ " as " + originFlag + " */\r\n\r\n";
 		if(flag.equalsIgnoreCase("microdata")) {
 			interpolations += "$" + prefix + "_" + c.getLocalName() + ": '[itemscope][itemtype=\"" + c.getURI() + "\"]';\r\n";
-			cSSSkeleton += 	"/* SASS script for the type " + c.getLocalName() + " */\r\n";
+			cSSSkeleton += 	"/* style for the type " + c.getLocalName() + " */\r\n";
 		}
 		else if(flag.equalsIgnoreCase("rdfalite")) {
 			interpolations += "$" + prefix + "_" + c.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"]';\r\n";
-			cSSSkeleton += 	"/* SASS script for the type " + c.getLocalName() + " */\r\n";
+			cSSSkeleton += 	"/* style for the type " + c.getLocalName() + " */\r\n";
 		}
 		else 
 			System.err.println("Unknown format!");
@@ -148,7 +147,6 @@ public class CSSTemplate {
 			OntProperty p = (OntProperty) properties.next();
 			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
 //			System.out.println(c.getURI() + " : " + p.getURI());
-			cSSSkeleton += "\t/* SASS script for the property " + p.getLocalName()  + " */\r\n";
 			if(flag.equalsIgnoreCase("microdata")) {
 				interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
 			}
@@ -157,7 +155,7 @@ public class CSSTemplate {
 			else
 				System.err.println("Unknown format!");
 			cSSSkeleton +=	"\t#{$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
-							"\t\r\n" +
+                            "\t\t/* style for the property " + p.getLocalName()  + " */\r\n" +
 							"\t}\r\n" +
 							"\t\r\n";
 		}
