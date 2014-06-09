@@ -106,17 +106,6 @@ class StaticController {
 		])
 	}
 	
-//	def searchTemplate = {
-//		def query = params.query
-//		if(query){
-//			def searchResults = elasticSearchService.search(query)
-//			render(view: "search-results", model: [templates: searchResults.results, total: searchResults.total])
-//		}
-//		else{
-//			render(view: "welcome")
-//		}
-//	}
-	
 	def searchTemplate = {
 		def query = params.query
 		def format = params.format
