@@ -92,32 +92,32 @@ public class CSSTemplate {
 			cSSSkeleton += 	"/* style for the type " + c.getLocalName() + " */\r\n";
 		}
 		else if(flag.equalsIgnoreCase("rdfalite")) {
-			interpolations += "@" + prefix + "_" + c.getLocalName() + ": ~'[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"]';\r\n";
+			interpolations += "@" + prefix + "_" + c.getLocalName() + ": ~'[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"]';\r\n";
 			cSSSkeleton += 	"/* style for the type " + c.getLocalName() + " */\r\n";
 		}
 		else 
 			System.err.println("Unknown format!");
 		cSSSkeleton +=	"@{" + prefix + "_" + c.getLocalName() + "} {\r\n" +
 						"\r\n";
+        cSSSkeleton +=  "}\r\n" +
+                        "\r\n";
 		Iterator properties = c.listDeclaredProperties();
 		while(properties.hasNext()){
 			OntProperty p = (OntProperty) properties.next();
 			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
 //			System.out.println(c.getURI() + " : " + p.getURI());
 			if(flag.equalsIgnoreCase("microdata")) {
-				interpolations += "@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'&[itemprop=\"" + p.getLocalName() +"\"], [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
+				interpolations += "@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
 			}
 			else if(flag.equalsIgnoreCase("rdfalite"))
 				interpolations += "@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
 			else
 				System.err.println("Unknown format!");
-			cSSSkeleton +=	"\t@{" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
-                            "\t\t/* style for the property " + p.getLocalName()  + " */\r\n" +
-							"\t}\r\n" +
-							"\t\r\n";
+			cSSSkeleton +=	"@{" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
+                            "\t/* style for the property " + p.getLocalName()  + " */\r\n" +
+							"}\r\n" +
+							"\r\n";
 		}
-        cSSSkeleton +=  "}\r\n" +
-                        "\r\n";
 		return interpolations.trim() + "\r\n\r\n" + cSSSkeleton.trim();
 	}
 	
@@ -135,32 +135,46 @@ public class CSSTemplate {
 			cSSSkeleton += 	"/* style for the type " + c.getLocalName() + " */\r\n";
 		}
 		else if(flag.equalsIgnoreCase("rdfalite")) {
-			interpolations += "$" + prefix + "_" + c.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"], [typeof=\"" + c.getLocalName() + "\"]';\r\n";
+			interpolations += "$" + prefix + "_" + c.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"]';\r\n";
 			cSSSkeleton += 	"/* style for the type " + c.getLocalName() + " */\r\n";
 		}
 		else 
 			System.err.println("Unknown format!");
-		cSSSkeleton +=	"#{$" + prefix + "_" + c.getLocalName() + "} {\r\n" +
-						"\t\r\n";
 		Iterator properties = c.listDeclaredProperties();
-		while(properties.hasNext()){
-			OntProperty p = (OntProperty) properties.next();
-			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
-//			System.out.println(c.getURI() + " : " + p.getURI());
-			if(flag.equalsIgnoreCase("microdata")) {
-				interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '&[itemprop=\"" + p.getLocalName() +"\"], [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
-			}
-			else if(flag.equalsIgnoreCase("rdfalite"))
-				interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
-			else
-				System.err.println("Unknown format!");
-			cSSSkeleton +=	"\t#{$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
-                            "\t\t/* style for the property " + p.getLocalName()  + " */\r\n" +
-							"\t}\r\n" +
-							"\t\r\n";
-		}
-        cSSSkeleton +=  "}\r\n" +
-                        "\t\r\n";
+        if(flag.equalsIgnoreCase("microdata")) {
+            cSSSkeleton +=	"#{$" + prefix + "_" + c.getLocalName() + "} {\r\n" +
+                    "\t\r\n";
+            while(properties.hasNext()){
+                OntProperty p = (OntProperty) properties.next();
+                if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
+    //			System.out.println(c.getURI() + " : " + p.getURI());
+                interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '&[itemprop=\"" + p.getLocalName() +"\"],[itemprop=\"" + p.getLocalName() +"\"]';\r\n";
+                cSSSkeleton +=	"\t#{$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
+                                "\t\t/* style for the property " + p.getLocalName()  + " */\r\n" +
+                                "\t}\r\n" +
+                                "\t\r\n";
+            }
+            cSSSkeleton +=  "}\r\n" +
+                            "\t\r\n";
+        }
+        else if(flag.equalsIgnoreCase("rdfalite")) {
+            cSSSkeleton +=	"#{$" + prefix + "_" + c.getLocalName() + "} {\r\n" +
+                    "\t\r\n" +
+                    "}\r\n" +
+                    "\r\n";
+            while(properties.hasNext()){
+                OntProperty p = (OntProperty) properties.next();
+                if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
+                //			System.out.println(c.getURI() + " : " + p.getURI());
+                interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
+                cSSSkeleton +=	"#{$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
+                        "\t/* style for the property " + p.getLocalName()  + " */\r\n" +
+                        "}\r\n" +
+                        "\r\n";
+            }
+        }
+        else
+            System.err.println("Unknown format!");
 		return interpolations.trim() + "\r\n\r\n" + cSSSkeleton.trim();
 	}
 	
