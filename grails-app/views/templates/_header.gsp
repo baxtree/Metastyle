@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="${resource(dir:'js/codemirror/mode/javascript', file:'javascript.js')}"></script>
 	<script type="text/javascript" src="${resource(dir:'js/codemirror/mode/css', file:'css.js')}"></script>
 	<script type="text/javascript" src="${resource(dir:'js/codemirror/mode/htmlmixed', file:'htmlmixed.js')}"></script>
-	<script type="text/javascript" src="${resource(dir:'js', file:'less-1.3.3.min.js')}"></script>
+	<script type="text/javascript" src="${resource(dir:'js', file:'less.js')}"></script>
 	<script type="text/javascript" src="${resource(dir:'js', file:'sass.min.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js', file:'jquery.oembed.js')}"></script>
 	<script type="text/javascript" src="${resource(dir:'js', file:'general.js')}"></script>
