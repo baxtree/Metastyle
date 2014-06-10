@@ -105,7 +105,7 @@ public class CSSTemplate {
 			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
 //			System.out.println(c.getURI() + " : " + p.getURI());
 			if(flag.equalsIgnoreCase("microdata")) {
-				interpolations += "@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
+				interpolations += "@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'&[itemprop=\"" + p.getLocalName() +"\"], [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
 			}
 			else if(flag.equalsIgnoreCase("rdfalite"))
 				interpolations += "@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
@@ -140,7 +140,7 @@ public class CSSTemplate {
 		}
 		else 
 			System.err.println("Unknown format!");
-		cSSSkeleton +=	"{$" + prefix + "_" + c.getLocalName() + "} {\r\n" +
+		cSSSkeleton +=	"#{$" + prefix + "_" + c.getLocalName() + "} {\r\n" +
 						"\t\r\n";
 		Iterator properties = c.listDeclaredProperties();
 		while(properties.hasNext()){
@@ -148,7 +148,7 @@ public class CSSTemplate {
 			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
 //			System.out.println(c.getURI() + " : " + p.getURI());
 			if(flag.equalsIgnoreCase("microdata")) {
-				interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
+				interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '&[itemprop=\"" + p.getLocalName() +"\"], [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
 			}
 			else if(flag.equalsIgnoreCase("rdfalite"))
 				interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
