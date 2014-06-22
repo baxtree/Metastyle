@@ -43,7 +43,10 @@
 			<g:if test="${ flash.message }">
 				<span class="warning span3">${ flash.message }</span>
 			</g:if>
-			<div class="offset3">Welcome back, ${ session.user.username }! The following are your micro-themes (${ session.user.templates.size() } in total):</div>
+            <div class="offset3">
+                <img id="avartar" src="http://www.gravatar.com/avatar/${ emailHash }?s=200&d=http%3A%2F%2Fmetastyle.cfapps.io%2Fimages%2Fuser-default.png" />
+			</div>
+            <div class="offset3">Welcome back, ${ session.user.username }! The following are your micro-themes (${ session.user.templates.size() } in total):</div>
 			<g:each var="template" in="${ session.user.templates }">
 				<div class="offset3"><g:link controller="template" action="showTemplate" id="${ template.id }">Micro-theme for ${ template.typeURI } in ${ template.format }</g:link></div>
 			</g:each>

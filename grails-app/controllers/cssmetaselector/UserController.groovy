@@ -1,5 +1,7 @@
 package cssmetaselector
 
+import java.security.MessageDigest
+
 class UserController {
 
     def scaffold = User
@@ -13,7 +15,15 @@ class UserController {
 	}
 	
 	def showTemplates = {
-		render(view: "user-templates")
+        if(session.user == null){
+            redirect(controller: "static", action: "login")
+        }
+        else{
+            MessageDigest digest = MessageDigest.getInstance("MD5")
+            digest.update(session.user.email.toString().bytes)
+            def hash = new BigInteger(1, digest.digest()).toString(16).padLeft(32, '0')
+            render(view: "user-templates", model: [emailHash: hash])
+        }
 	}
 	
 	def userLogin = {

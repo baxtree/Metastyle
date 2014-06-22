@@ -363,3 +363,8 @@ div.playground {
 	font-size: 20px;
 	line-height: 25px;
 }
+
+#avartar {
+    width: 200px;
+    margin-bottom: 30px;
+}
