@@ -77,6 +77,6 @@ class OembedController {
     }
 
     def tester = {
-        render(view: "tester")
+        render(view: "example")
     }
 }
