@@ -1,11 +1,7 @@
 package cssmetaselector
 
-import groovy.transform.Synchronized
-
-import java.util.Scanner;
-
+import org.apache.commons.logging.LogFactory
 import grails.converters.JSON
-
 import org.codehaus.groovy.grails.web.json.JSONElement
 import org.scribe.builder.ServiceBuilder
 import org.scribe.builder.api.GoogleApi
@@ -21,6 +17,8 @@ import css.annotation.GithubApi
 
 
 class StaticController {
+
+    private static final LOGGER = LogFactory.getLog(this)
 
     def scaffold = Static
 	
@@ -216,15 +214,15 @@ class StaticController {
 	def signInWithGithub = {
 		def NETWORK_NAME = "Github";
 
-		System.out.println("=== " + NETWORK_NAME + "'s OAuth Workflow ===");
-		System.out.println();
+		LOGGER.info("=== " + NETWORK_NAME + "'s OAuth Workflow ===");
+		LOGGER.info();
 	
 		// Obtain the Authorization URL
-		System.out.println("Fetching the Authorization URL...");
+		LOGGER.info("Fetching the Authorization URL...");
 		String authorizationUrl = github_service.getAuthorizationUrl(null);
-		System.out.println("Got the Authorization URL!");
-		System.out.println(authorizationUrl);
-		System.out.println("Now go to the authorizing page ...");
+		LOGGER.info("Got the Authorization URL!");
+		LOGGER.info(authorizationUrl);
+		LOGGER.info("Now go to the authorizing page ...");
 		redirect(url: authorizationUrl);
 	}
 	
@@ -237,33 +235,33 @@ class StaticController {
 			redirect(controller:"static", action:"register");
 		}
 		else {
-			System.out.println("Got the code in the callback: " + params.code.toString());
+			LOGGER.info("Got the code in the callback: " + params.code.toString());
 			Verifier verifier = new Verifier(params.code.toString());
-			System.out.println("Verifier: " + verifier.inspect());
+			LOGGER.info("Verifier: " + verifier.inspect());
 			
 			// Trade the Request Token and Verfier for the Access Token
-			System.out.println("Trading the Request Token for an Access Token...");
+			LOGGER.info("Trading the Request Token for an Access Token...");
 			Token accessToken = github_service.getAccessToken(null, verifier);
-			System.out.println("Got the Access Token!");
-			System.out.println("(if your curious it looks like this: " + accessToken + " )");
-			System.out.println();
+			LOGGER.info("Got the Access Token!");
+			LOGGER.info("(if your curious it looks like this: " + accessToken + " )");
+			LOGGER.info();
 		
 			// Now let's go and ask for a protected resource!
-			System.out.println("Now we're going to access a protected resource...");
+			LOGGER.info("Now we're going to access a protected resource...");
 			OAuthRequest request = new OAuthRequest(Verb.GET, PROTECTED_RESOURCE_URL);
 			github_service.signRequest(accessToken, request);
 			Response response = request.send();
-			System.out.println("Got it! Lets see what we found...");
-			System.out.println();
-			System.out.println("Response Code: " + response.getCode());
-			System.out.println("Response Body: " + response.getBody());
+			LOGGER.info("Got it! Lets see what we found...");
+			LOGGER.info();
+			LOGGER.info("Response Code: " + response.getCode());
+			LOGGER.info("Response Body: " + response.getBody());
 			if(response.getCode() != 200){
 				flash.message = "Github authentication failed (code: $response.getCode()).";
 				redirect(controller:"static", action:"register");
 			}
 			else{
-				System.out.println();
-				System.out.println("Authentication successful!");
+				LOGGER.info();
+				LOGGER.info("Authentication successful!");
 				
 				JSONElement profile = JSON.parse(response.getBody());
 				def githubID = profile.id.toString() + "@github.com";
@@ -315,19 +313,19 @@ class StaticController {
 	def signInWithGoogle = {
 		def NETWORK_NAME = "Google";
 		def AUTHORIZE_URL = "https://www.google.com/accounts/OAuthAuthorizeToken?oauth_token=";
-		System.out.println("=== " + NETWORK_NAME + "'s OAuth Workflow ===");
-		System.out.println();
+		LOGGER.info("=== " + NETWORK_NAME + "'s OAuth Workflow ===");
+		LOGGER.info();
 		
 		servletContext["google_requestToken"] = google_service.getRequestToken();
 		// Obtain the Request Token
-		System.out.println("Fetching the Request Token...");
-		System.out.println("Got the Request Token!");
-		System.out.println("(if your curious it looks like this: " + servletContext["google_requestToken"] + " )");
-		System.out.println();
+		LOGGER.info("Fetching the Request Token...");
+		LOGGER.info("Got the Request Token!");
+		LOGGER.info("(if your curious it looks like this: " + servletContext["google_requestToken"] + " )");
+		LOGGER.info();
 		
-		System.out.println("Now go and authorize Scribe here:");
-		System.out.println(AUTHORIZE_URL + servletContext["google_requestToken"].getToken());
-		System.out.println("And paste the verifier here");
+		LOGGER.info("Now go and authorize Scribe here:");
+		LOGGER.info(AUTHORIZE_URL + servletContext["google_requestToken"].getToken());
+		LOGGER.info("And paste the verifier here");
 		redirect(url : AUTHORIZE_URL + servletContext["google_requestToken"].getToken());
 		
 //		String NETWORK_NAME = "Google";
@@ -343,43 +341,43 @@ class StaticController {
 //		.build();
 //		Scanner sysin = new Scanner(System.in);
 //		
-//		System.out.println("=== " + NETWORK_NAME + "'s OAuth Workflow ===");
-//		System.out.println();
+//		LOGGER.info("=== " + NETWORK_NAME + "'s OAuth Workflow ===");
+//		LOGGER.info();
 //		
 //		// Obtain the Request Token
-//		System.out.println("Fetching the Request Token...");
+//		LOGGER.info("Fetching the Request Token...");
 //		Token requestToken = service.getRequestToken();
-//		System.out.println("Got the Request Token!");
-//		System.out.println("(if your curious it looks like this: " + requestToken + " )");
-//		System.out.println();
+//		LOGGER.info("Got the Request Token!");
+//		LOGGER.info("(if your curious it looks like this: " + requestToken + " )");
+//		LOGGER.info();
 //		
-//		System.out.println("Now go and authorize Scribe here:");
-//		System.out.println(AUTHORIZE_URL + requestToken.getToken());
-//		System.out.println("And paste the verifier here");
+//		LOGGER.info("Now go and authorize Scribe here:");
+//		LOGGER.info(AUTHORIZE_URL + requestToken.getToken());
+//		LOGGER.info("And paste the verifier here");
 //		System.out.print(">>");
 //		Verifier verifier = new Verifier(sysin.nextLine());
-//		System.out.println();
+//		LOGGER.info();
 //		
 //		// Trade the Request Token and Verfier for the Access Token
-//		System.out.println("Trading the Request Token for an Access Token...");
+//		LOGGER.info("Trading the Request Token for an Access Token...");
 //		Token accessToken = service.getAccessToken(requestToken, verifier);
-//		System.out.println("Got the Access Token!");
-//		System.out.println("(if your curious it looks like this: " + accessToken + " )");
-//		System.out.println();
+//		LOGGER.info("Got the Access Token!");
+//		LOGGER.info("(if your curious it looks like this: " + accessToken + " )");
+//		LOGGER.info();
 //		
 //		// Now let's go and ask for a protected resource!
-//		System.out.println("Now we're going to access a protected resource...");
+//		LOGGER.info("Now we're going to access a protected resource...");
 //		OAuthRequest request = new OAuthRequest(Verb.GET, PROTECTED_RESOURCE_URL);
 //		service.signRequest(accessToken, request);
 //		request.addHeader("GData-Version", "3.0");
 //		Response response = request.send();
-//		System.out.println("Got it! Lets see what we found...");
-//		System.out.println();
-//		System.out.println(response.getCode());
-//		System.out.println(response.getBody());
+//		LOGGER.info("Got it! Lets see what we found...");
+//		LOGGER.info();
+//		LOGGER.info(response.getCode());
+//		LOGGER.info(response.getBody());
 //		
-//		System.out.println();
-//		System.out.println("Thats it man! Go and build something awesome with Scribe! :)");
+//		LOGGER.info();
+//		LOGGER.info("Thats it man! Go and build something awesome with Scribe! :)");
 	}
 	
 	
@@ -392,36 +390,36 @@ class StaticController {
 		}
 		else {
 			Verifier verifier = new Verifier(params.oauth_verifier);
-			System.out.println();
+			LOGGER.info();
 			
 			// Trade the Request Token and Verfier for the Access Token
-			System.out.println("Trading the Request Token for an Access Token...");
+			LOGGER.info("Trading the Request Token for an Access Token...");
 			println "Request Token: " + servletContext["google_requestToken"]	;
 			println "google service: " + google_service;
 			try{
 				Token accessToken = google_service.getAccessToken(servletContext["google_requestToken"], verifier);
-				System.out.println("Got the Access Token!");
-				System.out.println("(if your curious it looks like this: " + accessToken + " )");
-				System.out.println();
+				LOGGER.info("Got the Access Token!");
+				LOGGER.info("(if your curious it looks like this: " + accessToken + " )");
+				LOGGER.info();
 				
 				// Now let's go and ask for a protected resource!
-				System.out.println("Now we're going to access a protected resource...");
+				LOGGER.info("Now we're going to access a protected resource...");
 				OAuthRequest request = new OAuthRequest(Verb.GET, PROTECTED_RESOURCE_URL);
 				google_service.signRequest(accessToken, request);
 				request.addHeader("GData-Version", "3.0");
 				Response response = request.send();
-				System.out.println("Got it! Lets see what we found...");
-				System.out.println();
-				System.out.println(response.getCode());
-				System.out.println(response.getBody());
+				LOGGER.info("Got it! Lets see what we found...");
+				LOGGER.info();
+				LOGGER.info(response.getCode());
+				LOGGER.info(response.getBody());
 				
 				if(response.getCode() != 200){
 					flash.message = "Google+ authentication failed (code: $response.getCode()).";
 					redirect(controller:"static", action:"register");
 				}
 				else{
-					System.out.println();
-					System.out.println("Authentication successful!");
+					LOGGER.info();
+					LOGGER.info("Authentication successful!");
 					
 					JSONElement profile = JSON.parse(response.getBody());
 					def email = profile.email.toString();

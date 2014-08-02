@@ -10,8 +10,12 @@ import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class CSSTemplate {
+
+    private static final Log LOGGER = LogFactory.getLog(CSSTemplate.class);
 	
 	private Model model;
 	private OntModel ontModel;
@@ -55,7 +59,7 @@ public class CSSTemplate {
 		while(properties.hasNext()){
 			OntProperty p = (OntProperty) properties.next();
 			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
-//			System.out.println(c.getURI() + " : " + p.getURI());
+//			LOGGER.info(c.getURI() + " : " + p.getURI());
 			cSSSkeleton += "/* style for the property " + p.getLocalName()  + " */\r\n";
 			if(flag.equalsIgnoreCase("microdata"))
 				cSSSkeleton +=	"[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],\r\n" +
@@ -105,7 +109,7 @@ public class CSSTemplate {
 		while(properties.hasNext()){
 			OntProperty p = (OntProperty) properties.next();
 			if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
-//			System.out.println(c.getURI() + " : " + p.getURI());
+//			LOGGER.info(c.getURI() + " : " + p.getURI());
 			if(flag.equalsIgnoreCase("microdata")) {
 				interpolations += "@" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": ~'[itemscope][itemtype=\"" + c.getURI() + "\"][itemprop=\"" + p.getLocalName() +"\"],[itemscope][itemtype=\"" + c.getURI() + "\"] [itemprop=\"" + p.getLocalName() +"\"]';\r\n";
 			}
@@ -147,7 +151,7 @@ public class CSSTemplate {
             while(properties.hasNext()){
                 OntProperty p = (OntProperty) properties.next();
                 if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
-    //			System.out.println(c.getURI() + " : " + p.getURI());
+    //			LOGGER.info(c.getURI() + " : " + p.getURI());
                 interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '&[itemprop=\"" + p.getLocalName() +"\"],[itemprop=\"" + p.getLocalName() +"\"]';\r\n";
                 cSSSkeleton +=	"\t#{$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
                                 "\t\t/* style for the property " + p.getLocalName()  + " */\r\n" +
@@ -165,7 +169,7 @@ public class CSSTemplate {
             while(properties.hasNext()){
                 OntProperty p = (OntProperty) properties.next();
                 if(!p.getNameSpace().equalsIgnoreCase(c.getNameSpace())) continue; //get rid of properties coming from another name spaces
-                //			System.out.println(c.getURI() + " : " + p.getURI());
+                //			LOGGER.info(c.getURI() + " : " + p.getURI());
                 interpolations += "$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + ": '[typeof=\"" + c.getURI() + "\"][property=\"" + p.getURI() + "\"],[typeof=\"" + c.getURI() + "\"] [property=\"" + p.getURI() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"][property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + prefix + ":" + c.getLocalName() + "\"] [property=\"" + prefix + ":" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"][property=\"" + p.getLocalName() + "\"],[typeof=\"" + c.getLocalName() + "\"] [property=\"" + p.getLocalName() + "\"]';\r\n";
                 cSSSkeleton +=	"#{$" + prefix + "_" + c.getLocalName() + "-" + p.getLocalName() + "} {\r\n" +
                         "\t/* style for the property " + p.getLocalName()  + " */\r\n" +
@@ -186,7 +190,7 @@ public class CSSTemplate {
 //			//Presume that the namespace domain is the same with the domain of the vocabulary
 //			if(!c.getURI().startsWith(baseURI)) continue;
 ////				if(!(new URL(c.getURI())).getHost().equalsIgnoreCase(vocabDomain)) continue;
-////					System.out.println(((OntClass) classes.next()).getLocalName());
+////					LOGGER.info(((OntClass) classes.next()).getLocalName());
 //			cSSSkeleton += getCSSSkeletonByClass(flag, prefix, c);
 //		}
 //		return cSSSkeleton.trim();
@@ -213,10 +217,10 @@ public class CSSTemplate {
 	
 	public static void main(String[] args){
 		CSSTemplate csst = new CSSTemplate("http://schema.rdfs.org/all.rdf");
-		System.out.println(csst.getCSSSkeleton("http://xmlns.com/foaf/spec/index.rdf", "RDFa Lite", "foaf"));
-//		System.out.println(csst.getCSSSkeleton("Microdata", "", "http://schema.org/"));
-//		System.out.println(csst.getCSSSkeleton("http://schema.org/Person", "Microdata", "", "http://schema.org/"));
-//		System.out.println(csst.getCSSSkeleton("http://schema.org/Person", "RDFa Lite", "foaf", "http://schema.org/"));
+		LOGGER.info(csst.getCSSSkeleton("http://xmlns.com/foaf/spec/index.rdf", "RDFa Lite", "foaf"));
+//		LOGGER.info(csst.getCSSSkeleton("Microdata", "", "http://schema.org/"));
+//		LOGGER.info(csst.getCSSSkeleton("http://schema.org/Person", "Microdata", "", "http://schema.org/"));
+//		LOGGER.info(csst.getCSSSkeleton("http://schema.org/Person", "RDFa Lite", "foaf", "http://schema.org/"));
 	}
 
 }

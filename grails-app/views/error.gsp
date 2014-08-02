@@ -25,7 +25,7 @@
 
   <body>
   	<div class="message">
-		<div><strong>Sorry, please refresh this page or retry from <a href="http://metastyle.cfapps.io/static/welcome">here</a>.</strong></div>
+		<div><strong>Sorry, something went wrong and please refresh this page or retry from <a href="./static/welcome">here</a>.</strong></div>
         <div>(Metastyle occasionally encounters with the problem of connection dropping caused by a third party database and we are working on it.)</div>
   	</div>
   </body>
