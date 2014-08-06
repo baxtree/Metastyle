@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Custom Element</title>
+</head>
+<body>
+<metastyle-widget>This is a Metastyle Widget</metastyle-widget>
+<template id="widget-template">
+    <style>
+        .outer {
+            border: 2px solid brown;
+            border-radius: 1em;
+            background: rgb(55, 208, 223);
+            font-size: 20pt;
+            width: 12em;
+            height: 7em;
+            text-align: center;
+        }
+        .boilerplate {
+            color: white;
+            font-family: sans-serif;
+            padding: 0.5em;
+        }
+        .name {
+            color: black;
+            background: white;
+            font-family: "Marker Felt", cursive;
+            font-size: 45pt;
+            padding-top: 0.2em;
+        }
+    </style>
+    <div class="outer">
+        <div class="boilerplate">
+            <content></content>
+        </div>
+        <div class="name">
+            Metastyle
+        </div>
+    </div>
+</template>
+<script>
+    var template = document.getElementById('widget-template');
+    var MetastyleWidgetPrototype = Object.create(HTMLElement.prototype);
+    MetastyleWidgetPrototype.createdCallback = function () {
+        var shadow = this.createShadowRoot();
+        shadow.appendChild(template.content.cloneNode(true));
+    };
+    var metastyleWidget = document.registerElement("metastyle-widget", {
+        prototype: MetastyleWidgetPrototype
+    });
+</script>
+</body>
+</html>
