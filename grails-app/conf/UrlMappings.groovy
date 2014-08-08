@@ -16,7 +16,10 @@ class UrlMappings {
 
 		"/admin/cfDashboard/files/$appName/$instanceIndex?"(
               controller: 'cloudFoundryDashboard', action: 'files')
-        "/shadowdom"(controller: "shadowDOM")
+        "/shadow-dom"(controller: "shadowDOM")
+        "/shadow-dom/example"(controller: "shadowDOM", action: "tester")
+        "/custom-element"(controller: "customElement")
+        "/custom-element/example"(controller: "customElement", action: "tester")
 //        "/shadowdom/tester"(controller: "shadowDOM", action: "tester")
 		"/"(view:"/index")
 		"500"(view:'/error')

@@ -24,7 +24,7 @@ class ShadowDOMController {
                     "\t\tshadow.appendChild(template.content.cloneNode(true));\r\n" +
                     "\t}\r\n" +
                     "</script>\r\n"
-            render(status: 200, contentType: "text/plain", text: shadowDOMStr)
+            render(status: 200, contentType: "text/html", text: shadowDOMStr)
 
         }
         else {
