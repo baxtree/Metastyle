@@ -26,7 +26,7 @@ class StaticController {
         println "not: " + Template.count()
         if (Template.count() != 0 && Template.count() != 1) {
 			//NOTE: the current spark plan allows only four simultaneous connections to the database (4 out of 9). 
-		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 6, sort:"tstamp", order: "desc")])
+		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 3, sort:"tstamp", order: "desc")])
         }
         else {
             render(view: "welcome", model: [templates: [], recent: []])
@@ -35,7 +35,7 @@ class StaticController {
 	
 	def welcome2 = {
         if (Template.count() != 0 && Template.count() != 1) {
-		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 6, sort:"views", order: "desc")])
+		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 3, sort:"views", order: "desc")])
         }
         else {
             render(view: "welcome", model: [templates: [], recent: []])
@@ -48,7 +48,7 @@ class StaticController {
 	
 	def welcome3 = {
         if (Template.count() != 0 && Template.count() != 1) {
-		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 6, sort:"likes", order: "desc")])
+		    render(view: "welcome", model: [templates: Template.list(max: 5), recent: Template.list(max: 3, sort:"likes", order: "desc")])
         }
         else {
             render(view: "welcome", model: [templates: [], recent: []])
