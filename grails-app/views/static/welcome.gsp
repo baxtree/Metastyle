@@ -96,7 +96,7 @@
 		<div class="template-thumbnails span12 offset2">
 			<g:each var="rtempl" in="${ recent }">
 				<div id="template-iframe" class="template-group span4">
-					<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no"></iframe>
+					<iframe class="template-iframe" src="showSnippet/${ rtempl.id }" frameborder="0" scrolling="no" sandbox="allow-scripts allow-pointer-lock"></iframe>
 					<div class="statistic">
 						<span class="stat-user"><i class="icon-user"></i><g:link controller="static" action="showGuestTemplate" id="${ rtempl.user.id }">${ rtempl.user.username }</g:link></span>
 						<span class="stat-views"><i class="icon-eye-open"></i>${ rtempl.views }</span>
