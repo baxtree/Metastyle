@@ -141,8 +141,8 @@ $(document).ready(function(){
 							<li><a href="#" onclick="normaliseCSS();return false;">Reduce size</a></li>
 							<li><a href="#" onclick="overrideCSS();return false;">Override</a></li>
 							<li><a href="" id="applyCSSbtn">Apply CSS</a></li>
-							{%-- <li><a href="#" onclick="getFullPreview();return false;">Full Preview</a></li> --%}
-							{%-- <li><a href="#" onclick="shareTemplate();return false;">Share ...</a></li> --%}
+							<!--  <li><a href="#" onclick="getFullPreview();return false;">Full Preview</a></li> -->
+							<!--  <li><a href="#" onclick="shareTemplate();return false;">Share ...</a></li> -->
 							<li><a id="shareTemplatebtn">Share ...</a></li>							
 						</ul>
 					</div>
