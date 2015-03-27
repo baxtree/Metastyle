@@ -140,7 +140,7 @@ $(document).ready(function(){
 							<li><a id="linkcopy">Copy to clipboard</a></li>
 							<li><a href="#" onclick="normaliseCSS();return false;">Reduce size</a></li>
 							<li><a href="#" onclick="overrideCSS();return false;">Override</a></li>
-							<li><a href="" id="applyCSSbtn">Apply CSS</a></li>
+							<li><a href="#" id="applyCSSbtn" onclick="applyCSSTemplate();return false;">Apply CSS</a></li>
 							<!--  <li><a href="#" onclick="getFullPreview();return false;">Full Preview</a></li> -->
 							<!--  <li><a href="#" onclick="shareTemplate();return false;">Share ...</a></li> -->
 							<li><a id="shareTemplatebtn">Share ...</a></li>							
@@ -153,7 +153,7 @@ $(document).ready(function(){
 						<div class="span5 offset2">
 							<textarea class="span5" id="testSnippet" name="testSnippet" rows="15" placeholder="Test Snippet Codes..."></textarea>
 							<div class="preview-small">
-								<iframe id="preview" class="span5" frameborder="0" title="preview" sandbox="allow-scripts allow-pointer-lock"></iframe>
+								<iframe id="preview" class="span5" frameborder="0" title="preview"></iframe>
 							</div>
 						</div>
 					</div>
