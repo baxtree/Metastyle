@@ -119,7 +119,7 @@
 <div id="previewDiv" class="row offset3 control-group">
 	<label class="control-label" for="preview">Preview:</label>
 	<div class="controls preview">
-		<iframe id="preview" class="" width="700" height="300" frameborder="0" title="preview" onload="applyCSSTemplate()">
+		<iframe id="preview" class="" width="700" height="300" frameborder="0" title="preview" onload="applyCSSTemplate()" sandbox="allow-pointer-lock allow-same-origin allow-pointer-lock">
 		</iframe>
 	</div>
 </div>
